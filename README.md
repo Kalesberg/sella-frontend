@@ -19,6 +19,16 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Adding components
+We are use [Park-UI component library](https://park-ui.com/docs/tailwind/components/accordion), so first of all explore if a required component present in this library
+After you have found it, use the `ui` command:
+
+```bash
+yarn ui add button # or something else instead of button
+```
+
+Use snake-case to write the component name
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

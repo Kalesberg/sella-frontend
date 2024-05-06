@@ -16,7 +16,10 @@ const config: Config = {
 			colors: {
 				'accent-100': '#FFDD00',
 				'black-100': '#0A0A0A',
-				'black-06': '#0F0F0F'
+				'black-06': '#0F0F0F',
+				'red-100': '#F44336',
+				'green-100': '#60B04D',
+				'error-100': '#E25728'
 			}
 		},
 	},
