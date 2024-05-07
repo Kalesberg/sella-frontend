@@ -29,3 +29,8 @@ body {
 [hidden] {
   display: none !important;
 }
+
+::selection {
+  color: white !important;
+  @apply text-accent-100;
+}

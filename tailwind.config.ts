@@ -34,6 +34,12 @@ const config: Config = {
 			},
 			borderColor: {
 				secondary: 'rgba(255, 255, 255, 0.06)'
+			},
+			zIndex: {
+				header: '50',
+				dropdown: '60',
+				dialog: '70',
+				drawer: '70'
 			}
 		},
 	},

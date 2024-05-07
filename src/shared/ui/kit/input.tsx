@@ -39,5 +39,5 @@ const styles = tv(
 			}
 		},
 	},
-	{ twMerge: false },
+	{ twMerge: true },
 )

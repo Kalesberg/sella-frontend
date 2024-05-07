@@ -1,0 +1,1 @@
+export { Component as PageMarketplace } from './ui/Component';
