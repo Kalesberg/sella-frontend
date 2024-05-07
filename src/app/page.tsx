@@ -1,7 +1,15 @@
+'use client'
+
 import { Button } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
 import * as RadioGroup from "~/shared/ui/kit/radio-group";
 import { PinInput } from "~/shared/ui/kit/pin-input";
+import { VTextControl } from "~/shared/ui/validation-inputs";
+import { z } from "zod";
+import { Form } from "react-final-form";
+import { zodValidate } from "~/shared/lib/zod-final-form";
+import * as Dialog from '~/shared/ui/kit/dialog';
+import { DividerWithText } from "~/shared/ui/kit/divider";
 
 export default function Home() {
 	return (
@@ -44,6 +52,59 @@ export default function Home() {
 					<PinInput length={4} defaultValue={['2', '3']} />
 					<PinInput length={4} error defaultValue={['2']} />
 				</div>
+
+				<ValidationInput />
+
+				<Dialog.Root>
+					<Dialog.Trigger asChild>
+						<Button>Open Modal</Button>
+					</Dialog.Trigger>
+					<Dialog.Backdrop />
+					<Dialog.Positioner>
+						<Dialog.Content>
+							<Dialog.CloseButton />
+
+							<Dialog.ContentHeading>
+								<Dialog.Title>Set up 2FA</Dialog.Title>
+								<Dialog.Description>
+									What’s your preferred method for receiving Sella alerts? Select email, Telegram, or both –and you can always change this later.
+								</Dialog.Description>
+							</Dialog.ContentHeading>
+
+							<div className='flex flex-col w-full gap-[2rem]'>
+								<Button className='w-full gap-[0.5rem]' colorPallete='gray' size='lg'>
+									<Icons.Telegram /> Connect Telegram
+								</Button>
+
+								<DividerWithText>
+									Or
+								</DividerWithText>
+
+								<Form onSubmit={() => { }}>
+									{() => (
+										<div className='flex gap-4'>
+											<VTextControl
+												label='Email Address' type='email' name='email'
+												rootProps={{ className: 'w-full' }}
+											/>
+										</div>
+									)}
+								</Form>
+							</div>
+
+							<Dialog.ContentFooter>
+								<Dialog.CloseTrigger asChild>
+									<Button size='lg' colorPallete='gray'>
+										Cancel
+									</Button>
+								</Dialog.CloseTrigger>
+								<Button size='lg'>
+									Confirm
+								</Button>
+							</Dialog.ContentFooter>
+						</Dialog.Content>
+					</Dialog.Positioner>
+				</Dialog.Root>
 			</div>
 		</main>
 	);
@@ -66,4 +127,26 @@ function RadioGroupSection(props: RadioGroup.RootProps) {
 			))}
 		</RadioGroup.Root>
 	)
+}
+
+const schema = z.object({
+	test: z.string().min(3, 'Min 3 symbols')
+})
+
+function ValidationInput() {
+	return (
+		<Form
+			onSubmit={() => { }}
+			validate={zodValidate(schema)}
+		>
+			{() => (
+				<div className='flex gap-4'>
+					<VTextControl
+						label='Input' name='test'
+						description='Description'
+					/>
+				</div>
+			)}
+		</Form>
+	);
 }

@@ -1,6 +1,7 @@
 import { ark, type HTMLArkProps } from '@ark-ui/react/factory'
 import { forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
+import { cn } from '~/shared/lib/cn'
 
 export interface ButtonProps extends ButtonVariantProps, HTMLArkProps<'button'> {
 	active?: boolean
@@ -20,20 +21,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
 
 Button.displayName = 'Button'
 
+export const IconButton = forwardRef<HTMLButtonElement, ButtonProps>(({ className, ...props }, ref) => (
+	<Button ref={ref} {...props} className={cn(className, 'px-0')} />
+));
+
+IconButton.displayName = 'IconButton';
+
 type ButtonVariantProps = VariantProps<typeof styles>
 
 const styles = tv(
 	{
 		base: 'button font-medium gap-[0.25rem]',
-		defaultVariants: { variant: 'solid', size: 'default', colorPallete: 'accent' },
+		defaultVariants: { variant: 'solid', size: 'md', colorPallete: 'accent' },
 		variants: {
 			variant: {
 				solid: [],
 				outline: [],
-				subtle: []
+				subtle: [],
+				ghost: ['hocus:bg-white/5']
 			},
 			size: {
-				default: 'rounded-[0.75rem] px-[1rem] h-[2.375rem]'
+				sm: 'rounded-[0.75rem] px-[1rem] h-[2.375rem] min-w-[2.375rem]',
+				md: 'rounded-[0.75rem] px-[1rem] h-[2.8125rem] min-w-[2.8125rem]',
+				lg: 'rounded-[1rem] px-[1.25rem] h-[3.125rem] min-w-[3.125rem]',
+				xl: 'rounded-[1rem] px-[1.5rem] h-[3.4375rem] min-w-[3.4375rem]'
 			},
 			colorPallete: {
 				accent: [],
@@ -87,5 +98,5 @@ const styles = tv(
 			},
 		]
 	},
-	{ twMerge: false },
+	{ twMerge: true },
 )

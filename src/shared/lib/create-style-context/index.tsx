@@ -1,9 +1,8 @@
 import { createContext, forwardRef, useContext, type ComponentProps, type ElementType } from 'react'
+import { cn } from '../cn'
 
 type Recipe = (props: any) => any
 type VariantProps<R extends Recipe> = Parameters<R>[0]
-
-const cx = (...args: (string | undefined)[]) => args.filter(Boolean).join(' ')
 
 export const createStyleContext = <
 	StylesFunction extends Recipe,
@@ -17,7 +16,7 @@ export const createStyleContext = <
 			const variantClassNames = styles[slot ?? '']?.()
 			return (
 				<StyleContext.Provider value={styles}>
-					<Component ref={ref} {...props} className={cx(variantClassNames, props.className)} />
+					<Component ref={ref} {...props} className={cn(variantClassNames, props.className)} />
 				</StyleContext.Provider>
 			)
 		})
@@ -37,7 +36,7 @@ export const createStyleContext = <
 				<Component
 					ref={ref}
 					{...(props as any)}
-					className={cx(variantClassNames, props.className)}
+					className={cn(variantClassNames, props.className)}
 				/>
 			)
 		})

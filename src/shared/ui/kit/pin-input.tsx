@@ -14,7 +14,7 @@ export interface PinInputProps extends PinInputRootProps, PinInputVariantProps {
 }
 
 export const PinInput = forwardRef<HTMLDivElement, PinInputProps>((props, ref) => {
-	const { children, className, size, length = 4, error = false, ...rootProps } = props
+	const { children, className, size = 'xl', length = 4, error = false, placeholder = '', ...rootProps } = props
 	const { root, control, input, label } = styles({ size })
 
 	return (
@@ -22,7 +22,11 @@ export const PinInput = forwardRef<HTMLDivElement, PinInputProps>((props, ref) =
 			{children && <ArkPinInput.Label className={label()}>{children}</ArkPinInput.Label>}
 			<ArkPinInput.Control className={control()}>
 				{Array.from({ length }, (_, index) => index).map((id, index) => (
-					<ArkPinInput.Input className={input()} key={id} index={index} asChild>
+					<ArkPinInput.Input
+						asChild className={input()}
+						key={id} index={index}
+						placeholder={placeholder}
+					>
 						<Input size={size} error={error} />
 					</ArkPinInput.Input>
 				))}
@@ -38,7 +42,7 @@ type PinInputVariantProps = VariantProps<typeof styles>
 const styles = tv(
 	{
 		base: 'pinInput',
-		defaultVariants: { size: 'default' },
+		defaultVariants: { size: 'xl' },
 		slots: {
 			root: 'pinInput__root',
 			label: 'pinInput__label',
@@ -52,6 +56,12 @@ const styles = tv(
 					label: 'pinInput__label--size_md',
 					input: 'pinInput__input--size_md',
 					control: 'pinInput__control--size_md',
+				},
+				xl: {
+					root: 'pinInput__root--size_xl',
+					label: 'pinInput__label--size_xl',
+					input: 'pinInput__input--size_xl',
+					control: 'pinInput__control--size_xl',
 				},
 			},
 		},

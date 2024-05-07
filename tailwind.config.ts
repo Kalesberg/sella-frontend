@@ -15,12 +15,23 @@ const config: Config = {
 			},
 			colors: {
 				'accent-100': '#FFDD00',
+
 				'black-100': '#0A0A0A',
+				'black-74': '#bdbdbd',
+				'black-60': '#999',
+				'black-40': '#666',
 				'black-06': '#0F0F0F',
+
 				'red-100': '#F44336',
+
 				'green-100': '#60B04D',
+				
 				'error-100': '#E25728'
-			}
+			},
+			fontFamily: {
+				inter: ['var(--font-inter)'],
+				manrope: ['var(--font-manrope)'],
+			},
 		},
 	},
 	parkUI: {

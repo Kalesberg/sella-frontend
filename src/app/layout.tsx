@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import '@park-ui/tailwind-plugin/preset.css'
 import { cn } from "~/shared/lib/cn";
 
-const inter = Inter({ subsets: ["latin"] });
+import { fontInter } from "~/shared/assets/fonts/inter";
+import { fontManrope } from "~/shared/assets/fonts/manrope";
+
+const fontVariables = [fontInter.variable, fontManrope.variable];
 
 export const metadata: Metadata = {
 	title: "Sella.me",
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn(inter.className, 'bg-black-06')}>
+			<body className={cn(...fontVariables, 'bg-black-06 text-white font-inter')}>
 				{children}
 			</body>
 		</html>

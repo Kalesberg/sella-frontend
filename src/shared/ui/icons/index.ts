@@ -9,6 +9,8 @@ import Telegram from '../../assets/icons/telegram.svg';
 import Xtwitter from '../../assets/icons/x-twitter.svg';
 import ThumbUp from '../../assets/icons/thumbs-up.svg';
 import ThumbDown from '../../assets/icons/thumbs-down.svg';
+import CircleError from '../../assets/icons/circle-error.svg';
+import CircleChecked from '../../assets/icons/circle-checked.svg';
 
 export const Icons = {
 	Check,
@@ -21,5 +23,7 @@ export const Icons = {
 	Telegram,
 	Xtwitter,
 	ThumbUp,
-	ThumbDown
+	ThumbDown,
+	CircleError,
+	CircleChecked
 }
