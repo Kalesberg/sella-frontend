@@ -10,6 +10,9 @@ import { Form } from "react-final-form";
 import { zodValidate } from "~/shared/lib/zod-final-form";
 import * as Dialog from '~/shared/ui/kit/dialog';
 import { DividerWithText } from "~/shared/ui/kit/divider";
+import { Product, Store } from "~/shared/api/model";
+import { StoreCard } from "~/entities/store";
+import { ProductCard } from "~/entities/product";
 
 export default function Home() {
 	return (
@@ -46,14 +49,14 @@ export default function Home() {
 			</div>
 
 			<div className='flex gap-8'>
-				<RadioGroupSection />
+				<RadioGroupTest />
 
 				<div className='flex flex-col gap-3'>
 					<PinInput length={4} defaultValue={['2', '3']} />
 					<PinInput length={4} error defaultValue={['2']} />
 				</div>
 
-				<ValidationInput />
+				<ValidationTest />
 
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
@@ -106,11 +109,16 @@ export default function Home() {
 					</Dialog.Positioner>
 				</Dialog.Root>
 			</div>
+
+			<div className='flex gap-8 items-start'>
+				<StoreCardTest />
+				<ProductCardTest />
+			</div>
 		</main>
 	);
 }
 
-function RadioGroupSection(props: RadioGroup.RootProps) {
+function RadioGroupTest(props: RadioGroup.RootProps) {
 	const options = [
 		{ id: '1', label: 'Pay with $SELLA' },
 		{ id: '2', label: 'Pay with $USDT' },
@@ -133,7 +141,7 @@ const schema = z.object({
 	test: z.string().min(3, 'Min 3 symbols')
 })
 
-function ValidationInput() {
+function ValidationTest() {
 	return (
 		<Form
 			onSubmit={() => { }}
@@ -148,5 +156,57 @@ function ValidationInput() {
 				</div>
 			)}
 		</Form>
+	);
+}
+
+const store: Store = {
+	title: 'Store Name',
+	name: '@storename',
+	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
+	isVerified: true,
+	imageUrl: null,
+	rating: {
+		value: 4.9,
+		reviewsCount: 575
+	}
+}
+
+function StoreCardTest() {
+	return (
+		<StoreCard.Root store={store}>
+			<StoreCard.Image />
+
+			<StoreCard.Content>
+				<StoreCard.Title />
+				<StoreCard.Description />
+				<StoreCard.Rating />
+			</StoreCard.Content>
+		</StoreCard.Root>
+	);
+}
+
+const product: Product = {
+	title: 'Product Name',
+	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
+	imageUrl: null,
+	category: 'Category',
+	price: {
+		value: 0.99,
+		currencyCode: 'usdt'
+	}
+}
+
+function ProductCardTest() {
+	return (
+		<ProductCard.Root product={product}>
+			<ProductCard.Image />
+
+			<ProductCard.Content>
+				<ProductCard.Title />
+				<ProductCard.Description />
+				<ProductCard.Category />
+				<ProductCard.Price />
+			</ProductCard.Content>
+		</ProductCard.Root>
 	);
 }

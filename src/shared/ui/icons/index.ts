@@ -11,6 +11,8 @@ import ThumbUp from '../../assets/icons/thumbs-up.svg';
 import ThumbDown from '../../assets/icons/thumbs-down.svg';
 import CircleError from '../../assets/icons/circle-error.svg';
 import CircleChecked from '../../assets/icons/circle-checked.svg';
+import Verified from '../../assets/icons/verified.svg';
+import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
 
 export const Icons = {
 	Check,
@@ -25,5 +27,7 @@ export const Icons = {
 	ThumbUp,
 	ThumbDown,
 	CircleError,
-	CircleChecked
+	CircleChecked,
+	Verified,
+	CurrencyUsdt
 }

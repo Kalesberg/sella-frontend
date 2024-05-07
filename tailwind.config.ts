@@ -32,6 +32,9 @@ const config: Config = {
 				inter: ['var(--font-inter)'],
 				manrope: ['var(--font-manrope)'],
 			},
+			borderColor: {
+				secondary: 'rgba(255, 255, 255, 0.06)'
+			}
 		},
 	},
 	parkUI: {

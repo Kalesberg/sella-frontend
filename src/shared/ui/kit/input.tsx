@@ -28,7 +28,7 @@ const styles = tv(
 		base: [
 			'bg-white/[.04] text-white border border-transparent outline-none transition-all',
 			'hover:bg-white/[.06]',
-			'filled:bg-[#141414] filled:border-white/10',
+			'filled:bg-[#141414] filled:border-secondary',
 			'data-[error]:text-error-100 data-[error]:border-error-100 filled:data-[error]:border-error-100'
 		],
 		defaultVariants: { size: 'default' },

@@ -3,7 +3,7 @@ import { cn } from "~/shared/lib/cn";
 
 export const Divider = forwardRef<HTMLHRElement, HTMLAttributes<HTMLHRElement>>(
 	({ className, ...props }, ref) => (
-		<hr ref={ref} className={cn('border-white/10', className)} {...props} />
+		<hr ref={ref} className={cn('border-secondary', className)} {...props} />
 	)
 );
 
