@@ -10,8 +10,9 @@ Based on the FSD principles:
 2. Use `shared` folder for utilities, ui-kit and etc
 3. Use `pages` to composite full-fledged pages that are ready to connect to the router
 4. Follow the order of imports by layer priority. 
-	* Module in `pages` can only import `widgets`, `entities` and `shared` modules
-	* Module in `widgets` can only import `entities` and `shared` modules
+	* Module in `pages` can only import `widgets`, `features`, `entities`, `shared` modules
+	* Module in `widgets` can only import `features`, `entities`,`shared` modules
+	* Module in `features` can only import `entities`, `shared` modules
 	* Module in `entities` can only import `shared` modules
 	* You can import anything you want from `app` folder
 

@@ -14,6 +14,9 @@ import { Product, Store } from "~/shared/api/model";
 import { StoreCard } from "~/entities/store";
 import { ProductCard } from "~/entities/product";
 import { Pagination } from "~/shared/ui/kit/pagination";
+import { Controls, DotLottiePlayer } from "@dotlottie/react-player";
+import { useDialogState } from "~/shared/lib/dialog";
+import { RegisterDialog } from "~/features/register";
 
 export default function Home() {
 	return (
@@ -44,9 +47,15 @@ export default function Home() {
 					</Button>
 				</div>
 
-				{Object.entries(Icons).map(([iconName, Icon]) => (
-					<Icon className='text-accent-100' key={iconName} />
-				))}
+				<div className='flex flex-col gap-4'>
+					<div className='flex gap-4'>
+						{Object.entries(Icons).map(([iconName, Icon]) => (
+							<Icon className='text-accent-100' key={iconName} />
+						))}
+					</div>
+
+					<RegisterDialogTest />
+				</div>
 			</div>
 
 			<div className='flex gap-8'>
@@ -118,6 +127,10 @@ export default function Home() {
 			<div className='flex gap-8 items-start'>
 				<StoreCardTest />
 				<ProductCardTest />
+
+				<DotLottiePlayer className='size-[15rem]' src='/lottie/chicken.lottie' autoplay>
+					<Controls />
+				</DotLottiePlayer>
 			</div>
 		</main>
 	);
@@ -213,5 +226,20 @@ function ProductCardTest() {
 				<ProductCard.Price />
 			</ProductCard.Content>
 		</ProductCard.Root>
+	);
+}
+
+function RegisterDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button onClick={open}>
+				Open Register Modal
+			</Button>
+			<RegisterDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
 	);
 }
