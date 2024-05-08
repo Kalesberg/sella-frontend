@@ -13,7 +13,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
 	return (
 		<ark.button
 			className={styles({ size, variant, className, colorPallete })}
-			data-active={active ? true : undefined}
+			data-selected={active ? true : undefined}
 			ref={ref} {...buttonProps}
 		/>
 	);
@@ -31,7 +31,10 @@ type ButtonVariantProps = VariantProps<typeof styles>
 
 const styles = tv(
 	{
-		base: 'button font-medium gap-[0.25rem]',
+		base: [
+			'button font-medium gap-[0.25rem]',
+			'disabled:opacity-50 disabled:cursor-not-allowed'
+		],
 		defaultVariants: { variant: 'solid', size: 'md', colorPallete: 'accent' },
 		variants: {
 			variant: {
@@ -67,7 +70,8 @@ const styles = tv(
 				variant: 'solid',
 				className: [
 					'bg-white/[.04] text-white',
-					'hocus:bg-white/[.06]'
+					'hocus:bg-white/[.06]',
+					'data-[selected]:bg-accent-100 data-[selected]:hocus:bg-accent-100/80 data-[selected]:text-black-100'
 				]
 			},
 			{
@@ -84,7 +88,7 @@ const styles = tv(
 				className: [
 					'bg-red-100/[.08] text-red-100',
 					'hocus:bg-red-100/[.16]',
-					'data-[active]:bg-red-100 data-[active]:hocus:bg-red-100/80 data-[active]:text-white'
+					'data-[selected]:bg-red-100 data-[selected]:hocus:bg-red-100/80 data-[selected]:text-white'
 				]
 			},
 			{
@@ -93,7 +97,7 @@ const styles = tv(
 				className: [
 					'bg-green-100/[.08] text-green-100',
 					'hocus:bg-green-100/[.16]',
-					'data-[active]:bg-green-100 data-[active]:hocus:bg-green-100/80 data-[active]:text-white'
+					'data-[selected]:bg-green-100 data-[selected]:hocus:bg-green-100/80 data-[selected]:text-white'
 				]
 			},
 		]

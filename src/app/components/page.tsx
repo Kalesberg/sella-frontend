@@ -13,6 +13,7 @@ import { DividerWithText } from "~/shared/ui/kit/divider";
 import { Product, Store } from "~/shared/api/model";
 import { StoreCard } from "~/entities/store";
 import { ProductCard } from "~/entities/product";
+import { Pagination } from "~/shared/ui/kit/pagination";
 
 export default function Home() {
 	return (
@@ -56,58 +57,62 @@ export default function Home() {
 					<PinInput length={4} error defaultValue={['2']} />
 				</div>
 
-				<ValidationTest />
+				<div className='flex flex-col gap-3'>
+					<ValidationTest />
 
-				<Dialog.Root>
-					<Dialog.Trigger asChild>
-						<Button>Open Modal</Button>
-					</Dialog.Trigger>
-					<Dialog.Backdrop />
-					<Dialog.Positioner>
-						<Dialog.Content>
-							<Dialog.CloseButton />
+					<Dialog.Root>
+						<Dialog.Trigger asChild>
+							<Button>Open Modal</Button>
+						</Dialog.Trigger>
+						<Dialog.Backdrop />
+						<Dialog.Positioner>
+							<Dialog.Content>
+								<Dialog.CloseButton />
 
-							<Dialog.ContentHeading>
-								<Dialog.Title>Set up 2FA</Dialog.Title>
-								<Dialog.Description>
-									What’s your preferred method for receiving Sella alerts? Select email, Telegram, or both –and you can always change this later.
-								</Dialog.Description>
-							</Dialog.ContentHeading>
+								<Dialog.ContentHeading>
+									<Dialog.Title>Set up 2FA</Dialog.Title>
+									<Dialog.Description>
+										What’s your preferred method for receiving Sella alerts? Select email, Telegram, or both –and you can always change this later.
+									</Dialog.Description>
+								</Dialog.ContentHeading>
 
-							<div className='flex flex-col w-full gap-[2rem]'>
-								<Button className='w-full gap-[0.5rem]' colorPallete='gray' size='lg'>
-									<Icons.Telegram /> Connect Telegram
-								</Button>
-
-								<DividerWithText>
-									Or
-								</DividerWithText>
-
-								<Form onSubmit={() => { }}>
-									{() => (
-										<div className='flex gap-4'>
-											<VTextControl
-												label='Email Address' type='email' name='email'
-												rootProps={{ className: 'w-full' }}
-											/>
-										</div>
-									)}
-								</Form>
-							</div>
-
-							<Dialog.ContentFooter>
-								<Dialog.CloseTrigger asChild>
-									<Button size='lg' colorPallete='gray'>
-										Cancel
+								<div className='flex flex-col w-full gap-[2rem]'>
+									<Button className='w-full gap-[0.5rem]' colorPallete='gray' size='lg'>
+										<Icons.Telegram /> Connect Telegram
 									</Button>
-								</Dialog.CloseTrigger>
-								<Button size='lg'>
-									Confirm
-								</Button>
-							</Dialog.ContentFooter>
-						</Dialog.Content>
-					</Dialog.Positioner>
-				</Dialog.Root>
+
+									<DividerWithText>
+										Or
+									</DividerWithText>
+
+									<Form onSubmit={() => { }}>
+										{() => (
+											<div className='flex gap-4'>
+												<VTextControl
+													label='Email Address' type='email' name='email'
+													rootProps={{ className: 'w-full' }}
+												/>
+											</div>
+										)}
+									</Form>
+								</div>
+
+								<Dialog.ContentFooter>
+									<Dialog.CloseTrigger asChild>
+										<Button size='lg' colorPallete='gray'>
+											Cancel
+										</Button>
+									</Dialog.CloseTrigger>
+									<Button size='lg'>
+										Confirm
+									</Button>
+								</Dialog.ContentFooter>
+							</Dialog.Content>
+						</Dialog.Positioner>
+					</Dialog.Root>
+
+					<Pagination count={190} pageSize={10} siblingCount={1} defaultPage={1} />
+				</div>
 			</div>
 
 			<div className='flex gap-8 items-start'>
