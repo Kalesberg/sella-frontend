@@ -63,6 +63,12 @@ const styles = tv(
 					input: 'pinInput__input--size_xl',
 					control: 'pinInput__control--size_xl',
 				},
+				'2xl': {
+					root: 'pinInput__root--size_xl',
+					label: 'pinInput__label--size_xl',
+					input: 'pinInput__input--size_xl',
+					control: 'pinInput__control--size_xl',
+				}
 			},
 		},
 	},

@@ -11,8 +11,10 @@ interface VImageUploaderProps extends ImageUploaderProps {
 export function VImageUploader({ name, className, ...props }: VImageUploaderProps) {
 	const { 
 		input: { onChange },
-		meta: { error }
+		meta: fieldState
 	} = useField(name)
+
+	const error = fieldState.touched && fieldState.error;
 
 	return (
 		<ImageUploader

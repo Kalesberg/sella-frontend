@@ -17,6 +17,8 @@ const config: Config = {
 				'accent-100': '#FFDD00',
 				'accent-hover': '#EC9515',
 
+				'cyan-100': '#80B4DB',
+
 				'black-100': '#0A0A0A',
 				'black-74': '#bdbdbd',
 				'black-60': '#999',

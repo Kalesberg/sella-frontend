@@ -39,9 +39,9 @@ export function RegisterForm({ onActionFulfiled, ...props }: RegisterFormProps) 
 					</DividerWithElement>
 
 					<VTextControl
-						name='userName' size='xl'
+						name='userName' size='2xl'
 						placeholder='@username'
-						className='text-center h-[6.25rem]'
+						className='text-center'
 						rootProps={{ className: 'w-full' }}
 					/>
 

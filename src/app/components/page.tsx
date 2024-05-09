@@ -8,8 +8,6 @@ import { VTextControl } from "~/shared/ui/validation-inputs";
 import { z } from "zod";
 import { Form } from "react-final-form";
 import { zodValidate } from "~/shared/lib/zod-final-form";
-import * as Dialog from '~/shared/ui/kit/dialog';
-import { DividerWithElement } from "~/shared/ui/kit/divider";
 import { Product, Store } from "~/shared/api/model";
 import { StoreCard } from "~/entities/store";
 import { ProductCard } from "~/entities/product";
@@ -17,6 +15,8 @@ import { Pagination } from "~/shared/ui/kit/pagination";
 import { Controls, DotLottiePlayer } from "@dotlottie/react-player";
 import { useDialogState } from "~/shared/lib/dialog";
 import { RegisterDialog } from "~/features/register";
+import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
+import { RegisterFlowDialog } from "~/widgets/register-flow";
 
 export default function Home() {
 	return (
@@ -54,7 +54,11 @@ export default function Home() {
 						))}
 					</div>
 
-					<RegisterDialogTest />
+					<div className='flex gap-4'>
+						<RegisterDialogTest />
+						<Setup2faDialogTest />
+						<RegisterFlowDialogTest />
+					</div>
 				</div>
 			</div>
 
@@ -68,57 +72,6 @@ export default function Home() {
 
 				<div className='flex flex-col gap-3'>
 					<ValidationTest />
-
-					<Dialog.Root>
-						<Dialog.Trigger asChild>
-							<Button>Open Modal</Button>
-						</Dialog.Trigger>
-						<Dialog.Backdrop />
-						<Dialog.Positioner>
-							<Dialog.Content>
-								<Dialog.CloseButton />
-
-								<Dialog.ContentHeading>
-									<Dialog.Title>Set up 2FA</Dialog.Title>
-									<Dialog.Description>
-										What’s your preferred method for receiving Sella alerts? Select email, Telegram, or both –and you can always change this later.
-									</Dialog.Description>
-								</Dialog.ContentHeading>
-
-								<div className='flex flex-col w-full gap-[2rem]'>
-									<Button className='w-full gap-[0.5rem]' colorPallete='gray' size='lg'>
-										<Icons.Telegram /> Connect Telegram
-									</Button>
-
-									<DividerWithElement>
-										Or
-									</DividerWithElement>
-
-									<Form onSubmit={() => { }}>
-										{() => (
-											<div className='flex gap-4'>
-												<VTextControl
-													label='Email Address' type='email' name='email'
-													rootProps={{ className: 'w-full' }}
-												/>
-											</div>
-										)}
-									</Form>
-								</div>
-
-								<Dialog.ContentFooter>
-									<Dialog.CloseTrigger asChild>
-										<Button size='lg' colorPallete='gray'>
-											Cancel
-										</Button>
-									</Dialog.CloseTrigger>
-									<Button size='lg'>
-										Confirm
-									</Button>
-								</Dialog.ContentFooter>
-							</Dialog.Content>
-						</Dialog.Positioner>
-					</Dialog.Root>
 
 					<Pagination count={190} pageSize={10} siblingCount={1} defaultPage={1} />
 				</div>
@@ -237,8 +190,47 @@ function RegisterDialogTest() {
 			<Button onClick={open}>
 				Open Register Modal
 			</Button>
+
 			<RegisterDialog
 				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function Setup2faDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button onClick={open}>
+				Open Setup 2fa Dialog
+			</Button>
+
+			<AuthChannelsSetupTwoFaDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+				cancelButton={
+					<Button className='w-full' colorPallete='gray'>
+						Setup Later
+					</Button>
+				}
+			/>
+		</>
+	);
+}
+
+function RegisterFlowDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button onClick={open}>
+				Open Register Flow Dialog
+			</Button>
+
+			<RegisterFlowDialog
+				open={isOpen}
+				onOpenChange={handleOpenChange}
 			/>
 		</>
 	);

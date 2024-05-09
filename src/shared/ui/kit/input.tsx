@@ -29,14 +29,15 @@ const styles = tv(
 			'bg-white/[.04] text-white border border-transparent outline-none transition-all',
 			'hover:bg-white/[.06]',
 			'filled:bg-[#141414] filled:border-secondary',
-			'data-[error]:text-error-100 data-[error]:border-error-100 filled:data-[error]:border-error-100',
+			'data-[error]:text-error-100 data-[error]:border-error-100 filled:data-[error]:border-error-100 data-[error]:placeholder-error-100',
 			'data-[error]:selection:text-white data-[error]:selection:bg-error-100'
 		],
 		defaultVariants: { size: 'default' },
 		variants: {
 			size: {
 				default: 'rounded-[0.625rem] h-[3.125rem] min-w-[3.125rem] px-[1rem]',
-				xl: 'rounded-[0.625rem] h-[4.375rem] min-w-[4.375rem] px-[1.625rem] text-[2rem]'
+				xl: 'rounded-[0.625rem] h-[4.375rem] min-w-[4.375rem] px-[1.625rem] text-[2rem]',
+				'2xl': 'rounded-[0.625rem] h-[6.25rem] min-w-[4.75rem] px-[1.625rem] text-[2rem]'
 			}
 		},
 	},
