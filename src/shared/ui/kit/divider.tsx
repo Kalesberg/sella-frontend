@@ -9,7 +9,7 @@ export const Divider = forwardRef<HTMLHRElement, HTMLAttributes<HTMLHRElement>>(
 
 Divider.displayName = 'Divider';
 
-export const DividerWithText = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const DividerWithElement = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 	({ className, children, ...props }, ref) => (
 		<div ref={ref} className={cn('flex items-center gap-[0.375rem]', className)} {...props}>
 			<Divider className='flex-grow' />
@@ -19,4 +19,4 @@ export const DividerWithText = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDiv
 	)
 )
 
-DividerWithText.displayName = 'DividerWithText';
+DividerWithElement.displayName = 'DividerWithElement';

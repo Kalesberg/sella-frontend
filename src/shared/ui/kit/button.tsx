@@ -53,7 +53,8 @@ const styles = tv(
 				accent: [],
 				gray: [],
 				red: [],
-				green: []
+				green: [],
+				social: []
 			}
 		},
 		compoundVariants: [
@@ -62,16 +63,23 @@ const styles = tv(
 				variant: 'solid',
 				className: [
 					'bg-accent-100 text-black-100',
-					'hocus:bg-accent-100/80'
+					'hocus:bg-accent-hover'
 				]
 			},
 			{
 				colorPallete: 'gray',
 				variant: 'solid',
 				className: [
-					'bg-white/[.04] text-white',
-					'hocus:bg-white/[.06]',
+					'bg-white/[.08] text-white',
+					'hocus:bg-white/[.10]',
 					'data-[selected]:bg-accent-100 data-[selected]:hocus:bg-accent-100/80 data-[selected]:text-black-100'
+				]
+			},
+			{
+				colorPallete: 'social',
+				variant: 'solid',
+				className: [
+					'bg-white/10 hocus:bg-white/25'
 				]
 			},
 			{
@@ -79,7 +87,7 @@ const styles = tv(
 				variant: 'outline',
 				className: [
 					'border border-accent-100 text-accent-100',
-					'hocus:bg-accent-100 hocus:text-black-100'
+					'hocus:border-accent-hover hocus:text-accent-hover'
 				]
 			},
 			{

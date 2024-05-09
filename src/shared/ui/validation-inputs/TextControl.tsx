@@ -1,3 +1,5 @@
+'use client';
+
 import { Input, InputProps } from "../kit/input";
 import { HTMLAttributes, useId } from "react";
 import { useField } from "react-final-form";

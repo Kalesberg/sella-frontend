@@ -9,7 +9,7 @@ import { z } from "zod";
 import { Form } from "react-final-form";
 import { zodValidate } from "~/shared/lib/zod-final-form";
 import * as Dialog from '~/shared/ui/kit/dialog';
-import { DividerWithText } from "~/shared/ui/kit/divider";
+import { DividerWithElement } from "~/shared/ui/kit/divider";
 import { Product, Store } from "~/shared/api/model";
 import { StoreCard } from "~/entities/store";
 import { ProductCard } from "~/entities/product";
@@ -90,9 +90,9 @@ export default function Home() {
 										<Icons.Telegram /> Connect Telegram
 									</Button>
 
-									<DividerWithText>
+									<DividerWithElement>
 										Or
-									</DividerWithText>
+									</DividerWithElement>
 
 									<Form onSubmit={() => { }}>
 										{() => (

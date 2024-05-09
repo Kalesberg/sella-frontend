@@ -15,6 +15,7 @@ const config: Config = {
 			},
 			colors: {
 				'accent-100': '#FFDD00',
+				'accent-hover': '#EC9515',
 
 				'black-100': '#0A0A0A',
 				'black-74': '#bdbdbd',
