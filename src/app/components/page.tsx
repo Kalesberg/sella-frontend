@@ -17,6 +17,8 @@ import { useDialogState } from "~/shared/lib/dialog";
 import { RegisterDialog } from "~/features/register";
 import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
 import { RegisterFlowDialog } from "~/widgets/register-flow";
+import { StoreCreateDialog } from "~/features/store/create";
+import { ProductCreateDialog } from "~/features/product/create";
 
 export default function Home() {
 	return (
@@ -54,9 +56,11 @@ export default function Home() {
 						))}
 					</div>
 
-					<div className='flex gap-4'>
+					<div className='grid grid-cols-3 gap-4'>
 						<RegisterDialogTest />
 						<Setup2faDialogTest />
+						<StoreCreateDialogTest />
+						<ProductCreateDialogTest />
 						<RegisterFlowDialogTest />
 					</div>
 				</div>
@@ -115,7 +119,7 @@ const schema = z.object({
 function ValidationTest() {
 	return (
 		<Form
-			onSubmit={() => { }}
+			onSubmit={() => { return; }}
 			validate={zodValidate(schema)}
 		>
 			{() => (
@@ -131,11 +135,12 @@ function ValidationTest() {
 }
 
 const store: Store = {
-	title: 'Store Name',
-	name: '@storename',
+	id: 1,
+	name: 'Store Name',
+	shortName: '@storename',
 	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
 	isVerified: true,
-	imageUrl: null,
+	previewImage: null,
 	rating: {
 		value: 4.9,
 		reviewsCount: 575
@@ -157,14 +162,14 @@ function StoreCardTest() {
 }
 
 const product: Product = {
-	title: 'Product Name',
+	id: 2,
+	name: 'Product Name',
 	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
-	imageUrl: null,
+	shortDescription: 'Market, Limit, Stop Limit, and Auction Mode orders.',
+	previewImage: null,
+	galleryImages: [],
 	category: 'Category',
-	price: {
-		value: 0.99,
-		currencyCode: 'usdt'
-	}
+	price: 0.99
 }
 
 function ProductCardTest() {
@@ -175,7 +180,6 @@ function ProductCardTest() {
 			<ProductCard.Content>
 				<ProductCard.Title />
 				<ProductCard.Description />
-				<ProductCard.Category />
 				<ProductCard.Price />
 			</ProductCard.Content>
 		</ProductCard.Root>
@@ -187,7 +191,7 @@ function RegisterDialogTest() {
 
 	return (
 		<>
-			<Button onClick={open}>
+			<Button colorPallete='gray' onClick={open}>
 				Open Register Modal
 			</Button>
 
@@ -198,12 +202,46 @@ function RegisterDialogTest() {
 	);
 }
 
+function StoreCreateDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Open Store Create Dialog
+			</Button>
+
+			<StoreCreateDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function ProductCreateDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Open Product Create Dialog
+			</Button>
+
+			<ProductCreateDialog
+				storeId={1}
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
 function Setup2faDialogTest() {
 	const { isOpen, open, handleOpenChange } = useDialogState();
 
 	return (
 		<>
-			<Button onClick={open}>
+			<Button colorPallete='gray' onClick={open}>
 				Open Setup 2fa Dialog
 			</Button>
 

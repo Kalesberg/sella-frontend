@@ -34,7 +34,7 @@ export namespace Component {
 	}
 
 	export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | 'alt'>) {
-		const { imageUrl, title } = useComponentContext();
+		const { previewImage: imageUrl, name: title } = useComponentContext();
 
 		return (
 			<PreviewImage
@@ -52,10 +52,13 @@ export namespace Component {
 	}
 
 	export function Title({ className, ...props }: HTMLArkProps<'h1'>) {
-		const { title } = useComponentContext();
+		const { name: title } = useComponentContext();
 
 		return (
-			<ark.h1 className='flex items-center gap-[0.5rem] font-semibold text-[1.125rem] font-manrope leading-[1.3]'>
+			<ark.h1
+				{...props}
+				className={cn('flex items-center gap-[0.5rem] font-semibold text-[1.125rem] font-manrope leading-[1.3]', className)}
+			>
 				{title}
 			</ark.h1>
 		);
@@ -87,11 +90,11 @@ export namespace Component {
 
 	export function Price({ className, ...props }: HTMLArkProps<'div'>) {
 		const { price } = useComponentContext();
-		const Icon = currencyMap.get(price.currencyCode);
+		const Icon = currencyMap.get('usdt');
 
 		return (
 			<ark.div className={cn('flex items-center gap-[0.375rem] text-accent-100', className)} {...props}>
-				<span>{price.value.toFixed(2)}</span>
+				<span>{price.toFixed(2)}</span>
 				{Icon && <Icon className='size-[1rem]' />}
 			</ark.div>
 		);

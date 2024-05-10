@@ -34,7 +34,7 @@ export namespace Component {
 	}
 
 	export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | 'alt'>) {
-		const { imageUrl, title } = useComponentContext();
+		const { previewImage: imageUrl, name: title } = useComponentContext();
 
 		return (
 			<PreviewImage
@@ -52,7 +52,7 @@ export namespace Component {
 	}
 
 	export function Title({ className, ...props }: HTMLArkProps<'div'>) {
-		const { title, name, isVerified } = useComponentContext();
+		const { name: title, shortName: name, isVerified } = useComponentContext();
 
 		return (
 			<ark.div className={cn('flex flex-col gap-[0.25rem]', className)} {...props}>

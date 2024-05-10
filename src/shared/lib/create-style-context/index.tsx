@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { createContext, forwardRef, useContext, type ComponentProps, type ElementType } from 'react'
 import { cn } from '../cn'
 

@@ -24,6 +24,7 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 	const [isVerifyEmailOpened, setIsVerifyEmailOpened] = useState(false);
 	const open = !!props?.open;
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const onSubmit = (values: z.infer<typeof schema>) => {
 		setIsVerifyEmailOpened(true);
 	}
@@ -75,13 +76,13 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 									</div>
 
 									<Dialog.ContentFooter>
-										<Dialog.CloseTrigger asChild>
-											{cancelButton ?? (
+										{cancelButton ?? (
+											<Dialog.CloseTrigger asChild>
 												<Button className='w-full' colorPallete='gray'>
 													Cancel
 												</Button>
-											)}
-										</Dialog.CloseTrigger>
+											</Dialog.CloseTrigger>
+										)}
 										<Button onClick={form.submit} className='w-full' size='lg'>
 											Continue
 										</Button>

@@ -1,9 +1,13 @@
+
+type ImageEntry = string // url for now, but could be an object with different variants of resoultion or quality
+
 export interface Store {
-	title: string,
+	id: number,
 	name: string,
+	shortName: string,
 	isVerified: boolean,
 	description: string,
-	imageUrl: string | null,
+	previewImage: ImageEntry | null,
 
 	rating: {
 		value: number,
@@ -12,13 +16,13 @@ export interface Store {
 }
 
 export interface Product {
-	title: string,
-	description: string,
+	id: number,
+	name: string,
+	description: string | null,
+	shortDescription: string,
 	category: string,
-	imageUrl: string | null,
+	previewImage: ImageEntry | null,
+	galleryImages: ImageEntry[],
 
-	price: {
-		value: number,
-		currencyCode: 'usdt'
-	}
+	price: number
 }

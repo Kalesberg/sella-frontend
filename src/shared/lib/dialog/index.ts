@@ -1,7 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
-import * as Dialog from '~/shared/ui/kit/dialog';
 
-export function useDialogState(defaultOpen: boolean = false) {
+export function useDialogState(defaultOpen = false) {
 	const [open, setOpen] = useState(defaultOpen);
 
 	const openCb = useCallback(() => { setOpen(true) }, []);

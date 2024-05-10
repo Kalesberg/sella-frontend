@@ -1,19 +1,22 @@
 'use client';
 
-import { Input, InputProps } from "../kit/input";
-import { HTMLAttributes, useId } from "react";
+import { Input, InputProps, TextArea, TextAreaProps } from "../kit/input";
+import { HTMLAttributes, ReactNode, useId } from "react";
 import { useField } from "react-final-form";
 import { cn } from "~/shared/lib/cn";
-import { Icons } from "../icons";
+import { ValidationStatusIcon } from "./ValidationStatusIcon";
 
-interface TextControlProps extends Omit<InputProps, 'error'> {
+interface ControlProps {
 	name: string,
 	label?: string,
 	description?: string,
 	rootProps?: HTMLAttributes<HTMLDivElement>
+	addonElement?: ReactNode
 }
 
-export function TextControl({ name, label, description, id, rootProps, ...props }: TextControlProps) {
+type TextControlProps = Omit<InputProps, 'error'> & ControlProps;
+
+export function TextControl({ name, label, description, id, rootProps, addonElement, ...props }: TextControlProps) {
 	const {
 		meta: fieldState,
 		input: { onChange, ...fieldProps }
@@ -21,14 +24,13 @@ export function TextControl({ name, label, description, id, rootProps, ...props 
 
 	const generatedId = useId();
 	const inputId = id ?? generatedId;
-
 	const error = fieldState.touched && fieldState.error;
-	const isValidated = !!(fieldState.modified && fieldState.valid) && fieldProps.value.length > 0;
 
 	return (
 		<div {...rootProps} className={cn('flex flex-col gap-[0.5rem]', rootProps?.className)}>
 			{!!label && <label htmlFor={inputId}>{label}</label>}
 			<div className='relative'>
+				{addonElement}
 				<Input
 					{...props}
 					{...fieldProps}
@@ -40,14 +42,50 @@ export function TextControl({ name, label, description, id, rootProps, ...props 
 					error={!!error}
 					className={cn('w-full pe-[3rem]', props?.className)}
 				/>
-				<div className='absolute h-full right-0 top-0 px-[1rem] flex justify-center items-center'>
-					<Icons.CircleChecked
-						className={cn('text-green-100 opacity-0 transition-all', isValidated && 'opacity-100')}
-					/>
-					<Icons.CircleError
-						className={cn('text-error-100 opacity-0 absolute transition-all', !!error && 'opacity-100')}
-					/>
-				</div>
+				<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0' />
+			</div>
+			{!!description && (
+				<span className='text-[#666666]'>{description}</span>
+			)}
+			{!!error && (
+				<span className='text-error-100'>{error}</span>
+			)}
+		</div>
+	);
+}
+
+type TextAreaControlProps = Omit<TextAreaProps, 'error'> & ControlProps;
+
+export function TextAreaControl({ name, label, description, id, rootProps, addonElement, ...props }: TextAreaControlProps) {
+	const {
+		meta: fieldState,
+		input: { onChange, ...fieldProps }
+	} = useField(name);
+
+	const generatedId = useId();
+	const inputId = id ?? generatedId;
+	const error = fieldState.touched && fieldState.error;
+
+	return (
+		<div {...rootProps} className={cn('flex flex-col gap-[0.5rem]', rootProps?.className)}>
+			{!!label && <label htmlFor={inputId}>{label}</label>}
+			<div className='relative'>
+				{addonElement}
+				<TextArea
+					{...props}
+					{...fieldProps}
+					onChange={e => {
+						onChange(e);
+						props?.onChange?.(e);
+					}}
+					id={inputId}
+					error={!!error}
+					className={cn('w-full pe-[3rem]', props?.className)}
+				/>
+				<ValidationStatusIcon
+					name={name}
+					className='absolute h-full right-2 top-0 items-start py-[1rem]'
+				/>
 			</div>
 			{!!description && (
 				<span className='text-[#666666]'>{description}</span>
