@@ -32,7 +32,7 @@ type ButtonVariantProps = VariantProps<typeof styles>
 const styles = tv(
 	{
 		base: [
-			'button font-medium gap-[0.25rem]',
+			'button font-medium gap-[0.25rem] transition',
 			'disabled:opacity-50 disabled:cursor-not-allowed'
 		],
 		defaultVariants: { variant: 'solid', size: 'md', colorPallete: 'accent' },
