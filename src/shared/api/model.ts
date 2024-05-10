@@ -22,3 +22,9 @@ export interface Product {
 		currencyCode: 'usdt'
 	}
 }
+
+export interface Feature {
+	title: string,
+	description: string,
+	imageUrl: string | null,
+}
