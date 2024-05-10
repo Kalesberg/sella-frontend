@@ -4,11 +4,7 @@ import { DotLottiePlayer } from '@dotlottie/react-player';
 import { Button } from '~/shared/ui/kit/button';
 import * as Dialog from '~/shared/ui/kit/dialog';
 
-type TwoFaSuccessDialogProps = Dialog.RootProps & {
-	onContinue: () => void
-}
-
-export function TwoFaSuccessDialog({ onContinue, ...props }: TwoFaSuccessDialogProps) {
+export function AllSetDialog(props: Dialog.RootProps) {
 	return (
 		<Dialog.Root {...props}>
 			<Dialog.Backdrop />
@@ -18,29 +14,26 @@ export function TwoFaSuccessDialog({ onContinue, ...props }: TwoFaSuccessDialogP
 					<Dialog.CloseButton />
 
 					<Dialog.ContentHeading>
-						<Dialog.Title>Account Secured</Dialog.Title>
+						<Dialog.Title>All set!</Dialog.Title>
 						<Dialog.Description>
-							Your account is now securely set up! Let’s get your shop running.
+							We hope Sella.me will be the start of something great for you!
+							Good luck! Head to your dashboard to continue adding more products to your storefront.
 						</Dialog.Description>
 					</Dialog.ContentHeading>
 
 					<DotLottiePlayer
-						src='/lottie/key.lottie'
+						src='/lottie/money.lottie'
 						className='size-[11rem]' autoplay loop
 					/>
 
 					<Dialog.ContentFooter>
 						<Dialog.CloseTrigger asChild>
-							<Button colorPallete='gray' size='lg' className='w-full' >
-								Go to Market
+							<Button
+								className='w-full' size='lg'
+							>
+								Continue
 							</Button>
 						</Dialog.CloseTrigger>
-						<Button
-							className='w-full' size='lg'
-							onClick={onContinue}
-						>
-							Open Storefront
-						</Button>
 					</Dialog.ContentFooter>
 				</Dialog.Content>
 			</Dialog.Positioner>

@@ -54,6 +54,17 @@ export function FilePreview({ file, children, renderActionBar, includeFileName, 
 	);
 }
 
+const objectUrls = new Map<File, string>();
+
+function resolveObjectUrl(file: File) {
+	if (objectUrls.has(file))
+		return objectUrls.get(file);
+
+	const url = URL.createObjectURL(file)
+	objectUrls.set(file, url);
+	return url;
+}
+
 function extractFileInfo(file: FilePreviewAllowedTypes) {
 	const name = file.name;
 	const extension = name.split('.').pop();
@@ -69,7 +80,7 @@ function extractFileInfo(file: FilePreviewAllowedTypes) {
 
 	return isImage ? {
 		type: 'image',
-		previewUrl: file instanceof File ? URL.createObjectURL(file) : file.url,
+		previewUrl: file instanceof File ? resolveObjectUrl(file) : file.url,
 		extension, name
 	} as const : {
 		type: 'other',

@@ -28,6 +28,8 @@ type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function CreateForm({ onActionFulfiled, storeId, className, ...props }: CreateFormProps) {
 	const onSubmit = (values: SchemaType) => {
+		console.log(values);
+
 		const store: Product = {
 			id: 1,
 			...values,
@@ -60,7 +62,7 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 
 							<VTextControl
 								label='Product Price'
-								name='proce' size='default' 
+								name='price' size='default' 
 								type='number' min={1}
 								placeholder='0 USDT'
 								rootProps={{ className: 'w-full' }}

@@ -10,6 +10,7 @@ import { AuthChannelsSetupTwoFaDialog } from '~/features/auth-channels';
 import { CreateStoreSuccessDialog } from './CreateStoreSuccessDialog';
 import { Store } from '~/shared/api/model';
 import { ProductCreateDialog } from '~/features/product/create';
+import { AllSetDialog } from './AllSetDialog';
 
 type ModalTypes =
 	'register'
@@ -88,13 +89,26 @@ export function FlowDialog(props: Dialog.RootProps) {
 			/>
 
 			{createdStore && (
-				<ProductCreateDialog 
+				<ProductCreateDialog
 					{...props}
 					storeId={createdStore.id}
 					open={isOpen('create-product')}
 					onActionFulfiled={openModalAction('all-set')}
+					cancelButton={
+						<Button
+							className='w-full' colorPallete='gray'
+							onClick={openModalAction('all-set')}
+						>
+							Skip
+						</Button>
+					}
 				/>
 			)}
+
+			<AllSetDialog
+				{...props}
+				open={isOpen('all-set')}
+			/>
 		</>
 	);
 }

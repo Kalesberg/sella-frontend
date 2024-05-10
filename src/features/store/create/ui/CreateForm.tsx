@@ -25,6 +25,7 @@ type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
 export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Store = {
+			id: 1,
 			name: values.name,
 			shortName: values.url,
 			description: values.description,
