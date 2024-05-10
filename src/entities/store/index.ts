@@ -1,1 +1,1 @@
-export { Component as StoreCard } from './ui/Card';
+export * as StoreCard from './ui/Card';

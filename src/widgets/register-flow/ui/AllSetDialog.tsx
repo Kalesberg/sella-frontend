@@ -2,7 +2,7 @@
 
 import { DotLottiePlayer } from '@dotlottie/react-player';
 import { Button } from '~/shared/ui/kit/button';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 
 export function AllSetDialog(props: Dialog.RootProps) {
 	return (

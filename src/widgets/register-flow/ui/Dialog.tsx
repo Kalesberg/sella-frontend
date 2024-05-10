@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 import { RegisterSuccessDialog } from './RegisterSuccessDialog';
 import { TwoFaSuccessDialog } from './TwoFaSuccessDialog';
 import { Button } from '~/shared/ui/kit/button';

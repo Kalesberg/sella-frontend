@@ -1,6 +1,6 @@
 'use client';
 
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 import { CreateForm } from './CreateForm';
 import { ReactNode, useId } from 'react';
 import { Button } from '~/shared/ui/kit/button';

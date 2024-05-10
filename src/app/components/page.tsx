@@ -2,7 +2,6 @@
 
 import { Button } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
-import * as RadioGroup from "~/shared/ui/kit/radio-group";
 import { PinInput } from "~/shared/ui/kit/pin-input";
 import { VTextControl } from "~/shared/ui/validation-inputs";
 import { z } from "zod";
@@ -19,6 +18,7 @@ import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
 import { RegisterFlowDialog } from "~/widgets/register-flow";
 import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
+import { RadioGroup } from "~/shared/ui/kit";
 
 export default function Home() {
 	return (

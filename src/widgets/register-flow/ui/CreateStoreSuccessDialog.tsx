@@ -3,7 +3,7 @@
 import { DotLottiePlayer } from '@dotlottie/react-player';
 import { Store } from '~/shared/api/model';
 import { Button } from '~/shared/ui/kit/button';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 
 type RegisterSuccessDialog = Dialog.RootProps & {
 	store: Store | null,

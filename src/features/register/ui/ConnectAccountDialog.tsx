@@ -2,7 +2,7 @@
 
 import { Icons } from '~/shared/ui/icons';
 import { Button } from '~/shared/ui/kit/button';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 
 type ConnectAccountDialogProps = Dialog.RootProps & {
 	onConnectClick: () => void;

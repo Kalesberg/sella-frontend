@@ -9,7 +9,6 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "@stylistic/js/indent": ["error", "tab"],
-    "@typescript-eslint/no-namespace": "off"
+    "@stylistic/js/indent": ["error", "tab"]
   }
 }

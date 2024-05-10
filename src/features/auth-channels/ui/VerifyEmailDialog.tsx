@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { dayJs } from '~/shared/lib/dayjs';
 import { Button } from '~/shared/ui/kit/button';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 import { PinInput } from '~/shared/ui/kit/pin-input';
 
 type ConnectAccountDialogProps = Dialog.RootProps & {

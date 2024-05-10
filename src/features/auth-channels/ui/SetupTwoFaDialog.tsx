@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { zodValidate } from '~/shared/lib/zod-final-form';
 import { Icons } from '~/shared/ui/icons';
 import { Button } from '~/shared/ui/kit/button';
-import * as Dialog from '~/shared/ui/kit/dialog';
+import { Dialog } from '~/shared/ui/kit';
 import { DividerWithElement } from '~/shared/ui/kit/divider';
 import { VTextControl } from '~/shared/ui/validation-inputs';
 import { VerifyEmailDialogContent } from './VerifyEmailDialog';
