@@ -1,7 +1,7 @@
 "use client";
 
 import { Feature } from "~/shared/api/model";
-import { FeatureCard } from "~/entities/Feature";
+import { FeatureCard } from "~/entities/feature";
 
 const productData: Feature[] = [
 	{
@@ -44,15 +44,22 @@ export function SellaFeautes() {
 		<div className="py-32 bg-neutral-900 ">
 			<div className="max-w-screen-xl mx-auto space-y-12">
 				<div className="space-y-4">
-					<div className="text-5xl text-white">Explore marketplace</div>
-					<div className="text-black-60 text-balance w-1/3">
-						Join 40M+ people using Linktree for their link in bio. One link to
-						help you share everything you create.
+					<h1 className="text-5xl font-semibold text-white">
+						Effortless Selling
+					</h1>
+					<div className="text-black-60 text-balance w-1/2">
+						Unlike other platforms out there, we don&apos;t over
+						complicate things. We strip away unnecessary complexity,
+						focusing instead on what truly matters.
 					</div>
 				</div>
 				<div className="flex gap-10 flex-wrap">
 					{productData.map((feature, index) => (
-						<FeatureCardItem key={index} feature={feature} index={index} />
+						<FeatureCardItem
+							key={index}
+							feature={feature}
+							index={index}
+						/>
 					))}
 				</div>
 			</div>
@@ -71,8 +78,12 @@ const FeatureCardItem = ({
 	const height = index < 2 ? "17rem" : "auto";
 
 	return (
-		<FeatureCard.Root feature={feature} className={`w-[${width}]`}>
-			<FeatureCard.Image height={100} width={100} className={`h-[${height}]`} />
+		<FeatureCard.Root feature={feature} style={{ width: width }}>
+			<FeatureCard.Image
+				height={100}
+				width={100}
+				style={{ height: height }}
+			/>
 			<FeatureCard.Content className="w-full">
 				<FeatureCard.Title />
 				<FeatureCard.Description />
