@@ -6,11 +6,17 @@ import { z } from 'zod';
 import { Product } from '~/shared/api/model';
 import { cn } from '~/shared/lib/cn';
 import { zodValidate } from '~/shared/lib/zod-final-form';
-import { VImageUploader, VTextAreaControl, VTextControl, VUploader } from '~/shared/ui/validation-inputs';
+
+import {
+	VImageUploader,
+	VTextAreaControl,
+	VTextControl,
+	VUploader
+} from '~/shared/ui/validation-inputs';
 
 export const schema = z.object({
 	name: z.string().min(3, 'Min length is 3'),
-	price: z.coerce.number().min(1, 'Min price is 1 USDT'),
+	price: z.coerce.number({ message: 'Specify the price' }).min(1, 'Min price is 1 USDT'),
 	description: z.string().nullable(),
 	shortDescription: z.string(),
 	previewImage: z.instanceof(File),
@@ -54,36 +60,38 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 							className='flex-shrink-0 size-[11.625rem] rounded-[1.25rem]'
 						/>
 						<div className='flex flex-col justify-between'>
-							<VTextControl
-								label='Product Name'
-								name='name' size='default'
-								rootProps={{ className: 'w-full' }}
-							/>
+							<VTextControl.Root className='w-full' name='name'>
+								<VTextControl.LabelOrError>
+									Product Name
+								</VTextControl.LabelOrError>
+								<VTextControl.Input />
+							</VTextControl.Root>
 
-							<VTextControl
-								label='Product Price'
-								name='price' size='default' 
-								type='number' min={1}
-								placeholder='0 USDT'
-								rootProps={{ className: 'w-full' }}
-							/>
+							<VTextControl.Root className='w-full' name='price'>
+								<VTextControl.LabelOrError>
+									Product Price
+								</VTextControl.LabelOrError>
+								<VTextControl.Input type='number' min={1} placeholder='0 USDT' />
+							</VTextControl.Root>
 						</div>
 					</div>
 
-					<VTextControl
-						label='Product Description'
-						name='shortDescription' size='default'
-						placeholder="Let's make it short and sweet!"
-						rootProps={{ className: 'w-full' }}
-					/>
+					<VTextControl.Root className='w-full' name='shortDescription'>
+						<VTextControl.LabelOrError>
+							Product Description
+						</VTextControl.LabelOrError>
+						<VTextControl.Input placeholder="Let's make it short and sweet!" />
+					</VTextControl.Root>
 
-					<VTextAreaControl
-						label='Full Description'
-						name='description' size='default'
-						placeholder='Can be one sentence, a short paragraph'
-						className='h-[5rem]'
-						rootProps={{ className: 'w-full' }}
-					/>
+					<VTextAreaControl.Root className='w-full' name='description'>
+						<VTextAreaControl.LabelOrError>
+							Full Description
+						</VTextAreaControl.LabelOrError>
+						<VTextAreaControl.Input
+							className='h-[5rem]'
+							placeholder="Can be one sentence, a short paragraph"
+						/>
+					</VTextAreaControl.Root>
 
 					<VUploader
 						label='Product Images'

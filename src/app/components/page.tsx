@@ -124,10 +124,14 @@ function ValidationTest() {
 		>
 			{() => (
 				<div className='flex gap-4'>
-					<VTextControl
-						label='Input' name='test'
-						description='Description'
-					/>
+					<VTextControl.Root name='test'>
+						<VTextControl.Label>Input</VTextControl.Label>
+						<VTextControl.Input />
+						<VTextControl.Description>
+							Description
+						</VTextControl.Description>
+						<VTextControl.ErrorText />
+					</VTextControl.Root>
 				</div>
 			)}
 		</Form>

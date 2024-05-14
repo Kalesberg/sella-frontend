@@ -32,18 +32,20 @@ export function RegisterForm({ onActionFulfiled, ...props }: RegisterFormProps) 
 					{...props} onSubmit={handleSubmit}
 				>
 					<DividerWithElement className='gap-[1rem] mb-[1rem]'>
-						<VImageUploader 
+						<VImageUploader
 							label='Upload Avatar' name='avatar'
 							className='rounded-full'
 						/>
 					</DividerWithElement>
 
-					<VTextControl
-						name='userName' size='2xl'
-						placeholder='@username'
-						className='text-center'
-						rootProps={{ className: 'w-full' }}
-					/>
+					<VTextControl.Root className='w-full' name='userName'>
+						<VTextControl.Label>Product Description</VTextControl.Label>
+						<VTextControl.Input
+							className='text-center'
+							size='2xl' placeholder="@username"
+						/>
+						<VTextControl.ErrorText />
+					</VTextControl.Root>
 
 					<p className='text-black-60 text-center'>
 						Select your username. This will be your unique identifier on

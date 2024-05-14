@@ -36,7 +36,7 @@ export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
 				reviewsCount: 575
 			}
 		}
-		
+
 		onActionFulfiled?.(store);
 	};
 
@@ -55,32 +55,31 @@ export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
 					</DividerWithElement>
 
 					<div className='flex gap-[2rem] w-full'>
-						<VTextControl
-							label='Store Name'
-							name='name' size='default'
-							placeholder='Store name'
-							rootProps={{ className: 'w-full' }}
-						/>
+						<VTextControl.Root className='w-full' name='name'>
+							<VTextControl.Label>Store Name</VTextControl.Label>
+							<VTextControl.Input placeholder="Store name" />
+							<VTextControl.ErrorText />
+						</VTextControl.Root>
 
-						<VTextControl
-							label='Store URL'
-							name='url' size='default'
-							className='ps-[5.3rem]'
-							addonElement={
+						<VTextControl.Root className='w-full' name='url'>
+							<VTextControl.Label>Store URL</VTextControl.Label>
+							<VTextControl.Input
+								className='ps-[5.3rem]'
+								placeholder="Store name"
+							>
 								<span className='flex items-center absolute top-0 h-full ps-[1rem]'>
 									sella.me/
 								</span>
-							}
-							rootProps={{ className: 'w-full' }}
-						/>
+							</VTextControl.Input>
+							<VTextControl.ErrorText />
+						</VTextControl.Root>
 					</div>
 
-					<VTextControl
-						label='Store Description'
-						name='description' size='default'
-						placeholder='Can be one sentence, a short paragraph'
-						rootProps={{ className: 'w-full' }}
-					/>
+					<VTextControl.Root className='w-full' name='description'>
+						<VTextControl.Label>Store Description</VTextControl.Label>
+						<VTextControl.Input placeholder="Can be one sentence, a short paragraph" />
+						<VTextControl.ErrorText />
+					</VTextControl.Root>
 				</form>
 			)}
 		</Form>

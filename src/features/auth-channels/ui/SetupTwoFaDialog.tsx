@@ -69,10 +69,11 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 											Or
 										</DividerWithElement>
 
-										<VTextControl
-											name='email'
-											label='Email Address' type='email'
-										/>
+										<VTextControl.Root name='email'>
+											<VTextControl.Label>Email Address</VTextControl.Label>
+											<VTextControl.Input type='email' />
+											<VTextControl.ErrorText />
+										</VTextControl.Root>
 									</div>
 
 									<Dialog.ContentFooter>
