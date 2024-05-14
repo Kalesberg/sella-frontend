@@ -34,7 +34,7 @@ type EditFormProps = HTMLAttributes<HTMLFormElement> & {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function EditForm({ onActionFulfiled, product, className, ...props }: EditFormProps) {
 	const onSubmit = (values: SchemaType) => {
-		const store: Product = {
+		const product: Product = {
 			id: 1,
 			...values,
 			description: values?.description ?? null,
@@ -43,7 +43,7 @@ export function EditForm({ onActionFulfiled, product, className, ...props }: Edi
 			category: 'Category'
 		}
 
-		onActionFulfiled?.(store);
+		onActionFulfiled?.(product);
 	};
 
 	return (
@@ -74,7 +74,10 @@ export function EditForm({ onActionFulfiled, product, className, ...props }: Edi
 								<VTextControl.LabelOrError>
 									Product Price
 								</VTextControl.LabelOrError>
-								<VTextControl.Input type='number' min={1} placeholder='0 USDT' />
+								<VTextControl.Input 
+									type='number' min={1} step={0.01}
+									placeholder='0 USDT' 
+								/>
 							</VTextControl.Root>
 						</div>
 					</div>

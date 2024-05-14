@@ -70,7 +70,10 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 								<VTextControl.LabelOrError>
 									Product Price
 								</VTextControl.LabelOrError>
-								<VTextControl.Input type='number' min={1} placeholder='0 USDT' />
+								<VTextControl.Input 
+									type='number' min={1} step={0.01}
+									placeholder='0 USDT' 
+								/>
 							</VTextControl.Root>
 						</div>
 					</div>

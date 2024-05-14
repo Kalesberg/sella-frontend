@@ -5,9 +5,15 @@ import { Form } from 'react-final-form';
 import { z } from 'zod';
 import { StoreInputAddon } from '~/entities/store';
 import { Store } from '~/shared/api/model';
+import { cn } from '~/shared/lib/cn';
 import { zodValidate } from '~/shared/lib/zod-final-form';
 import { DividerWithElement } from '~/shared/ui/kit/divider';
-import { VImageUploader, VTextAreaControl, VTextControl } from '~/shared/ui/validation-inputs';
+
+import {
+	VImageUploader,
+	VTextAreaControl,
+	VTextControl,
+} from '~/shared/ui/validation-inputs';
 
 export const schema = z.object({
 	name: z.string().min(3, 'Min length is 3'),
@@ -18,12 +24,14 @@ export const schema = z.object({
 
 export type SchemaType = z.infer<typeof schema>
 
-type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
+type EditFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
+	store: Store,
 	onActionFulfiled?: (store: Store) => void;
 };
 
-export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function EditForm({ onActionFulfiled, store, className, ...props }: EditFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Store = {
 			id: 1,
@@ -40,13 +48,17 @@ export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
 	};
 
 	return (
-		<Form onSubmit={onSubmit} validate={zodValidate(schema)}>
+		<Form
+			onSubmit={onSubmit}
+			validate={zodValidate(schema)}
+			initialValues={store}
+		>
 			{({ handleSubmit }) => (
 				<form
-					className='flex flex-col w-full gap-[2rem]'
 					{...props} onSubmit={handleSubmit}
+					className={cn('flex flex-col w-full gap-[2rem]', className)}
 				>
-					<DividerWithElement className='gap-[1rem] mb-[1rem]'>
+					<DividerWithElement className='gap-[1rem]'>
 						<VImageUploader
 							label='Storefront Image' name='previewImage'
 							className='rounded-full'

@@ -20,6 +20,7 @@ import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
 import { RadioGroup } from "~/shared/ui/kit";
 import { ProductManageDialog } from "~/features/product/manage";
+import { StoreManageDialog } from "~/features/store/manage";
 
 export default function Home() {
 	return (
@@ -61,6 +62,7 @@ export default function Home() {
 						<RegisterDialogTest />
 						<Setup2faDialogTest />
 						<StoreCreateDialogTest />
+						<StoreManageDialogTest />
 						<ProductCreateDialogTest />
 						<ProductManageDialogTest />
 						<RegisterFlowDialogTest />
@@ -175,7 +177,7 @@ const product: Product = {
 	previewImage: null,
 	galleryImages: [],
 	category: 'Category',
-	price: 0.99
+	price: 2.99
 }
 
 function ProductCardTest() {
@@ -219,6 +221,24 @@ function StoreCreateDialogTest() {
 
 			<StoreCreateDialog
 				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function StoreManageDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Manage Store
+			</Button>
+
+			<StoreManageDialog
+				store={store}
+				open={isOpen} 
+				onOpenChange={handleOpenChange}
 			/>
 		</>
 	);

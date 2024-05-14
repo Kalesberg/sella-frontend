@@ -45,7 +45,7 @@ type InputVariantProps = VariantProps<typeof styles>
 const styles = tv(
 	{
 		base: [
-			'bg-white/[.04] text-white border border-transparent outline-none transition',
+			'bg-white/[.04] text-white border border-transparent outline-none transition leading-[normal]',
 			'hover:bg-white/[.06]',
 			'filled:bg-[#141414] filled:border-secondary',
 			'data-[error]:text-error-100 data-[error]:border-error-100 filled:data-[error]:border-error-100 data-[error]:placeholder-error-100',

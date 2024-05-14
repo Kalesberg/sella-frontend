@@ -29,7 +29,7 @@ export function Input({ children, className, ...props }: Omit<TextAreaProps, 'er
 				id={id} error={!!error}
 				className={cn('w-full pe-[3rem]', className)}
 			/>
-			<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0' />
+			<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0 items-start pt-[1rem]' />
 		</div>
 	);
 }
