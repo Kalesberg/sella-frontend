@@ -4,10 +4,10 @@ import { Dialog } from '~/shared/ui/kit';
 import { CreateForm } from './CreateForm';
 import { ReactNode, useId } from 'react';
 import { Button } from '~/shared/ui/kit/button';
-import { Product } from '~/shared/api/model';
+import { Product, StoreId } from '~/shared/api/model';
 
 type CreateDialogProps = Dialog.RootProps & {
-	storeId: number,
+	storeId: StoreId,
 	onActionFulfiled?: (product: Product) => void
 	cancelButton?: ReactNode
 };

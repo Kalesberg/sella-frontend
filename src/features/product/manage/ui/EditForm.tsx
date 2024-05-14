@@ -3,7 +3,7 @@
 import { HTMLAttributes } from 'react';
 import { Form } from 'react-final-form';
 import { z } from 'zod';
-import { Product, StoreId } from '~/shared/api/model';
+import { Product } from '~/shared/api/model';
 import { cn } from '~/shared/lib/cn';
 import { zodValidate } from '~/shared/lib/zod-final-form';
 
@@ -25,14 +25,14 @@ export const schema = z.object({
 
 export type SchemaType = z.infer<typeof schema>
 
-type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
+type EditFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
-	storeId: StoreId,
+	product: Product,
 	onActionFulfiled?: (product: Product) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function CreateForm({ onActionFulfiled, storeId, className, ...props }: CreateFormProps) {
+export function EditForm({ onActionFulfiled, product, className, ...props }: EditFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Product = {
 			id: 1,
@@ -47,7 +47,11 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 	};
 
 	return (
-		<Form onSubmit={onSubmit} validate={zodValidate(schema)}>
+		<Form 
+			onSubmit={onSubmit} 
+			validate={zodValidate(schema)}
+			initialValues={product}
+		>
 			{({ handleSubmit }) => (
 				<form
 					{...props} onSubmit={handleSubmit}
@@ -58,7 +62,7 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 							label='Attach Preview' name='previewImage'
 							className='flex-shrink-0 size-[11.625rem] rounded-[1.25rem]'
 						/>
-						<div className='flex flex-col justify-between'>
+						<div className='flex flex-col justify-between w-full'>
 							<VTextControl.Root className='w-full' name='name'>
 								<VTextControl.LabelOrError>
 									Product Name
@@ -100,7 +104,7 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 							Product Images
 						</VUploader.LabelOrError>
 
-						<VUploader.Previews>
+						<VUploader.Previews className='grid-cols-6'>
 							<VUploader.AddButton />
 						</VUploader.Previews>
 					</VUploader.Root>

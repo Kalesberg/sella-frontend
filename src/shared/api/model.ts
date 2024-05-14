@@ -1,8 +1,10 @@
 
 type ImageEntry = string // url for now, but could be an object with different variants of resoultion or quality
 
+export type StoreId = number;
+
 export interface Store {
-	id: number,
+	id: StoreId,
 	name: string,
 	shortName: string,
 	isVerified: boolean,
@@ -15,8 +17,10 @@ export interface Store {
 	}
 }
 
+export type ProductId = number;
+
 export interface Product {
-	id: number,
+	id: ProductId,
 	name: string,
 	description: string | null,
 	shortDescription: string,

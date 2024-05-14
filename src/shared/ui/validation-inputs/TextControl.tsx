@@ -33,10 +33,10 @@ export function LabelOrError({ children, className, ...props }: LabelProps) {
 	const { id, name } = useControlContext();
 	const { meta: fieldState } = useField(name);
 	const error = fieldState.touched && fieldState.error;
-
+	
 	return (
 		<label htmlFor={id} {...props} className={cn(!!error && 'text-error-100', className)}>
-			{error ?? children}
+			{error ? error : children}
 		</label>
 	);
 }
@@ -54,11 +54,7 @@ export function ErrorText({ className, ...props }: Omit<HTMLAttributes<HTMLSpanE
 }
 
 export function Description({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) {
-	const { name } = useControlContext();
-	const { meta: fieldState } = useField(name);
-	const error = fieldState.touched && fieldState.error;
-
-	return !!error && (
+	return (
 		<span {...props} className={cn('text-[#666666]', className)}>
 			{children}
 		</span>

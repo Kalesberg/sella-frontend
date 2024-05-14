@@ -19,6 +19,7 @@ import { RegisterFlowDialog } from "~/widgets/register-flow";
 import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
 import { RadioGroup } from "~/shared/ui/kit";
+import { ProductManageDialog } from "~/features/product/manage";
 
 export default function Home() {
 	return (
@@ -61,6 +62,7 @@ export default function Home() {
 						<Setup2faDialogTest />
 						<StoreCreateDialogTest />
 						<ProductCreateDialogTest />
+						<ProductManageDialogTest />
 						<RegisterFlowDialogTest />
 					</div>
 				</div>
@@ -196,7 +198,7 @@ function RegisterDialogTest() {
 	return (
 		<>
 			<Button colorPallete='gray' onClick={open}>
-				Open Register Modal
+				Register
 			</Button>
 
 			<RegisterDialog
@@ -212,7 +214,7 @@ function StoreCreateDialogTest() {
 	return (
 		<>
 			<Button colorPallete='gray' onClick={open}>
-				Open Store Create Dialog
+				Create Store
 			</Button>
 
 			<StoreCreateDialog
@@ -228,11 +230,29 @@ function ProductCreateDialogTest() {
 	return (
 		<>
 			<Button colorPallete='gray' onClick={open}>
-				Open Product Create Dialog
+				Create Product
 			</Button>
 
 			<ProductCreateDialog
 				storeId={1}
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function ProductManageDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Manage Product
+			</Button>
+
+			<ProductManageDialog
+				product={product}
 				open={isOpen}
 				onOpenChange={handleOpenChange}
 			/>
@@ -246,7 +266,7 @@ function Setup2faDialogTest() {
 	return (
 		<>
 			<Button colorPallete='gray' onClick={open}>
-				Open Setup 2fa Dialog
+				Setup 2fa
 			</Button>
 
 			<AuthChannelsSetupTwoFaDialog
@@ -267,7 +287,7 @@ function RegisterFlowDialogTest() {
 	return (
 		<>
 			<Button onClick={open}>
-				Open Register Flow Dialog
+				Register Flow
 			</Button>
 
 			<RegisterFlowDialog
