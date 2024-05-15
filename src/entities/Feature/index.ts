@@ -1,0 +1,1 @@
+export { Component as FeatureCard } from './ui/Card';

@@ -30,3 +30,9 @@ export interface Product {
 
 	price: number
 }
+
+export interface Feature {
+	title: string,
+	description: string,
+	imageUrl: string | null,
+}
