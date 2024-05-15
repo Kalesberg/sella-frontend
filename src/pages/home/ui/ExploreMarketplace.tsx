@@ -6,89 +6,85 @@ import { ActionControls } from "./AdminControls";
 
 const productData: Product[] = [
 	{
-		title: "Product Title 1",
+		id: 1,
+		name: "Product Title 1",
 		description: "Product Description 1",
+		shortDescription: "Product Short Description 1",
 		category: "Product Category 1",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
+
 	},
 	{
-		title: "Product Title 2",
+		id: 2,
+		name: "Product Title 2",
 		description: "Product Description 2",
+		shortDescription: "Product Short Description 2",
 		category: "Product Category 2",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 0.99,
 	},
-
 	{
-		title: "Product Title 3",
+		id: 3,
+		name: "Product Title 3",
 		description: "Product Description 3",
+		shortDescription: "Product Short Description 3",
 		category: "Product Category 3",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
-
 	{
-		title: "Product Title 4",
+		id: 4,
+		name: "Product Title 4",
 		description: "Product Description 4",
+		shortDescription: "Product Short Description 4",
 		category: "Product Category 4",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
 	{
-		title: "Product Title 5",
+		id: 5,
+		name: "Product Title 5",
 		description: "Product Description 5",
+		shortDescription: "Product Short Description 5",
 		category: "Product Category 5",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
-
 	{
-		title: "Product Title 6",
+		id: 6,
+		name: "Product Title 6",
 		description: "Product Description 6",
+		shortDescription: "Product Short Description 6",
 		category: "Product Category 6",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
-
 	{
-		title: "Product Title 7",
+		id: 7,
+		name: "Product Title 7",
 		description: "Product Description 7",
+		shortDescription: "Product Short Description 7",
 		category: "Product Category 7",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
-
 	{
-		title: "Product Title 8",
+		id: 8,
+		name: "Product Title 8",
 		description: "Product Description 8",
+		shortDescription: "Product Short Description 8",
 		category: "Product Category 8",
-		imageUrl: "",
-		price: {
-			value: 10.99,
-			currencyCode: "usdt",
-		},
+		previewImage: null,
+		galleryImages: [],
+		price: 10.99,
 	},
 ];
 
@@ -104,8 +100,11 @@ export function ExploreMarketPlace() {
 					</div>
 				</div>
 				<div className="grid grid-cols-4 gap-8">
-					{productData.map((product, index) => (
-						<ProductCardItem key={index} product={product} />
+					{productData.map(product => (
+						<ProductCardItem
+							key={product.id}
+							product={product}
+						/>
 					))}
 				</div>
 				<SellaMeTrustedInfluencers />

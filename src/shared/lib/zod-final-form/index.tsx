@@ -13,7 +13,7 @@ function flatternZodError(err: z.ZodError): ValidationErrors {
 }
 
 export const zodValidate = (schema: z.Schema) =>
-	(values: any): ValidationErrors => {
+	(values: object): ValidationErrors => {
 		const res = schema.safeParse(values);
 		if (!res.success) {
 			return flatternZodError(res.error);

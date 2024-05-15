@@ -32,7 +32,7 @@ type ButtonVariantProps = VariantProps<typeof styles>
 const styles = tv(
 	{
 		base: [
-			'button font-medium gap-[0.25rem]',
+			'button font-medium gap-[0.25rem] transition',
 			'disabled:opacity-50 disabled:cursor-not-allowed'
 		],
 		defaultVariants: { variant: 'solid', size: 'md', colorPallete: 'accent' },
@@ -41,9 +41,11 @@ const styles = tv(
 				solid: [],
 				outline: [],
 				subtle: [],
-				ghost: ['hocus:bg-white/5']
+				ghost: ['hocus:bg-white/5'],
+				action: ['bg-black/50 text-white backdrop-blur-sm']
 			},
 			size: {
+				xs: 'rounded-full h-[1.25rem] min-w-[1.25rem]',
 				sm: 'rounded-[0.75rem] px-[1rem] h-[2.375rem] min-w-[2.375rem]',
 				md: 'rounded-[0.75rem] px-[1rem] h-[2.8125rem] min-w-[2.8125rem]',
 				lg: 'rounded-[1rem] px-[1.25rem] h-[3.125rem] min-w-[3.125rem]',
@@ -53,7 +55,8 @@ const styles = tv(
 				accent: [],
 				gray: [],
 				red: [],
-				green: []
+				green: [],
+				social: []
 			}
 		},
 		compoundVariants: [
@@ -62,16 +65,23 @@ const styles = tv(
 				variant: 'solid',
 				className: [
 					'bg-accent-100 text-black-100',
-					'hocus:bg-accent-100/80'
+					'hocus:bg-accent-hover'
 				]
 			},
 			{
 				colorPallete: 'gray',
 				variant: 'solid',
 				className: [
-					'bg-white/[.04] text-white',
-					'hocus:bg-white/[.06]',
+					'bg-white/[.08] text-white',
+					'hocus:bg-white/[.10]',
 					'data-[selected]:bg-accent-100 data-[selected]:hocus:bg-accent-100/80 data-[selected]:text-black-100'
+				]
+			},
+			{
+				colorPallete: 'social',
+				variant: 'solid',
+				className: [
+					'bg-white/10 hocus:bg-white/25'
 				]
 			},
 			{
@@ -79,7 +89,7 @@ const styles = tv(
 				variant: 'outline',
 				className: [
 					'border border-accent-100 text-accent-100',
-					'hocus:bg-accent-100 hocus:text-black-100'
+					'hocus:border-accent-hover hocus:text-accent-hover'
 				]
 			},
 			{

@@ -1,7 +1,5 @@
 import Image from "next/image";
 import HeroImage from "../assets/hero.png";
-import { PropsWithChildren } from "react";
-import { Icons } from "~/shared/ui/icons";
 import { ActionControls } from "./AdminControls";
 import { FeaturesList } from "./Features";
 

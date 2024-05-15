@@ -1,7 +1,12 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic"
+  ],
   "plugins": [
-    "@stylistic/js"
+    "@stylistic/js",
+    "@typescript-eslint"
   ],
   "rules": {
     "@stylistic/js/indent": ["error", "tab"]

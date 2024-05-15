@@ -1,0 +1,1 @@
+export { ManageDialog as ProductManageDialog } from './ui/Dialog';

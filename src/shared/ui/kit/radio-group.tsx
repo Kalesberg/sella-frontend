@@ -51,8 +51,8 @@ export const ItemText = withContext(ArkRadioGroup.ItemText, 'itemText')
 export const Label = withContext(ArkRadioGroup.Label, 'label')
 
 export type RootProps = ComponentProps<typeof Root>
-export interface IndicatorProps extends ComponentProps<typeof Indicator> {}
-export interface ItemProps extends ComponentProps<typeof Item> {}
-export interface ItemControlProps extends ComponentProps<typeof ItemControl> {}
-export interface ItemTextProps extends ComponentProps<typeof ItemText> {}
-export interface LabelProps extends ComponentProps<typeof Label> {}
+export type IndicatorProps = ComponentProps<typeof Indicator>
+export type ItemProps = ComponentProps<typeof Item>
+export type ItemControlProps = ComponentProps<typeof ItemControl>
+export type ItemTextProps = ComponentProps<typeof ItemText>
+export type LabelProps = ComponentProps<typeof Label>
