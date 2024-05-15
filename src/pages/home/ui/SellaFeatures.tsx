@@ -52,7 +52,10 @@ export function SellaFeautes() {
 				</div>
 				<div className="flex gap-10 flex-wrap">
 					{productData.map((feature, index) => (
-						<FeatureCardItem key={index} feature={feature} index={index} />
+						<FeatureCardItem
+							index={index}
+							key={index} feature={feature}
+						/>
 					))}
 				</div>
 			</div>

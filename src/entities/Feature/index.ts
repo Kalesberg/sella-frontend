@@ -1,1 +1,1 @@
-export { Component as FeatureCard } from './ui/Card';
+export * as FeatureCard from './ui/Card';

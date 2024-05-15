@@ -1,10 +1,7 @@
 import Image from "next/image";
-import { PropsWithChildren } from "react";
-import { Icons } from "~/shared/ui/icons";
 import { ActionControls } from "./AdminControls";
 import EscrowImage from "../assets/escrow.png";
 import { FeaturesList } from "./Features";
-import { Button } from "~/shared/ui/kit/button";
 
 export function CreateStore() {
 	return (
