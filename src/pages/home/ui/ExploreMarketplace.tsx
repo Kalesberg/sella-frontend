@@ -12,7 +12,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -23,7 +24,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -34,7 +36,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -45,7 +48,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -56,7 +60,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -67,7 +72,8 @@ const storeData: Store[] = [
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
 		imageUrl: null,
 		rating: {
-			value: 4.5,
+			likes: 45,
+			dislikes: 16,
 			reviewsCount: 673,
 		},
 	},
@@ -75,22 +81,24 @@ const storeData: Store[] = [
 
 export function ExploreMarketPlace() {
 	return (
-		<div className="py-32 bg-[#FFFFFF05] ">
-			<div className="max-w-screen-xl mx-auto space-y-24">
+		<div className="py-32 bg-[#FFFFFF05]  ">
+			<div className=" mx-auto space-y-24 flex flex-col flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto">
 				<div className="space-y-12">
 					<div className="space-y-4">
-						<div className="text-5xl text-white">
+						<h1 className="text-5xl text-white font-semibold">
 							Explore marketplace
-						</div>
+						</h1>
 						<div className="text-black-60 text-balance w-1/3">
 							Join 40M+ people using Linktree for their link in
 							bio. One link to help you share everything you
 							create.
 						</div>
 					</div>
-					<div className="flex gap-10 flex-wrap justify-between">
+					<div className="grid grid-cols-2 gap-10">
 						{storeData.map((store, index) => (
-							<StoreCardItem key={index} store={store} />
+							<div key={index} className="w-full">
+								<StoreCardItem store={store} />
+							</div>
 						))}
 					</div>
 				</div>

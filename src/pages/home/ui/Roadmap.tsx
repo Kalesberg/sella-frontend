@@ -145,7 +145,7 @@ export function Roadmap() {
 
 const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
-		<div className="bg-[#FFFFFF05] border border-neutral-800 rounded-xl p-4 space-y-6 w-[23rem]">
+		<div className="bg-[#FFFFFF05] border border-neutral-800 rounded-2xl p-4 space-y-6 w-[23rem]">
 			<div className="space-y-2">
 				<div className="text-yellow-400 font-semibold text-2xl">{title}</div>
 				
@@ -164,7 +164,7 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 	const strokeColor = isCompleted ? "#FFDD00" : "#BDBDBD";
 	return (
 		<div
-			className={`bg-neutral-800 border border-neutral-700 rounded-xl p-3 flex items-center justify-start gap-4 text-${
+			className={`bg-white-02 border-neutral-800 border-[1px] rounded-xl p-3 flex items-center justify-start gap-4 text-${
 				isCompleted ? "yellow-400" : "neutral-400"
 			}`}
 		>
@@ -183,7 +183,8 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 					strokeLinejoin="round"
 				/>
 			</svg>
-			{title}
+			<span className="text-[#BDBDBD]">{title}</span>
+			
 		</div>
 	);
 };

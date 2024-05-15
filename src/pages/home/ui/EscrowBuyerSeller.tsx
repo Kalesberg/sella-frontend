@@ -45,7 +45,7 @@ export function EscrowBuyerSeller() {
 
 function EscrowFeatures() {
 	return (
-		<div className="flex flex-col gap-[1.8rem] max-w-[32rem]">
+		<div className="flex flex-col gap-[1.8rem] max-w-[32rem] bg-[#FFFFFF05]">
 			<Feature label="As fair as it gets">
 				Unlike other platforms, sella.me prioritizes the security of all
 				parties involved. We don&apos;t take sides; our focus is on providing

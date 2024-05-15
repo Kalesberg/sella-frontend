@@ -171,7 +171,8 @@ const store: Store = {
 	isVerified: true,
 	imageUrl: null,
 	rating: {
-		value: 4.9,
+		likes: 10,
+		dislikes: 2,
 		reviewsCount: 575
 	}
 }

@@ -6,8 +6,9 @@ export interface Store {
 	imageUrl: string | null,
 
 	rating: {
-		value: number,
-		reviewsCount: number
+		likes: number,
+		dislikes: number,
+		reviewsCount: number,
 	}
 }
 

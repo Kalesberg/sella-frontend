@@ -3,45 +3,45 @@
 import { Feature } from "~/shared/api/model";
 import { FeatureCard } from "~/entities/feature";
 
-const productData: Feature[] = [
+const FeatureData: Feature[] = [
 	{
-		title: "Product Title 1",
-		description: "Product Description 1",
+		title: "Feature Title 1",
+		description: "Feature Description 1",
 		imageUrl: "",
 	},
 	{
-		title: "Product Title 2",
-		description: "Product Description 2",
-		imageUrl: "",
-	},
-
-	{
-		title: "Product Title 3",
-		description: "Product Description 3",
+		title: "Feature Title 2",
+		description: "Feature Description 2",
 		imageUrl: "",
 	},
 
 	{
-		title: "Product Title 4",
-		description: "Product Description 4",
-		imageUrl: "",
-	},
-	{
-		title: "Product Title 5",
-		description: "Product Description 5",
+		title: "Feature Title 3",
+		description: "Feature Description 3",
 		imageUrl: "",
 	},
 
 	{
-		title: "Product Title 6",
-		description: "Product Description 6",
+		title: "Feature Title 4",
+		description: "Feature Description 4",
+		imageUrl: "",
+	},
+	{
+		title: "Feature Title 5",
+		description: "Feature Description 5",
+		imageUrl: "",
+	},
+
+	{
+		title: "Feature Title 6",
+		description: "Feature Description 6",
 		imageUrl: "",
 	},
 ];
 
 export function SellaFeautes() {
 	return (
-		<div className="py-32 bg-neutral-900 ">
+		<div className="py-32 bg-[#FFFFFF05] ">
 			<div className="max-w-screen-xl mx-auto space-y-12">
 				<div className="space-y-4">
 					<h1 className="text-5xl font-semibold text-white">
@@ -54,7 +54,7 @@ export function SellaFeautes() {
 					</div>
 				</div>
 				<div className="flex gap-10 flex-wrap">
-					{productData.map((feature, index) => (
+					{FeatureData.map((feature, index) => (
 						<FeatureCardItem
 							key={index}
 							feature={feature}

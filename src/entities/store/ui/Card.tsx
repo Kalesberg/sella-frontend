@@ -11,13 +11,13 @@ const context = createContext<Store | null>(null);
 
 function useComponentContext() {
 	const value = useContext(context);
-	invariant(value, 'Usage useComponentContext outside context');
+	invariant(value, "Usage useComponentContext outside context");
 
 	return value;
 }
 
 export namespace Component {
-	export type RootProps = HTMLArkProps<'div'> & StoreProp;
+	export type RootProps = HTMLArkProps<"div"> & StoreProp;
 
 	export function Root({ store, className, ...props }: RootProps) {
 		return (
@@ -25,7 +25,7 @@ export namespace Component {
 				<ark.div
 					{...props}
 					className={cn(
-						'border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[1rem] items-center max-w-[35rem]',
+						"border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[1rem] items-center max-w-[35rem]",
 						className
 					)}
 				/>
@@ -33,64 +33,90 @@ export namespace Component {
 		);
 	}
 
-	export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | 'alt'>) {
+	export function Image({
+		className,
+		...props
+	}: Omit<PreviewImageProps, "src" | "alt">) {
 		const { imageUrl, title } = useComponentContext();
 
 		return (
 			<PreviewImage
 				alt={`Image of ${title}`}
-				src={imageUrl} {...props}
-				className={cn('rounded-full flex-shrink-0 shadow-sm', className)}
+				src={imageUrl}
+				{...props}
+				className={cn(
+					"rounded-full flex-shrink-0 shadow-sm",
+					className
+				)}
 			/>
 		);
 	}
 
-	export function Content({ className, ...props }: HTMLArkProps<'div'>) {
+	export function Content({ className, ...props }: HTMLArkProps<"div">) {
 		return (
-			<ark.div className={cn('flex flex-col gap-[1rem]', className)} {...props} />
-		)
+			<ark.div
+				className={cn("flex flex-col gap-[1rem]", className)}
+				{...props}
+			/>
+		);
 	}
 
-	export function Title({ className, ...props }: HTMLArkProps<'div'>) {
+	export function Title({ className, ...props }: HTMLArkProps<"div">) {
 		const { title, name, isVerified } = useComponentContext();
 
 		return (
-			<ark.div className={cn('flex flex-col gap-[0.25rem]', className)} {...props}>
-				<div className='flex items-center gap-[0.5rem] font-semibold text-[1.5rem] font-manrope leading-[1.3]'>
+			<ark.div
+				className={cn("flex flex-col gap-[0.25rem]", className)}
+				{...props}
+			>
+				<div className="flex items-center gap-[0.5rem] font-semibold text-[1.5rem] font-manrope leading-[1.3]">
 					<h1>{title}</h1>
-					{isVerified && <Icons.Verified className='text-accent-100 size-[1em]' />}
+					{isVerified && (
+						<Icons.Verified className="text-accent-100 size-[1em]" />
+					)}
 				</div>
 
-				<span className='font-semibold text-black-40'>
-					{name}
-				</span>
+				<span className="font-semibold text-black-40">{name}</span>
 			</ark.div>
 		);
 	}
 
-	export function Description({ className, ...props }: HTMLArkProps<'p'>) {
+	export function Description({ className, ...props }: HTMLArkProps<"p">) {
 		const { description } = useComponentContext();
 
 		return (
-			<ark.p className={cn('text-black-60 leading-[1.3]', className)} {...props}>
+			<ark.p
+				className={cn("text-black-60 leading-[1.3]", className)}
+				{...props}
+			>
 				{description}
 			</ark.p>
 		);
 	}
 
-	export function Rating({ className, ...props }: HTMLArkProps<'div'>) {
+	export function Rating({ className, ...props }: HTMLArkProps<"div">) {
 		const { rating } = useComponentContext();
 
 		return (
-			<ark.div className={cn('flex items-center gap-[0.5rem]', className)} {...props}>
-				<div className='flex items-center gap-[0.25rem] text-accent-100'>
-					<Icons.Star className='size-[1rem]' />
-					<span>{rating.value.toFixed(1)}</span>
-				</div>
-
-				<span className='text-black-60'>
-					based on {rating.reviewsCount} reviews
+			<ark.div
+				className={cn("flex items-center gap-[0.5rem]", className)}
+				{...props}
+			>
+				<span className="text-black-60 font-semibold">
+					{rating.reviewsCount} Reviews
 				</span>
+
+				<div className="flex items-center gap-[0.5rem]">
+					<div className="flex gap-[0.2rem] text-green-100 items-center font-semibold">
+						<Icons.likes className="size-[1rem]" />{" "}
+						<span>{rating.likes}</span>
+					</div>
+					
+					<div className="flex items-center gap-[0.4rem] text-red-100 font-semibold">
+						<Icons.dislikes className="size-[1rem]" />{" "}
+						<span>{rating.dislikes}</span>
+					</div>
+				</div>
 			</ark.div>
 		);
 	}

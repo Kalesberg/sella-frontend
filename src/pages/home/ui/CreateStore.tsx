@@ -68,5 +68,5 @@ function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 				<span>{children}</span>
 			</p>
 		</div>
-	);
+	)
 }
