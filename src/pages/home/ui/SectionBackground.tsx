@@ -1,6 +1,6 @@
 export function Background() {
 	return (
-		<div className="absolute top-0 left-0 w-full h-full">
+		<div className="absolute top-0 left-0 w-full h-full bg-[#ffffff0f] ">
 			<div
 				className="absolute top-[-10rem] w-full h-[calc(100%+10rem)] opacity-50 rounded-[3rem]"
 				style={{

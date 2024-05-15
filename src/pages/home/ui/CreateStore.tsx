@@ -9,7 +9,7 @@ import { ActionControls } from "./ActionControls";
 
 export function CreateStore() {
 	return (
-		<div className="flex flex-col relative h-[56.25rem] overflow-hidden rounded-b-[3rem] px-[1rem] pt-[10.375rem]">
+		<div className="flex flex-col relative h-[56.25rem] overflow-hidden rounded-b-[3rem] px-[1rem] pt-[10.375rem] rounded-[3rem] m-5">
 			<Background />
 			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full">

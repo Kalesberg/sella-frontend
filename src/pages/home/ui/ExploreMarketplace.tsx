@@ -81,7 +81,7 @@ const storeData: Store[] = [
 
 export function ExploreMarketPlace() {
 	return (
-		<div className="py-32 bg-[#FFFFFF05]  ">
+		<div className="py-32">
 			<div className=" mx-auto space-y-24 flex flex-col flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto">
 				<div className="space-y-12">
 					<div className="space-y-4">
@@ -123,14 +123,12 @@ const StoreCardItem = ({ store }: { store: Store }) => {
 
 function SellaMeTrustedInfluencers() {
 	return (
-		<div className="bg-[#FFFFFF05] py-10 rounded-3xl text-center space-y-8">
+		<div className="py-14 rounded-3xl text-center space-y-8 bg-[#ffffff0d]">
 			<div className="text-5xl text-white font-semibold">
-				Sella.me trusted by 40M+
-				<div className="text-yellow-400">influencers</div>
+			No KYC, No Pesky Regulations
 			</div>
-			<div className="text-neutral-500 w-1/2 max-w-[33rem] mx-auto text-lg">
-				Join 40M+ people using Linktree for their link in bio. One link
-				to help you share everything you create.
+			<div className="text-black-60 w-1/2 max-w-[33rem] mx-auto text-lg">
+			Open your storefront in less than 30 seconds! Start by reserving your storefront handle
 			</div>
 			<div className="flex justify-center">
 				<ActionControls />

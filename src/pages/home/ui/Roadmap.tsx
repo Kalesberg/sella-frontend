@@ -126,16 +126,20 @@ export function Roadmap() {
 			<div className="space-y-4 w-full">
 				<h1 className="text-5xl text-white font-semibold">Roadmap</h1>
 
-				<div className="text-neutral-500 text-balance w-1/3">
-					Join 40M+ people using Linktree for their link in bio. One link to
-					help you share everything you create.
+				<div className="text-black-60 text-balance w-1/3">
+					Join 40M+ people using Linktree for their link in bio. One
+					link to help you share everything you create.
 				</div>
 			</div>
 
 			<div className="flex justify-between w-full">
 				{stagesList.map(({ title, content, stageItems }, index) => (
 					<div key={index} className="flex flex-col">
-						<Stage title={title} content={content} stageItems={stageItems} />
+						<Stage
+							title={title}
+							content={content}
+							stageItems={stageItems}
+						/>
 					</div>
 				))}
 			</div>
@@ -147,13 +151,19 @@ const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
 		<div className="bg-[#191919] border border-neutral-800 rounded-2xl p-4 space-y-6 w-[23rem]">
 			<div className="space-y-2">
-				<div className="text-yellow-400 font-semibold text-2xl">{title}</div>
-				
-				<div className="text-neutral-500">{content}</div>
+				<div className="text-accent-100 font-semibold text-2xl">
+					{title}
+				</div>
+
+				<div className="text-black-60">{content}</div>
 			</div>
 			<div className="space-y-2">
 				{stageItems.map(({ title, isCompleted }, index) => (
-					<StageItem key={index} title={title} isCompleted={isCompleted} />
+					<StageItem
+						key={index}
+						title={title}
+						isCompleted={isCompleted}
+					/>
 				))}
 			</div>
 		</div>
@@ -183,8 +193,9 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 					strokeLinejoin="round"
 				/>
 			</svg>
-			<span className="text-[#BDBDBD]">{title}</span>
-			
+			<span className={isCompleted ? "text-accent-100" : "text-black-60"}>
+				{title}
+			</span>
 		</div>
 	);
 };

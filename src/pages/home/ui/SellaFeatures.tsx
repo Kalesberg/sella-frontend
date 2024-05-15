@@ -41,7 +41,7 @@ const FeatureData: Feature[] = [
 
 export function SellaFeautes() {
 	return (
-		<div className="py-32 bg-[#FFFFFF05] ">
+		<div className="py-32">
 			<div className=" mx-auto space-y-12 flex flex-col flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20">
 				<div className="space-y-4">
 					<h1 className="text-5xl font-semibold text-white">
