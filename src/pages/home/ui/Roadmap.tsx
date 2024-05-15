@@ -122,7 +122,7 @@ const stagesList = [
 
 export function Roadmap() {
 	return (
-		<div className="max-w-screen-xl mx-auto flex flex-col  justify-center items-center gap-12 py-32">
+		<div className="mx-auto items-center py-32 flex flex-col flex-grow justify-between gap-[4rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20">
 			<div className="space-y-4 w-full">
 				<h1 className="text-5xl text-white font-semibold">Roadmap</h1>
 
@@ -145,7 +145,7 @@ export function Roadmap() {
 
 const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
-		<div className="bg-[#FFFFFF05] border border-neutral-800 rounded-2xl p-4 space-y-6 w-[23rem]">
+		<div className="bg-[#191919] border border-neutral-800 rounded-2xl p-4 space-y-6 w-[23rem]">
 			<div className="space-y-2">
 				<div className="text-yellow-400 font-semibold text-2xl">{title}</div>
 				
@@ -164,7 +164,7 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 	const strokeColor = isCompleted ? "#FFDD00" : "#BDBDBD";
 	return (
 		<div
-			className={`bg-white-02 border-neutral-800 border-[1px] rounded-xl p-3 flex items-center justify-start gap-4 text-${
+			className={`bg-white-02 border border-neutral-800 bg-[#1e1e1e] rounded-xl p-3 flex items-center justify-start gap-4 text-${
 				isCompleted ? "yellow-400" : "neutral-400"
 			}`}
 		>

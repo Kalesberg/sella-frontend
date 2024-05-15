@@ -45,11 +45,11 @@ export function EscrowBuyerSeller() {
 
 function EscrowFeatures() {
 	return (
-		<div className="flex flex-col gap-[1.8rem] max-w-[32rem] bg-[#FFFFFF05]">
+		<div className="flex flex-col gap-[1.8rem] max-w-[32rem] ">
 			<Feature label="As fair as it gets">
 				Unlike other platforms, sella.me prioritizes the security of all
-				parties involved. We don&apos;t take sides; our focus is on providing
-				a safe and fair environment for everyone
+				parties involved. We don&apos;t take sides; our focus is on
+				providing a safe and fair environment for everyone
 			</Feature>
 			<Feature label="Escrow-Protected Transactions">
 				Every transaction is safeguarded by established escrow
@@ -68,7 +68,7 @@ function EscrowFeatures() {
 function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 	return (
 		<div className="flex gap-[0.75rem] items-center min-w-0">
-			<Icons.CircleChecked className="text-accent-100 size-[2.1rem] flex-shrink-0" />
+			<Icons.Tick className="text-accent-100 size-[2.1rem] flex-shrink-0" />
 			<p className=" text-black-60 flex flex-col">
 				<span className="text-white font-semibold text-lg">
 					{label}

@@ -108,12 +108,12 @@ export namespace Component {
 
 				<div className="flex items-center gap-[0.5rem]">
 					<div className="flex gap-[0.2rem] text-green-100 items-center font-semibold">
-						<Icons.likes className="size-[1rem]" />{" "}
+						<Icons.Likes className="size-[1rem]" />{" "}
 						<span>{rating.likes}</span>
 					</div>
-					
+
 					<div className="flex items-center gap-[0.4rem] text-red-100 font-semibold">
-						<Icons.dislikes className="size-[1rem]" />{" "}
+						<Icons.Dislikes className="size-[1rem]" />{" "}
 						<span>{rating.dislikes}</span>
 					</div>
 				</div>

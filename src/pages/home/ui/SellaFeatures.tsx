@@ -5,13 +5,13 @@ import { FeatureCard } from "~/entities/feature";
 
 const FeatureData: Feature[] = [
 	{
-		title: "Feature Title 1",
-		description: "Feature Description 1",
+		title: "No KYC",
+		description: "Who likes it anyway? Connect your wallet, reserve your unique seller's handle, open your storefront & begin selling!",
 		imageUrl: "",
 	},
 	{
-		title: "Feature Title 2",
-		description: "Feature Description 2",
+		title: "Sell Anything",
+		description: "We believe in freedom of commerce, without restrictions. However, illegal or harmful items and services are not permitted!",
 		imageUrl: "",
 	},
 
@@ -42,7 +42,7 @@ const FeatureData: Feature[] = [
 export function SellaFeautes() {
 	return (
 		<div className="py-32 bg-[#FFFFFF05] ">
-			<div className="max-w-screen-xl mx-auto space-y-12">
+			<div className=" mx-auto space-y-12 flex flex-col flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20">
 				<div className="space-y-4">
 					<h1 className="text-5xl font-semibold text-white">
 						Effortless Selling
@@ -53,7 +53,7 @@ export function SellaFeautes() {
 						focusing instead on what truly matters.
 					</div>
 				</div>
-				<div className="flex gap-10 flex-wrap">
+				<div className="flex gap-10 flex-wrap justify-between ">
 					{FeatureData.map((feature, index) => (
 						<FeatureCardItem
 							key={index}

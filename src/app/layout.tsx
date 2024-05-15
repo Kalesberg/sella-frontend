@@ -6,6 +6,7 @@ import { cn } from "~/shared/lib/cn";
 import { fontInter } from "~/shared/assets/fonts/inter";
 import { fontManrope } from "~/shared/assets/fonts/manrope";
 import { NavHeader } from "~/widgets/nav-header";
+import { Footer } from "~/widgets/footer";
 
 const fontVariables = [fontInter.variable, fontManrope.variable];
 
@@ -24,6 +25,7 @@ export default function RootLayout({
 			<body className={cn(...fontVariables, 'bg-black-06 text-white font-inter')}>
 				<NavHeader className='sticky top-[1rem] w-[calc(100%-2rem)] mx-auto z-header' />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
