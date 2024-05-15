@@ -62,7 +62,7 @@ function CreateStoreFeatures() {
 function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 	return (
 		<div className="flex gap-[0.75rem] items-center min-w-0">
-			<Icons.CircleChecked className="text-accent-100 size-[2.1rem] flex-shrink-0" />
+			<Icons.Tick className="text-accent-100 size-[2.1rem] flex-shrink-0" />
 			<p className=" text-black-60 flex flex-col">
 				<span className="text-white font-semibold text-lg">{label}</span>{" "}
 				<span>{children}</span>
