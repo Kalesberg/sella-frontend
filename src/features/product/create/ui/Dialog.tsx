@@ -40,7 +40,7 @@ export function CreateDialog({ onActionFulfiled, cancelButton, storeId, ...props
 					<Dialog.ContentFooter>
 						{cancelButton ?? (
 							<Dialog.CloseTrigger asChild>
-								<Button className='w-full' colorPallete='gray'>
+								<Button className='w-full' colorPalette='gray'>
 									Close
 								</Button>
 							</Dialog.CloseTrigger>

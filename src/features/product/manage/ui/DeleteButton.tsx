@@ -9,7 +9,7 @@ interface DeleteButtonProps {
 export function DeleteButton({ onActionFulfiled }: DeleteButtonProps) {
 	return (
 		<Button
-			variant='subtle' colorPallete='red'
+			variant='subtle' colorPalette='red'
 			size='lg' onClick={onActionFulfiled}
 		>
 			Remove Product

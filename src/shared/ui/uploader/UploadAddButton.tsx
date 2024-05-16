@@ -42,7 +42,7 @@ export function UploadAddButton({ className, ...props }: ButtonProps) {
 
 	return (
 		<IconButton
-			colorPallete='gray' size='xl' {...props}
+			colorPalette='gray' size='xl' {...props}
 			className={cn('size-[5rem] rounded-[0.625rem] relative text-black-40 hover:text-white', className)}
 		>
 			<Icons.Add className='size-[1.125rem]' />

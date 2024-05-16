@@ -32,21 +32,21 @@ export default function Home() {
 				<Button variant='solid'>
 					Open Storefront
 				</Button>
-				<Button colorPallete='gray'>
+				<Button colorPalette='gray'>
 					Open Storefront
 				</Button>
 
 				<div className='flex flex-col gap-3'>
-					<Button variant='subtle' colorPallete='red'>
+					<Button variant='subtle' colorPalette='red'>
 						<Icons.ThumbDown /> Negative
 					</Button>
-					<Button variant='subtle' colorPallete='red' active>
+					<Button variant='subtle' colorPalette='red' active>
 						<Icons.ThumbDown /> Negative
 					</Button>
-					<Button variant='subtle' colorPallete='green'>
+					<Button variant='subtle' colorPalette='green'>
 						<Icons.ThumbUp /> Positive
 					</Button>
-					<Button variant='subtle' colorPallete='green' active>
+					<Button variant='subtle' colorPalette='green' active>
 						<Icons.ThumbUp /> Positive
 					</Button>
 				</div>
@@ -200,7 +200,7 @@ function RegisterDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Register
 			</Button>
 
@@ -216,7 +216,7 @@ function StoreCreateDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Create Store
 			</Button>
 
@@ -232,7 +232,7 @@ function StoreManageDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Manage Store
 			</Button>
 
@@ -250,7 +250,7 @@ function ProductCreateDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Create Product
 			</Button>
 
@@ -268,7 +268,7 @@ function ProductManageDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Manage Product
 			</Button>
 
@@ -286,14 +286,14 @@ function Setup2faDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Setup 2fa
 			</Button>
 
 			<AuthChannelsSetupTwoFaDialog
 				open={isOpen} onOpenChange={handleOpenChange}
 				cancelButton={
-					<Button className='w-full' colorPallete='gray'>
+					<Button className='w-full' colorPalette='gray'>
 						Setup Later
 					</Button>
 				}

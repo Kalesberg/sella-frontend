@@ -26,7 +26,7 @@ export function ConnectAccountDialog({ onConnectClick, ...props }: ConnectAccoun
 					<Dialog.ContentFooter>
 						<Button
 							className='w-full gap-[0.5rem]'
-							colorPallete='social' size='lg'
+							colorPalette='social' size='lg'
 							onClick={onConnectClick}
 						>
 							<Icons.Xtwitter /> Connect X

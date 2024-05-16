@@ -50,7 +50,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 				onActionFulfiled={openModalAction('2fa-success')}
 				cancelButton={
 					<Button
-						className='w-full' colorPallete='gray'
+						className='w-full' colorPalette='gray'
 						onClick={openModalAction('create-store')}
 					>
 						Setup Later
@@ -73,7 +73,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 				}}
 				cancelButton={
 					<Button
-						className='w-full' colorPallete='gray'
+						className='w-full' colorPalette='gray'
 						onClick={openModalAction('all-set')}
 					>
 						Skip
@@ -96,7 +96,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 					onActionFulfiled={openModalAction('all-set')}
 					cancelButton={
 						<Button
-							className='w-full' colorPallete='gray'
+							className='w-full' colorPalette='gray'
 							onClick={openModalAction('all-set')}
 						>
 							Skip

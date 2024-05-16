@@ -14,14 +14,14 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
 			{({ pages }) => (
 				<>
 					<ArkPagination.PrevTrigger className={prevTrigger()} asChild>
-						<IconButton colorPallete='gray' aria-label="Next Page">
+						<IconButton colorPalette='gray' aria-label="Next Page">
 							<ChevronLeftIcon />
 						</IconButton>
 					</ArkPagination.PrevTrigger>
 					{pages.map((page, index) =>
 						page.type === 'page' ? (
 							<ArkPagination.Item className={item()} key={index} {...page} asChild>
-								<Button colorPallete='gray'>
+								<Button colorPalette='gray'>
 									{String(page.value).padStart(2, '0')}
 								</Button>
 							</ArkPagination.Item>
@@ -32,7 +32,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
 						),
 					)}
 					<ArkPagination.NextTrigger className={nextTrigger()} asChild>
-						<IconButton colorPallete='gray' aria-label="Next Page">
+						<IconButton colorPalette='gray' aria-label="Next Page">
 							<ChevronRightIcon />
 						</IconButton>
 					</ArkPagination.NextTrigger>

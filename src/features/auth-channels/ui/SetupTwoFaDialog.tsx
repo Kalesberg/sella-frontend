@@ -60,7 +60,7 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 									<div className='flex flex-col gap-[2rem] w-full'>
 										<Button
 											className='w-full gap-[0.5rem]'
-											colorPallete='social' size='lg'
+											colorPalette='social' size='lg'
 										>
 											<Icons.Telegram /> Telegram
 										</Button>
@@ -79,7 +79,7 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 									<Dialog.ContentFooter>
 										{cancelButton ?? (
 											<Dialog.CloseTrigger asChild>
-												<Button className='w-full' colorPallete='gray'>
+												<Button className='w-full' colorPalette='gray'>
 													Cancel
 												</Button>
 											</Dialog.CloseTrigger>

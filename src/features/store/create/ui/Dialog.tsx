@@ -38,7 +38,7 @@ export function CreateDialog({ onActionFulfiled, cancelButton, ...props }: Creat
 					<Dialog.ContentFooter>
 						{cancelButton ?? (
 							<Dialog.CloseTrigger asChild>
-								<Button className='w-full' colorPallete='gray'>
+								<Button className='w-full' colorPalette='gray'>
 									Cancel
 								</Button>
 							</Dialog.CloseTrigger>
