@@ -1,30 +1,29 @@
 import Image from "next/image";
-import HeroImage from "../assets/hero.png";
+import ImageHero from "../assets/hero.png";
 import { ActionControls } from "./ActionControls";
 import { FeaturesList } from "./Features";
 import { Background } from "./SectionBackground";
+import { Heading } from "./Heading";
 
 export function Hero() {
 	return (
 		<div className="flex flex-col rounded relative overflow-hidden px-[1rem] pt-[5rem] bg-black">
 			<Background />
 
-			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto">
-				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full">
-					<h1 className="font-semibold text-[4.5rem] font-manrope leading-[1.1]">
+			<div className="flex flex-grow items-end justify-between gap-[1rem] relative w-full max-w-content m-auto">
+				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full pb-[7.25rem]">
+					<Heading className="text-[4.5rem]/[1.1]">
 						Open your web3 storefront in seconds
-					</h1>
+					</Heading>
 
 					<FeaturesList />
 					<ActionControls />
 				</div>
 
 				<Image
-					src={HeroImage}
+					src={ImageHero}
 					alt="Hero image"
-					className="w-[35rem]"
-					width={1000}
-					height={1000}
+					className="w-[35rem] h-full"
 				/>
 			</div>
 		</div>

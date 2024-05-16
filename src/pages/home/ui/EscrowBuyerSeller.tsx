@@ -1,20 +1,21 @@
 import Image from "next/image";
-import EscrowImage from "../assets/escrow.png";
+import ImageEscrow from "../assets/escrow.png";
 import { Button } from "~/shared/ui/kit/button";
 import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
+import { Heading } from "./Heading";
 
 export function EscrowBuyerSeller() {
 	return (
 		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[10.375rem] rounded-[3rem] m-[1.25rem]">
 			<Background />
-			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2+1.25rem*2)] m-auto pb-20 ">
-				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full ">
+			<div className="flex flex-grow justify-between gap-[1rem] relative w-full max-w-content m-auto pb-20 ">
+				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
-						<h1 className="font-semibold text-[3.2rem] font-manrope leading-[1.1]">
+						<Heading>
 							Escrow at the Core
-						</h1>
+						</Heading>
 
 						<p className="text-black-60">
 							Escrow refers to a neutral third party that holds
@@ -31,11 +32,9 @@ export function EscrowBuyerSeller() {
 				</div>
 
 				<Image
-					src={EscrowImage}
+					src={ImageEscrow}
 					alt="Escrow image"
-					className="w-[35rem]"
-					width={1000}
-					height={1000}
+					className="size-[43.75rem]"
 				/>
 			</div>
 		</div>
@@ -66,8 +65,8 @@ function EscrowFeatures() {
 
 function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 	return (
-		<div className="flex gap-[0.75rem] items-center min-w-0">
-			<Icons.Tick className="text-accent-100 size-[2.1rem] flex-shrink-0" />
+		<div className="flex gap-[1rem] items-start min-w-0">
+			<Icons.Tick className="text-accent-100 size-[3rem] flex-shrink-0" />
 			<p className=" text-black-60 flex flex-col">
 				<span className="text-white font-semibold text-lg">
 					{label}

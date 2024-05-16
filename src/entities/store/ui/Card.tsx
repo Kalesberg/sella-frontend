@@ -26,7 +26,7 @@ export function Root({ store, className, ...props }: RootProps) {
 			<ark.div
 				{...props}
 				className={cn(
-					'border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[1rem] items-center max-w-[35rem]',
+					'border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[2rem] items-center max-w-[35rem]',
 					className
 				)}
 			/>
@@ -59,7 +59,7 @@ export function Title({ className, ...props }: HTMLArkProps<'div'>) {
 		<ark.div className={cn('flex flex-col gap-[0.25rem]', className)} {...props}>
 			<div className='flex items-center gap-[0.5rem] font-semibold text-[1.5rem] font-manrope leading-[1.3]'>
 				<h1>{title}</h1>
-				{isVerified && <Icons.Verified className='text-accent-100 size-[1em]' />}
+				{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
 			</div>
 
 			<span className='font-semibold text-black-40'>
@@ -84,14 +84,14 @@ export function Rating({ className, ...props }: HTMLArkProps<"div">) {
 
 	return (
 		<ark.div
-			className={cn("flex items-center gap-[0.5rem]", className)}
+			className={cn("flex items-center gap-[0.75rem]", className)}
 			{...props}
 		>
 			<span className="text-black-60 font-semibold">
 				{rating.reviewsCount} Reviews
 			</span>
 
-			<div className="flex items-center gap-[0.5rem]">
+			<div className="flex items-center gap-[0.75rem]">
 				<div className="flex gap-[0.2rem] text-green-100 items-center font-semibold">
 					<Icons.Likes className="size-[1rem]" />{" "}
 					<span>{rating.likes}</span>

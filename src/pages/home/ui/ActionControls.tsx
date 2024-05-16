@@ -6,7 +6,6 @@ import { Input, InputGroup } from "~/shared/ui/kit/input";
 export function ActionControls() {
 	return (
 		<div className="flex gap-[1rem]">
-
 			<StoreInputAddon>
 				{({ Component: Addon, inputClassName }) => (
 					<InputGroup>
@@ -14,7 +13,7 @@ export function ActionControls() {
 							className={cn("rounded-[1.25rem] border border-secondary", inputClassName)}
 							placeholder="yourstorefront"
 						/>
-						<Addon />
+						<Addon className='text-white' />
 					</InputGroup>
 				)}
 			</StoreInputAddon>

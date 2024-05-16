@@ -1,3 +1,5 @@
+import { Heading } from "./Heading";
+
 interface StageItemProps {
 	title: string;
 	isCompleted: boolean;
@@ -119,13 +121,12 @@ const stagesList = [
 
 export function Roadmap() {
 	return (
-		<div className="mx-auto items-center py-32 flex flex-col flex-grow justify-between gap-[4rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20">
+		<div className="mx-auto items-center py-32 flex flex-col flex-grow justify-between gap-[4.5rem] relative w-full max-w-content m-auto pb-20">
 			<div className="space-y-4 w-full">
-				<h1 className="text-5xl text-white font-semibold">Roadmap</h1>
+				<Heading>Roadmap</Heading>
 
-				<div className="text-black-60 text-balance w-1/3">
-					Join 40M+ people using Linktree for their link in bio. One
-					link to help you share everything you create.
+				<div className="text-black-60 text-balance max-w-[28.75rem]">
+					Join us on our multi-stage journey to becoming the largest Web3 marketplace in the world!
 				</div>
 			</div>
 
@@ -171,9 +172,8 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 	const strokeColor = isCompleted ? "#FFDD00" : "#BDBDBD";
 	return (
 		<div
-			className={`bg-white/[.02] border border-secondary rounded-[1.125rem] p-3 flex items-center justify-start gap-[0.5rem] text-${
-				isCompleted ? "yellow-400" : "neutral-400"
-			}`}
+			className={`bg-white/[.02] border border-secondary rounded-[1.125rem] p-3 flex items-center justify-start gap-[0.5rem]\
+			 	text-${isCompleted ? "yellow-400" : "neutral-400"}`}
 		>
 			<svg
 				width="10"

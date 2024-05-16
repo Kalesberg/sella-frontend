@@ -8,6 +8,7 @@ import ImageStoreLink from '../assets/features/store-link.png';
 import ImageRevenueShare from '../assets/features/revenue-share.png';
 import ImageSecure from '../assets/features/secure.png';
 import ImageBuyerSellers from '../assets/features/for-buyers-sellers.png';
+import { Heading } from "./Heading";
 
 interface Feature {
 	title: string,
@@ -54,11 +55,11 @@ const features: Feature[] = [
 export function SellaFeautes() {
 	return (
 		<div className="py-32">
-			<div className=" mx-auto space-y-12 flex flex-col flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20">
-				<div className="space-y-4">
-					<h1 className="text-5xl font-semibold text-white">
+			<div className="flex flex-col flex-grow mx-auto justify-between gap-[3rem] relative w-full max-w-content m-auto pb-20">
+				<div className="flex flex-col gap-[1.5rem] w-full">
+					<Heading>
 						Effortless Selling
-					</h1>
+					</Heading>
 					<div className="text-black-60 text-balance w-1/2">
 						Unlike other platforms out there, we don&apos;t over
 						complicate things. We strip away unnecessary complexity,
@@ -85,21 +86,21 @@ interface FeatureCard extends HTMLAttributes<HTMLDivElement> {
 
 const FeatureCard = ({ feature, className, ...props }: FeatureCard) => {
 	return (
-		<div 
-			{...props} 
+		<div
+			{...props}
 			className={cn(
 				'flex flex-col bg-white/[.04] rounded-[1.25rem] p-[0.5rem] pb-[1rem] gap-[1rem] border border-secondary',
 				className
 			)}
 		>
-			<div 
-				className='flex justify-center w-full h-[16.25rem] border border-secondary rounded-[1rem]'
+			<div
+				className='flex justify-center w-full h-[15rem] border border-secondary rounded-[1rem]'
 				style={{ background: 'radial-gradient(81.4% 102.48% at 100% 0%, #FEC80528 0%, #FEC80505 100%), radial-gradient(61.72% 70.71% at 0% 100%, #DF272728 0%, #DF272705 100%)' }}
 			>
 				<Image
 					src={feature.image}
 					alt={`${feature.title} feature image`}
-					className='w-[min(100%,16.25rem)]'
+					className='w-[min(100%,15rem)]'
 				/>
 			</div>
 
