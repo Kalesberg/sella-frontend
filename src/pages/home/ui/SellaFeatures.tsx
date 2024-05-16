@@ -3,7 +3,7 @@
 import { Feature } from "~/shared/api/model";
 import { FeatureCard } from "~/entities/feature";
 
-const FeatureData: Feature[] = [
+const featuresMock: Feature[] = [
 	{
 		title: "No KYC",
 		description: "Who likes it anyway? Connect your wallet, reserve your unique seller's handle, open your storefront & begin selling!",
@@ -54,7 +54,7 @@ export function SellaFeautes() {
 					</div>
 				</div>
 				<div className="flex gap-10 flex-wrap justify-between ">
-					{FeatureData.map((feature, index) => (
+					{featuresMock.map((feature, index) => (
 						<FeatureCardItem
 							key={index}
 							feature={feature}

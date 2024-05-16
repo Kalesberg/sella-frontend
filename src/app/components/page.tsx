@@ -2,18 +2,25 @@
 
 import { Button } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
-import * as RadioGroup from "~/shared/ui/kit/radio-group";
 import { PinInput } from "~/shared/ui/kit/pin-input";
 import { VTextControl } from "~/shared/ui/validation-inputs";
 import { z } from "zod";
 import { Form } from "react-final-form";
 import { zodValidate } from "~/shared/lib/zod-final-form";
-import * as Dialog from '~/shared/ui/kit/dialog';
-import { DividerWithText } from "~/shared/ui/kit/divider";
 import { Product, Store } from "~/shared/api/model";
 import { StoreCard } from "~/entities/store";
 import { ProductCard } from "~/entities/product";
 import { Pagination } from "~/shared/ui/kit/pagination";
+import { Controls, DotLottiePlayer } from "@dotlottie/react-player";
+import { useDialogState } from "~/shared/lib/dialog";
+import { RegisterDialog } from "~/features/register";
+import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
+import { RegisterFlowDialog } from "~/widgets/register-flow";
+import { StoreCreateDialog } from "~/features/store/create";
+import { ProductCreateDialog } from "~/features/product/create";
+import { RadioGroup } from "~/shared/ui/kit";
+import { ProductManageDialog } from "~/features/product/manage";
+import { StoreManageDialog } from "~/features/store/manage";
 
 export default function Home() {
 	return (
@@ -44,9 +51,23 @@ export default function Home() {
 					</Button>
 				</div>
 
-				{Object.entries(Icons).map(([iconName, Icon]) => (
-					<Icon className='text-accent-100' key={iconName} />
-				))}
+				<div className='flex flex-col gap-4'>
+					<div className='flex gap-4'>
+						{Object.entries(Icons).map(([iconName, Icon]) => (
+							<Icon className='text-accent-100' key={iconName} />
+						))}
+					</div>
+
+					<div className='grid grid-cols-3 gap-4'>
+						<RegisterDialogTest />
+						<Setup2faDialogTest />
+						<StoreCreateDialogTest />
+						<StoreManageDialogTest />
+						<ProductCreateDialogTest />
+						<ProductManageDialogTest />
+						<RegisterFlowDialogTest />
+					</div>
+				</div>
 			</div>
 
 			<div className='flex gap-8'>
@@ -60,57 +81,6 @@ export default function Home() {
 				<div className='flex flex-col gap-3'>
 					<ValidationTest />
 
-					<Dialog.Root>
-						<Dialog.Trigger asChild>
-							<Button>Open Modal</Button>
-						</Dialog.Trigger>
-						<Dialog.Backdrop />
-						<Dialog.Positioner>
-							<Dialog.Content>
-								<Dialog.CloseButton />
-
-								<Dialog.ContentHeading>
-									<Dialog.Title>Set up 2FA</Dialog.Title>
-									<Dialog.Description>
-										What’s your preferred method for receiving Sella alerts? Select email, Telegram, or both –and you can always change this later.
-									</Dialog.Description>
-								</Dialog.ContentHeading>
-
-								<div className='flex flex-col w-full gap-[2rem]'>
-									<Button className='w-full gap-[0.5rem]' colorPallete='gray' size='lg'>
-										<Icons.Telegram /> Connect Telegram
-									</Button>
-
-									<DividerWithText>
-										Or
-									</DividerWithText>
-
-									<Form onSubmit={() => { }}>
-										{() => (
-											<div className='flex gap-4'>
-												<VTextControl
-													label='Email Address' type='email' name='email'
-													rootProps={{ className: 'w-full' }}
-												/>
-											</div>
-										)}
-									</Form>
-								</div>
-
-								<Dialog.ContentFooter>
-									<Dialog.CloseTrigger asChild>
-										<Button size='lg' colorPallete='gray'>
-											Cancel
-										</Button>
-									</Dialog.CloseTrigger>
-									<Button size='lg'>
-										Confirm
-									</Button>
-								</Dialog.ContentFooter>
-							</Dialog.Content>
-						</Dialog.Positioner>
-					</Dialog.Root>
-
 					<Pagination count={190} pageSize={10} siblingCount={1} defaultPage={1} />
 				</div>
 			</div>
@@ -118,6 +88,10 @@ export default function Home() {
 			<div className='flex gap-8 items-start'>
 				<StoreCardTest />
 				<ProductCardTest />
+
+				<DotLottiePlayer className='size-[15rem]' src='/lottie/chicken.lottie' autoplay>
+					<Controls />
+				</DotLottiePlayer>
 			</div>
 		</main>
 	);
@@ -149,15 +123,19 @@ const schema = z.object({
 function ValidationTest() {
 	return (
 		<Form
-			onSubmit={() => { }}
+			onSubmit={() => { return; }}
 			validate={zodValidate(schema)}
 		>
 			{() => (
 				<div className='flex gap-4'>
-					<VTextControl
-						label='Input' name='test'
-						description='Description'
-					/>
+					<VTextControl.Root name='test'>
+						<VTextControl.Label>Input</VTextControl.Label>
+						<VTextControl.Input />
+						<VTextControl.Description>
+							Description
+						</VTextControl.Description>
+						<VTextControl.ErrorText />
+					</VTextControl.Root>
 				</div>
 			)}
 		</Form>
@@ -165,11 +143,12 @@ function ValidationTest() {
 }
 
 const store: Store = {
-	title: 'Store Name',
-	name: '@storename',
+	id: 1,
+	name: 'Store Name',
+	shortName: '@storename',
 	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
 	isVerified: true,
-	imageUrl: null,
+	previewImage: null,
 	rating: {
 		likes: 10,
 		dislikes: 2,
@@ -192,14 +171,14 @@ function StoreCardTest() {
 }
 
 const product: Product = {
-	title: 'Product Name',
+	id: 2,
+	name: 'Product Name',
 	description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
-	imageUrl: null,
+	shortDescription: 'Market, Limit, Stop Limit, and Auction Mode orders.',
+	previewImage: null,
+	galleryImages: [],
 	category: 'Category',
-	price: {
-		value: 0.99,
-		currencyCode: 'usdt'
-	}
+	price: 2.99
 }
 
 function ProductCardTest() {
@@ -210,9 +189,132 @@ function ProductCardTest() {
 			<ProductCard.Content>
 				<ProductCard.Title />
 				<ProductCard.Description />
-				<ProductCard.Category />
 				<ProductCard.Price />
 			</ProductCard.Content>
 		</ProductCard.Root>
+	);
+}
+
+function RegisterDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Register
+			</Button>
+
+			<RegisterDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function StoreCreateDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Create Store
+			</Button>
+
+			<StoreCreateDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function StoreManageDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Manage Store
+			</Button>
+
+			<StoreManageDialog
+				store={store}
+				open={isOpen} 
+				onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function ProductCreateDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Create Product
+			</Button>
+
+			<ProductCreateDialog
+				storeId={1}
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function ProductManageDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Manage Product
+			</Button>
+
+			<ProductManageDialog
+				product={product}
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+			/>
+		</>
+	);
+}
+
+function Setup2faDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button colorPallete='gray' onClick={open}>
+				Setup 2fa
+			</Button>
+
+			<AuthChannelsSetupTwoFaDialog
+				open={isOpen} onOpenChange={handleOpenChange}
+				cancelButton={
+					<Button className='w-full' colorPallete='gray'>
+						Setup Later
+					</Button>
+				}
+			/>
+		</>
+	);
+}
+
+function RegisterFlowDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+
+	return (
+		<>
+			<Button onClick={open}>
+				Register Flow
+			</Button>
+
+			<RegisterFlowDialog
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+			/>
+		</>
 	);
 }

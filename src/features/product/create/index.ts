@@ -1,0 +1,1 @@
+export { CreateDialog as ProductCreateDialog } from './ui/Dialog';

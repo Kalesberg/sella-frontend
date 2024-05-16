@@ -6,11 +6,12 @@ import { StoreCard } from "~/entities/store";
 
 const storeData: Store[] = [
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 1,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
@@ -18,11 +19,12 @@ const storeData: Store[] = [
 		},
 	},
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 2,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
@@ -30,11 +32,12 @@ const storeData: Store[] = [
 		},
 	},
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 3,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
@@ -42,11 +45,12 @@ const storeData: Store[] = [
 		},
 	},
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 4,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
@@ -54,11 +58,12 @@ const storeData: Store[] = [
 		},
 	},
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 5,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
@@ -66,16 +71,17 @@ const storeData: Store[] = [
 		},
 	},
 	{
-		title: "Store Name",
-		name: "@storename",
+		id: 6,
+		name: "Store Name",
+		shortName: "@storename",
 		isVerified: true,
 		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		imageUrl: null,
+		previewImage: null,
 		rating: {
 			likes: 45,
 			dislikes: 16,
 			reviewsCount: 673,
-		},
+		}
 	},
 ];
 

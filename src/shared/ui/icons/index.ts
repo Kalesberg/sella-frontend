@@ -15,9 +15,13 @@ import CircleError from '../../assets/icons/circle-error.svg';
 import CircleChecked from '../../assets/icons/circle-checked.svg';
 import Verified from '../../assets/icons/verified.svg';
 import Tick from '../../assets/icons/tick.svg';
+import Add from '../../assets/icons/add.svg';
+import UploadCloud from '../../assets/icons/upload-cloud.svg';
+
 import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
 
 export const Icons = {
+	Add,
 	Check,
 	Close,
 	GitCommit,
@@ -35,5 +39,7 @@ export const Icons = {
 	CircleError,
 	CircleChecked,
 	Verified,
+	UploadCloud,
+	
 	CurrencyUsdt
 }

@@ -18,7 +18,7 @@ const styles = tv(
 			content: 'dialog__content bg-[#141414] border border-white/[.02] flex flex-col items-center',
 			contentHeading: 'flex flex-col items-center',
 			contentFooter: 'flex gap-[1rem] w-full [&>*]:w-full',
-			title: 'text-[2rem] font-semibold font-manrope',
+			title: 'text-[2rem] font-semibold font-manrope text-center',
 			description: 'text-black-40 text-center leading-[1.5]',
 			closeTrigger: 'dialog__closeTrigger',
 			closeButton: 'absolute text-black-40',
@@ -64,12 +64,12 @@ BaseCloseButton.displayName = 'Dialog.CloseButton';
 export const CloseButton = withContext(BaseCloseButton, 'closeButton');
 
 export type RootProps = ComponentProps<typeof Root>
-export interface BackdropProps extends ComponentProps<typeof Backdrop> { }
-export interface CloseTriggerProps extends ComponentProps<typeof CloseTrigger> { }
-export interface ContentProps extends ComponentProps<typeof Content> { }
-export interface DescriptionProps extends ComponentProps<typeof Description> { }
-export interface PositionerProps extends ComponentProps<typeof Positioner> { }
-export interface TitleProps extends ComponentProps<typeof Title> { }
-export interface TriggerProps extends ComponentProps<typeof Trigger> { }
-export interface ContentHeadingProps extends ComponentProps<typeof ContentHeading> { }
-export interface ContentFooterProps extends ComponentProps<typeof ContentFooter> { }
+export type BackdropProps = ComponentProps<typeof Backdrop>
+export type CloseTriggerProps = ComponentProps<typeof CloseTrigger>
+export type ContentProps = ComponentProps<typeof Content>
+export type DescriptionProps = ComponentProps<typeof Description>
+export type PositionerProps = ComponentProps<typeof Positioner>
+export type TitleProps = ComponentProps<typeof Title>
+export type TriggerProps = ComponentProps<typeof Trigger>
+export type ContentHeadingProps = ComponentProps<typeof ContentHeading>
+export type ContentFooterProps = ComponentProps<typeof ContentFooter>

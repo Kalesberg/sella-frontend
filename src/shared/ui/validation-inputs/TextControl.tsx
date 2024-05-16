@@ -1,58 +1,85 @@
-import { Input, InputProps } from "../kit/input";
-import { HTMLAttributes, useId } from "react";
-import { useField } from "react-final-form";
-import { cn } from "~/shared/lib/cn";
-import { Icons } from "../icons";
+'use client';
 
-interface TextControlProps extends Omit<InputProps, 'error'> {
-	name: string,
-	label?: string,
-	description?: string,
-	rootProps?: HTMLAttributes<HTMLDivElement>
+import { cn } from "~/shared/lib/cn";
+import { HTMLAttributes } from "react";
+import { useField } from "react-final-form";
+import { Input as BaseInput, InputProps } from "../kit/input";
+import { ValidationStatusIcon } from "./ValidationStatusIcon";
+import { ControlProvider, useControlContext, ControlProps } from "./ControlProvider";
+
+export function Root({ name, id, children, className, ...props }: HTMLAttributes<HTMLDivElement> & ControlProps) {
+	return (
+		<ControlProvider id={id} name={name}>
+			<div {...props} className={cn('flex flex-col gap-[0.5rem]', className)}>
+				{children}
+			</div>
+		</ControlProvider>
+	);
 }
 
-export function TextControl({ name, label, description, id, rootProps, ...props }: TextControlProps) {
-	const {
-		meta: fieldState,
-		input: { onChange, ...fieldProps }
-	} = useField(name);
+export type LabelProps = Omit<HTMLAttributes<HTMLLabelElement>, 'htmlFor'>;
 
-	const generatedId = useId();
-	const inputId = id ?? generatedId;
-
-	const error = fieldState.touched && fieldState.error;
-	const isValid = !!(fieldState.modified && fieldState.valid);
+export function Label({ children, ...props }: LabelProps) {
+	const { id } = useControlContext();
 
 	return (
-		<div {...rootProps} className={cn('flex flex-col gap-[0.5rem]', rootProps?.className)}>
-			{!!label && <label htmlFor={inputId}>{label}</label>}
-			<div className='relative'>
-				<Input
-					{...props}
-					{...fieldProps}
-					onChange={e => {
-						onChange(e);
-						props?.onChange?.(e);
-					}}
-					id={inputId}
-					error={!!error}
-					className={cn('w-full pe-[3rem]', props?.className)}
-				/>
-				<div className='absolute h-full right-0 top-0 px-[1rem] flex justify-center items-center'>
-					<Icons.CircleChecked
-						className={cn('text-green-100 opacity-0 transition-all', isValid && 'opacity-100')}
-					/>
-					<Icons.CircleError
-						className={cn('text-error-100 opacity-0 absolute transition-all', !!error && 'opacity-100')}
-					/>
-				</div>
-			</div>
-			{!!description && (
-				<span className='text-[#666666]'>{description}</span>
-			)}
-			{!!error && (
-				<span className='text-error-100'>{error}</span>
-			)}
+		<label htmlFor={id} {...props}>
+			{children}
+		</label>
+	);
+}
+
+export function LabelOrError({ children, className, ...props }: LabelProps) {
+	const { id, name } = useControlContext();
+	const { meta: fieldState } = useField(name);
+	const error = fieldState.touched && fieldState.error;
+	
+	return (
+		<label htmlFor={id} {...props} className={cn(!!error && 'text-error-100', className)}>
+			{error ? error : children}
+		</label>
+	);
+}
+
+export function ErrorText({ className, ...props }: Omit<HTMLAttributes<HTMLSpanElement>, 'children'>) {
+	const { name } = useControlContext();
+	const { meta: fieldState } = useField(name);
+	const error = fieldState.touched && fieldState.error;
+
+	return !!error && (
+		<span {...props} className={cn('text-error-100', className)}>
+			{error}
+		</span>
+	)
+}
+
+export function Description({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) {
+	return (
+		<span {...props} className={cn('text-[#666666]', className)}>
+			{children}
+		</span>
+	)
+}
+
+export function Input({ children, className, ...props }: Omit<InputProps, 'error' | 'id'>) {
+	const { id, name } = useControlContext();
+	const { meta: fieldState, input: { onChange, ...fieldProps } } = useField(name);
+	const error = fieldState.touched && fieldState.error;
+
+	return (
+		<div className='relative'>
+			{children}
+			<BaseInput
+				{...props}
+				{...fieldProps}
+				onChange={e => {
+					onChange(e);
+					props?.onChange?.(e);
+				}}
+				id={id} error={!!error}
+				className={cn('w-full pe-[3rem]', className)}
+			/>
+			<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0' />
 		</div>
 	);
 }
