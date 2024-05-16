@@ -39,7 +39,8 @@ export function EditForm({ onActionFulfiled, store, className, ...props }: EditF
 			isVerified: false,
 			previewImage: URL.createObjectURL(values.previewImage),
 			rating: {
-				value: 4.9,
+				likes: 0,
+				dislikes: 0,
 				reviewsCount: 575
 			}
 		}

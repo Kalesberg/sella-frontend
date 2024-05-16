@@ -1,6 +1,6 @@
 'use client';
 
-import { TextArea, TextAreaProps } from "../kit/input";
+import { InputGroup, TextArea, TextAreaProps } from "../kit/input";
 import { useField } from "react-final-form";
 import { cn } from "~/shared/lib/cn";
 import { ValidationStatusIcon } from "./ValidationStatusIcon";
@@ -17,7 +17,7 @@ export function Input({ children, className, ...props }: Omit<TextAreaProps, 'er
 	const error = fieldState.touched && fieldState.error;
 
 	return (
-		<div className='relative'>
+		<InputGroup>
 			{children}
 			<TextArea
 				{...props}
@@ -30,6 +30,6 @@ export function Input({ children, className, ...props }: Omit<TextAreaProps, 'er
 				className={cn('w-full pe-[3rem]', className)}
 			/>
 			<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0 items-start pt-[1rem]' />
-		</div>
+		</InputGroup>
 	);
 }

@@ -28,7 +28,7 @@ const config: Config = {
 				'red-100': '#F44336',
 
 				'green-100': '#60B04D',
-				
+
 				'error-100': '#E25728'
 			},
 			fontFamily: {
@@ -43,6 +43,9 @@ const config: Config = {
 				dropdown: '60',
 				dialog: '70',
 				drawer: '70'
+			},
+			maxWidth: {
+				'content': '72.5rem'
 			}
 		},
 	},

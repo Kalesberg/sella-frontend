@@ -1,7 +1,10 @@
-import { ComponentType, ReactNode } from "react";
+import { ComponentType, HTMLAttributes, ReactNode } from "react";
+import { cn } from "~/shared/lib/cn";
+
+type AddonProps = HTMLAttributes<HTMLSpanElement>
 
 interface InputAddonProps {
-	children: (args: { Component: ComponentType, inputClassName: string }) => ReactNode
+	children: (args: { Component: ComponentType<AddonProps>, inputClassName: string }) => ReactNode
 }
 
 export function InputAddon({ children }: InputAddonProps) {
@@ -11,9 +14,12 @@ export function InputAddon({ children }: InputAddonProps) {
 	});
 }
 
-function Addon() {
+function Addon({ className, ...props }: AddonProps) {
 	return (
-		<span className='flex items-center absolute top-0 h-full ps-[1rem] text-black-60 cursor-default'>
+		<span
+			{...props}
+			className={cn('flex items-center absolute top-0 h-full ps-[1rem] text-black-60 cursor-default', className)}
+		>
 			sella.me/
 		</span>
 	);
