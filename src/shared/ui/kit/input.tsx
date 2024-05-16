@@ -1,8 +1,9 @@
 import { ark, type HTMLArkProps } from '@ark-ui/react/factory'
 import { forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
+import { cn } from '~/shared/lib/cn'
 
-export interface InputProps extends InputVariantProps, Omit<HTMLArkProps<'input'>, 'size'> { 
+export interface InputProps extends InputVariantProps, Omit<HTMLArkProps<'input'>, 'size'> {
 	error?: boolean
 }
 
@@ -21,7 +22,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
 Input.displayName = 'Input'
 
-export interface TextAreaProps extends InputVariantProps, Omit<HTMLArkProps<'textarea'>, 'size'> { 
+export interface TextAreaProps extends InputVariantProps, Omit<HTMLArkProps<'textarea'>, 'size'> {
 	error?: boolean
 }
 
@@ -62,3 +63,9 @@ const styles = tv(
 	},
 	{ twMerge: true },
 )
+
+export function InputGroup({ className, ...props }: HTMLArkProps<'div'>) {
+	return (
+		<ark.div {...props} className={cn('relative', className)} />
+	);
+}

@@ -1,6 +1,3 @@
-import Image from "next/image";
-import stageIcon from "../assets/icons/stage.svg";
-
 interface StageItemProps {
 	title: string;
 	isCompleted: boolean;
@@ -149,7 +146,7 @@ export function Roadmap() {
 
 const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
-		<div className="bg-[#191919] border border-neutral-800 rounded-2xl p-4 space-y-6 w-[23rem]">
+		<div className="bg-white/[.04] border border-secondary rounded-[1.25rem] p-4 space-y-6 w-[22.5rem]">
 			<div className="space-y-2">
 				<div className="text-accent-100 font-semibold text-2xl">
 					{title}
@@ -157,7 +154,7 @@ const Stage = ({ title, content, stageItems }: StageProps) => {
 
 				<div className="text-black-60">{content}</div>
 			</div>
-			<div className="space-y-2">
+			<div className="space-y-[0.5rem]">
 				{stageItems.map(({ title, isCompleted }, index) => (
 					<StageItem
 						key={index}
@@ -174,7 +171,7 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 	const strokeColor = isCompleted ? "#FFDD00" : "#BDBDBD";
 	return (
 		<div
-			className={`bg-white-02 border border-neutral-800 bg-[#1e1e1e] rounded-xl p-3 flex items-center justify-start gap-4 text-${
+			className={`bg-white/[.02] border border-secondary rounded-[1.125rem] p-3 flex items-center justify-start gap-[0.5rem] text-${
 				isCompleted ? "yellow-400" : "neutral-400"
 			}`}
 		>
@@ -193,7 +190,7 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 					strokeLinejoin="round"
 				/>
 			</svg>
-			<span className={isCompleted ? "text-accent-100" : "text-black-60"}>
+			<span className={isCompleted ? "text-accent-100" : "text-black-74"}>
 				{title}
 			</span>
 		</div>

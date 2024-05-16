@@ -6,7 +6,7 @@ import { Background } from "./SectionBackground";
 
 export function Hero() {
 	return (
-		<div className="flex flex-col rounded relative h-[56.25rem] overflow-hidden px-[1rem] pt-[10.375rem] bg-black">
+		<div className="flex flex-col rounded relative overflow-hidden px-[1rem] pt-[5rem] bg-black">
 			<Background />
 
 			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto">

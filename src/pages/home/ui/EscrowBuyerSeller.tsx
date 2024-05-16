@@ -1,6 +1,5 @@
 import Image from "next/image";
 import EscrowImage from "../assets/escrow.png";
-import { FeaturesList } from "./Features";
 import { Button } from "~/shared/ui/kit/button";
 import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
@@ -8,9 +7,9 @@ import { PropsWithChildren } from "react";
 
 export function EscrowBuyerSeller() {
 	return (
-		<div className="flex flex-col relative h-[56.25rem] overflow-hidden rounded-b-[3rem] px-[1rem] pt-[10.375rem] rounded-[3rem] m-5 ">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[10.375rem] rounded-[3rem] m-[1.25rem]">
 			<Background />
-			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2)] m-auto pb-20 ">
+			<div className="flex flex-grow justify-between gap-[1rem] relative w-[calc(100%-8.75rem*2+1.25rem*2)] m-auto pb-20 ">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full ">
 					<div className="flex flex-col gap-[1.5rem]">
 						<h1 className="font-semibold text-[3.2rem] font-manrope leading-[1.1]">

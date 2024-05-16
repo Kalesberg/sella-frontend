@@ -12,7 +12,7 @@ export function Background() {
 				className="absolute top-[-10rem] w-full h-[calc(100%+10rem)] opacity-50 rounded-[3rem]"
 				style={{
 					background:
-						"radial-gradient(87.01% 70.71% at 100% 100%, rgb(254, 200, 5, 0.4) 0%, rgb(223, 39, 39, 0.1) 50%, transparent 100%)",
+						"radial-gradient(87.01% 70.71% at 100% 100%, rgb(254, 200, 5, 1.0) 0%, rgb(223, 39, 39, 0.3) 50%, transparent 100%)",
 				}}
 			/>
 		</div>

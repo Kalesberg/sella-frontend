@@ -1,41 +1,53 @@
-"use client";
+import { HTMLAttributes } from "react";
+import { cn } from "~/shared/lib/cn";
+import Image, { StaticImageData } from "next/image";
 
-import { Feature } from "~/shared/api/model";
-import { FeatureCard } from "~/entities/feature";
+import ImageNoKyc from '../assets/features/no-kyc.png';
+import ImageSellAnything from '../assets/features/sell-anything.png';
+import ImageStoreLink from '../assets/features/store-link.png';
+import ImageRevenueShare from '../assets/features/revenue-share.png';
+import ImageSecure from '../assets/features/secure.png';
+import ImageBuyerSellers from '../assets/features/for-buyers-sellers.png';
 
-const featuresMock: Feature[] = [
+interface Feature {
+	title: string,
+	description: string,
+	image: StaticImageData
+}
+
+const features: Feature[] = [
 	{
 		title: "No KYC",
 		description: "Who likes it anyway? Connect your wallet, reserve your unique seller's handle, open your storefront & begin selling!",
-		imageUrl: "",
+		image: ImageNoKyc,
 	},
 	{
 		title: "Sell Anything",
 		description: "We believe in freedom of commerce, without restrictions. However, illegal or harmful items and services are not permitted!",
-		imageUrl: "",
+		image: ImageSellAnything,
 	},
 
 	{
-		title: "Feature Title 3",
-		description: "Feature Description 3",
-		imageUrl: "",
+		title: "Memorable Store Link",
+		description: "Stand out with a unique, easy-to-remember storefront link. Pick something short and sweet while it’s early!",
+		image: ImageStoreLink,
 	},
 
 	{
-		title: "Feature Title 4",
-		description: "Feature Description 4",
-		imageUrl: "",
+		title: "Revenue share",
+		description: "Earn a portion of the platform fees & ads revenue by staking $SELLA.",
+		image: ImageRevenueShare,
 	},
 	{
-		title: "Feature Title 5",
-		description: "Feature Description 5",
-		imageUrl: "",
+		title: "Secure at its core",
+		description: "Escrow and Dispute System ensures fair transactions, protecting all parties from scams.",
+		image: ImageSecure,
 	},
 
 	{
-		title: "Feature Title 6",
-		description: "Feature Description 6",
-		imageUrl: "",
+		title: "For sellers & buyers",
+		description: "Our robust security and frictionless transactions benefit all parties involved.",
+		image: ImageBuyerSellers,
 	},
 ];
 
@@ -53,12 +65,12 @@ export function SellaFeautes() {
 						focusing instead on what truly matters.
 					</div>
 				</div>
-				<div className="flex gap-10 flex-wrap justify-between ">
-					{featuresMock.map((feature, index) => (
-						<FeatureCardItem
+				<div className="grid grid-cols-4 gap-[2.5rem]">
+					{features.map((feature, index) => (
+						<FeatureCard
 							key={index}
 							feature={feature}
-							index={index}
+							className={cn(index < 2 && 'col-span-2')}
 						/>
 					))}
 				</div>
@@ -67,27 +79,36 @@ export function SellaFeautes() {
 	);
 }
 
-const FeatureCardItem = ({
-	feature,
-	index,
-}: {
-	feature: Feature;
-	index: number;
-}) => {
-	const width = index < 2 ? "48%" : "22%";
-	const height = index < 2 ? "17rem" : "auto";
+interface FeatureCard extends HTMLAttributes<HTMLDivElement> {
+	feature: Feature
+}
 
+const FeatureCard = ({ feature, className, ...props }: FeatureCard) => {
 	return (
-		<FeatureCard.Root feature={feature} style={{ width: width }}>
-			<FeatureCard.Image
-				height={100}
-				width={100}
-				style={{ height: height }}
-			/>
-			<FeatureCard.Content className="w-full">
-				<FeatureCard.Title />
-				<FeatureCard.Description />
-			</FeatureCard.Content>
-		</FeatureCard.Root>
+		<div 
+			{...props} 
+			className={cn(
+				'flex flex-col bg-white/[.04] rounded-[1.25rem] p-[0.5rem] pb-[1rem] gap-[1rem] border border-secondary',
+				className
+			)}
+		>
+			<div 
+				className='flex justify-center w-full h-[16.25rem] border border-secondary rounded-[1rem]'
+				style={{ background: 'radial-gradient(81.4% 102.48% at 100% 0%, #FEC80528 0%, #FEC80505 100%), radial-gradient(61.72% 70.71% at 0% 100%, #DF272728 0%, #DF272705 100%)' }}
+			>
+				<Image
+					src={feature.image}
+					alt={`${feature.title} feature image`}
+					className='w-[min(100%,16.25rem)]'
+				/>
+			</div>
+
+			<div className='flex flex-col gap-[0.5rem] w-full px-[0.75rem]'>
+				<h3>{feature.title}</h3>
+				<p className='text-black-60'>
+					{feature.description}
+				</p>
+			</div>
+		</div>
 	);
 };

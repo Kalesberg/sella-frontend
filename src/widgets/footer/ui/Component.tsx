@@ -13,7 +13,7 @@ export function Component({
 			{...props}
 			className={cn(
 				"flex items-center justify-center gap-[1rem] p-[2.5rem] m-3 rounded-[1.25rem]",
-				"border border-secondary",
+				"border border-white/[.02]",
 				"backdrop-blur-[3rem]",
 				className
 			)}

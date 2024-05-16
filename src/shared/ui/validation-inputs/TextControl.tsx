@@ -3,7 +3,7 @@
 import { cn } from "~/shared/lib/cn";
 import { HTMLAttributes } from "react";
 import { useField } from "react-final-form";
-import { Input as BaseInput, InputProps } from "../kit/input";
+import { Input as BaseInput, InputGroup, InputProps } from "../kit/input";
 import { ValidationStatusIcon } from "./ValidationStatusIcon";
 import { ControlProvider, useControlContext, ControlProps } from "./ControlProvider";
 
@@ -67,7 +67,7 @@ export function Input({ children, className, ...props }: Omit<InputProps, 'error
 	const error = fieldState.touched && fieldState.error;
 
 	return (
-		<div className='relative'>
+		<InputGroup>
 			{children}
 			<BaseInput
 				{...props}
@@ -80,6 +80,6 @@ export function Input({ children, className, ...props }: Omit<InputProps, 'error
 				className={cn('w-full pe-[3rem]', className)}
 			/>
 			<ValidationStatusIcon name={name} className='absolute h-full right-2 top-0' />
-		</div>
+		</InputGroup>
 	);
 }

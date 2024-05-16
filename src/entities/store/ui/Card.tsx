@@ -1,3 +1,5 @@
+'use client';
+
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { StoreProp } from "./Prop";
 import { createContext, useContext } from "react";
