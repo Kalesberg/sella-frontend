@@ -98,16 +98,6 @@ export async function fetchStoreProducts(storeId: StoreId): Promise<Product[]> {
 			galleryImages: [],
 			category: 'Category',
 			price: 2.99
-		},
-		{
-			id: 9,
-			name: 'Product Name',
-			description: 'Market, Limit, Stop Limit, and Auction Mode orders.',
-			shortDescription: 'Market, Limit, Stop Limit, and Auction Mode orders.',
-			previewImage: null,
-			galleryImages: [],
-			category: 'Category',
-			price: 2.99
-		},
+		}
 	]
 }

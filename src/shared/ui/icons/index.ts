@@ -18,6 +18,8 @@ import Tick from '../../assets/icons/tick.svg';
 import Add from '../../assets/icons/add.svg';
 import UploadCloud from '../../assets/icons/upload-cloud.svg';
 import Settings from '../../assets/icons/settings.svg';
+import Building from '../../assets/icons/building.svg';
+import Package from '../../assets/icons/package.svg';
 
 import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
 
@@ -42,6 +44,8 @@ export const Icons = {
 	Verified,
 	UploadCloud,
 	Settings,
+	Building,
+	Package,
 	
 	CurrencyUsdt
 }

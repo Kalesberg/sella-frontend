@@ -2,7 +2,7 @@
 
 import { Store } from "~/shared/api/model";
 import { ActionControls } from "./ActionControls";
-import { StoreCard } from "~/entities/store";
+import { StoreCard, StoreLink } from "~/entities/store";
 import { Heading } from "./Heading";
 
 const storeData: Store[] = [
@@ -117,14 +117,16 @@ export function ExploreMarketPlace() {
 
 const StoreCardItem = ({ store }: { store: Store }) => {
 	return (
-		<StoreCard.Root store={store}>
-			<StoreCard.Image />
-			<StoreCard.Content>
-				<StoreCard.Title />
-				<StoreCard.Description />
-				<StoreCard.Rating />
-			</StoreCard.Content>
-		</StoreCard.Root>
+		<StoreLink store={store}>
+			<StoreCard.Root store={store}>
+				<StoreCard.Image />
+				<StoreCard.Content>
+					<StoreCard.Title />
+					<StoreCard.Description />
+					<StoreCard.Rating />
+				</StoreCard.Content>
+			</StoreCard.Root>
+		</StoreLink>
 	);
 };
 

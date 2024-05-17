@@ -2,8 +2,8 @@ import { HTMLAttributes } from "react";
 import { cn } from "~/shared/lib/cn"
 import { AppLogo } from "~/shared/ui/logo";
 import { NavItems } from "./NavItems";
-import { Button } from "~/shared/ui/kit/button";
 import Link from "next/link";
+import { RightNavBar } from "./RightNavBar";
 
 export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 	return (
@@ -12,7 +12,7 @@ export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement
 			className={cn(
 				'flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1.25rem] h-[4.38rem]',
 				'border border-secondary',
-				'backdrop-blur-[3rem]',
+				'backdrop-blur-[3rem] bg-black-08/[.80]',
 				className
 			)}
 		>
@@ -24,15 +24,7 @@ export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement
 				<NavItems />
 			</div>
 
-			<div className='flex items-center gap-[1rem]'>
-				<Button variant='outline'>
-					Buy $SELLA
-				</Button>
-				
-				<Button variant='solid'>
-					Open Storefront
-				</Button>
-			</div>
+			<RightNavBar />
 		</div>
 	);
 }

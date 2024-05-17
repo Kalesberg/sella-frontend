@@ -1,4 +1,4 @@
-import { PageDashboardStore } from "~/pages/dashboard-store";
+import { PageStore } from "~/pages/store";
 
 interface PageProps {
 	params: { storeId: string }
@@ -6,7 +6,7 @@ interface PageProps {
 
 export default function Page({ params }: PageProps) {
 	return (
-		<PageDashboardStore
+		<PageStore
 			storeId={Number(params.storeId)}
 		/>
 	);

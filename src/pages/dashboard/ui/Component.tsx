@@ -26,7 +26,7 @@ export async function Component() {
 			<div className='grid grid-cols-2 gap-[2.5rem]'>
 				{stores.map(s => (
 					<StoreLink store={s} key={s.id}>
-						<StoreCard.Root store={s} className='transition hover:bg-white/[.02]'>
+						<StoreCard.Root store={s}>
 							<StoreCard.Image />
 
 							<StoreCard.Content>
