@@ -12,8 +12,9 @@ export interface Store {
 	previewImage: ImageEntry | null,
 
 	rating: {
-		value: number,
-		reviewsCount: number
+		likes: number,
+		dislikes: number,
+		reviewsCount: number,
 	}
 }
 
@@ -29,10 +30,4 @@ export interface Product {
 	galleryImages: ImageEntry[],
 
 	price: number
-}
-
-export interface Feature {
-	title: string,
-	description: string,
-	imageUrl: string | null,
 }
