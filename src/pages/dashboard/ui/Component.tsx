@@ -1,8 +1,7 @@
 import { fetchMyStorefronts } from "../api";
 import { Button } from "~/shared/ui/kit/button";
-import { StoreCard } from "~/entities/store";
+import { StoreCard, StoreLink } from "~/entities/store";
 import { Heading } from "~/shared/ui/kit/heading";
-import Link from "next/link";
 import { StoreCreateDialog } from "~/features/store/create";
 
 export async function Component() {
@@ -26,7 +25,7 @@ export async function Component() {
 
 			<div className='grid grid-cols-2 gap-[2.5rem]'>
 				{stores.map(s => (
-					<Link key={s.id} href={`dashboard/store/${s.id}`}>
+					<StoreLink store={s} key={s.id}>
 						<StoreCard.Root store={s} className='transition hover:bg-white/[.02]'>
 							<StoreCard.Image />
 
@@ -36,7 +35,7 @@ export async function Component() {
 								<StoreCard.Rating />
 							</StoreCard.Content>
 						</StoreCard.Root>
-					</Link>
+					</StoreLink>
 				))}
 			</div>
 		</div>
