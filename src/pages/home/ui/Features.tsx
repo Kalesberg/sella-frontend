@@ -10,12 +10,8 @@ export function FeaturesList() {
 			<Feature label="Sell Anything">
 				Digital or Physical, Good or Service
 			</Feature>
-			<Feature label="No KYC">
-				Quick and easy
-			</Feature>
-			<Feature label="100% Free">
-				No hidden fees
-			</Feature>
+			<Feature label="No KYC">Quick and easy</Feature>
+			<Feature label="100% Free">No hidden fees</Feature>
 			<Feature label="Robust Escrow">
 				Buyer or seller, we got your back
 			</Feature>
@@ -30,8 +26,9 @@ function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 	return (
 		<div className="flex gap-[0.75rem] items-center min-w-0">
 			<Icons.CircleChecked className="text-accent-100 size-[1.25rem] flex-shrink-0" />
-			<p className="truncate text-black-60">
-				<span className="text-white">{label}</span> <span>— {children}</span>
+			<p className="md:truncate text-black-60 flex md:gap-1 flex-col md:flex-row">
+				<span className="text-white">{label}</span>{" "}
+				<span>- {children}</span>
 			</p>
 		</div>
 	);

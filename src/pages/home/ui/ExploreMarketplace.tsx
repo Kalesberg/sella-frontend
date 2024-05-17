@@ -82,26 +82,22 @@ const storeData: Store[] = [
 			likes: 45,
 			dislikes: 16,
 			reviewsCount: 673,
-		}
+		},
 	},
 ];
 
 export function ExploreMarketPlace() {
 	return (
-		<div className="py-32">
+		<div className="py-32 px-4">
 			<div className=" mx-auto space-y-24 flex flex-col flex-grow justify-between gap-[1rem] relative w-full max-w-content m-auto">
 				<div className="space-y-12">
 					<div className="space-y-4">
-						<Heading>
-							Explore marketplace
-						</Heading>
-						<div className="text-black-60 text-balance w-1/3">
-							Join 40M+ people using Linktree for their link in
-							bio. One link to help you share everything you
-							create.
+						<Heading>Explore marketplace</Heading>
+						<div className="text-black-60 text-balance w-full md:w-1/3">
+						Discover a diverse range of one-of-a-kind shops you won&apos;t find anywhere else. From digital items to physical goods and unique services!
 						</div>
 					</div>
-					<div className="grid grid-cols-2 gap-10">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 						{storeData.map((store, index) => (
 							<div key={index} className="w-full">
 								<StoreCardItem store={store} />
@@ -118,7 +114,7 @@ export function ExploreMarketPlace() {
 const StoreCardItem = ({ store }: { store: Store }) => {
 	return (
 		<StoreCard.Root store={store}>
-			<StoreCard.Image />
+			<StoreCard.Image/>
 			<StoreCard.Content>
 				<StoreCard.Title />
 				<StoreCard.Description />
@@ -135,7 +131,8 @@ function SellaMeTrustedInfluencers() {
 				No KYC, No Pesky Regulations
 			</div>
 			<div className="text-black-60 max-w-[33rem] mx-auto text-lg">
-				Open your storefront in less than 30 seconds! Start by reserving your storefront handle
+				Open your storefront in less than 30 seconds! Start by reserving
+				your storefront handle
 			</div>
 			<div className="flex justify-center mt-[2rem]">
 				<ActionControls />

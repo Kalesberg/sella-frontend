@@ -9,7 +9,7 @@ import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
 export function CreateStore() {
 	return (
-		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[10.375rem] rounded-[3rem] mx-[1.25rem]">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-6 md:pt-[10.375rem] rounded-[3rem] px-4 md:mx-[1.25rem]">
 			<Background />
 			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] flex-shrink-0">

@@ -8,7 +8,7 @@ import { Heading } from "./Heading";
 
 export function EscrowBuyerSeller() {
 	return (
-		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[10.375rem] rounded-[3rem] m-[1.25rem]">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[2rem] md:pt-[10.375rem] rounded-[3rem] px-4 md:m-[1.25rem]">
 			<Background />
 			<div className="flex flex-grow justify-between gap-[1rem] relative w-full max-w-content m-auto pb-20 ">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full flex-shrink-0">

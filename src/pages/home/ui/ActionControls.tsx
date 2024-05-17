@@ -5,7 +5,7 @@ import { Input, InputGroup } from "~/shared/ui/kit/input";
 
 export function ActionControls() {
 	return (
-		<div className="flex gap-[1rem]">
+		<div className="flex gap-[1rem] flex-wrap w-full">
 			<StoreInputAddon>
 				{({ Component: Addon, inputClassName }) => (
 					<InputGroup>
@@ -18,7 +18,7 @@ export function ActionControls() {
 				)}
 			</StoreInputAddon>
 
-			<Button size="lg">
+			<Button className="w-full md:w-auto" size="lg">
 				Open Storefront
 			</Button>
 		</div>

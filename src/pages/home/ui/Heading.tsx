@@ -5,7 +5,7 @@ export function Heading({ className, ...props }: HTMLArkProps<'h1'>) {
 	return (
 		<ark.h1
 			{...props}
-			className={cn('text-[3.375rem] text-white font-semibold font-manrope leading-[1.1]', className)}
+			className={cn('text-[2.5rem] md:text-[3.375rem] text-white font-semibold font-manrope leading-[1.1]', className)}
 		/>
 	);
 }

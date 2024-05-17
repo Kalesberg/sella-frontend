@@ -24,7 +24,7 @@ export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement
 				<NavItems />
 			</div>
 
-			<div className='flex items-center gap-[1rem]'>
+			<div className='hidden items-center gap-[1rem] md:flex'>
 				<Button variant='outline'>
 					Buy $SELLA
 				</Button>
