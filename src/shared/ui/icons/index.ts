@@ -17,6 +17,7 @@ import Verified from '../../assets/icons/verified.svg';
 import Tick from '../../assets/icons/tick.svg';
 import Add from '../../assets/icons/add.svg';
 import UploadCloud from '../../assets/icons/upload-cloud.svg';
+import Settings from '../../assets/icons/settings.svg';
 
 import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
 
@@ -40,6 +41,7 @@ export const Icons = {
 	CircleChecked,
 	Verified,
 	UploadCloud,
+	Settings,
 	
 	CurrencyUsdt
 }
