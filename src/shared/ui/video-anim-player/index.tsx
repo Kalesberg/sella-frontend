@@ -25,8 +25,8 @@ export function VideoAnimationPlayer({ src, srcHevc, children, ...props }: Video
 				className={cn('size-full', !videoLoaded && 'opacity-0 size-0')}
 				onTimeUpdate={() => setVideoLoaded(true)}
 			>
-				<source src={src} />
 				<source src={srcHevc} type='video/mp4; codecs="hvc1"' />
+				<source src={src} />
 			</video>
 			{!videoLoaded && children}
 		</div>
