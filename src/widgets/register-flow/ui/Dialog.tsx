@@ -35,7 +35,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 			<RegisterDialog
 				{...props}
 				open={isOpen('register')}
-				onActionFulfiled={openModalAction('register-success')}
+				onActionFulfilled={openModalAction('register-success')}
 			/>
 
 			<RegisterSuccessDialog
@@ -47,7 +47,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 			<AuthChannelsSetupTwoFaDialog
 				{...props}
 				open={isOpen('2fa')}
-				onActionFulfiled={openModalAction('2fa-success')}
+				onActionFulfilled={openModalAction('2fa-success')}
 				cancelButton={
 					<Button
 						className='w-full' colorPalette='gray'
@@ -67,7 +67,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 			<StoreCreateDialog
 				{...props}
 				open={isOpen('create-store')}
-				onActionFulfiled={store => {
+				onActionFulfilled={store => {
 					setCurrentModal('create-store-success');
 					setCreatedStore(store);
 				}}
@@ -93,7 +93,7 @@ export function FlowDialog(props: Dialog.RootProps) {
 					{...props}
 					storeId={createdStore.id}
 					open={isOpen('create-product')}
-					onActionFulfiled={openModalAction('all-set')}
+					onActionFulfilled={openModalAction('all-set')}
 					cancelButton={
 						<Button
 							className='w-full' colorPalette='gray'

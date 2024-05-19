@@ -8,11 +8,11 @@ import { Product, StoreId } from '~/shared/api/model';
 
 type CreateDialogProps = Dialog.RootProps & {
 	storeId: StoreId,
-	onActionFulfiled?: (product: Product) => void
+	onActionFulfilled?: (product: Product) => void
 	cancelButton?: ReactNode
 };
 
-export function CreateDialog({ onActionFulfiled, cancelButton, storeId, ...props }: CreateDialogProps) {
+export function CreateDialog({ onActionFulfilled, cancelButton, storeId, ...props }: CreateDialogProps) {
 	const formId = useId();
 
 	return (
@@ -34,7 +34,7 @@ export function CreateDialog({ onActionFulfiled, cancelButton, storeId, ...props
 					<CreateForm
 						className='gap-[1rem]'
 						id={formId} storeId={storeId}
-						onActionFulfiled={onActionFulfiled}
+						onActionFulfilled={onActionFulfilled}
 					/>
 
 					<Dialog.ContentFooter>

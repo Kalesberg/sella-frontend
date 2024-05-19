@@ -3,14 +3,14 @@ import { Button } from "~/shared/ui/kit/button";
 
 interface DeleteButtonProps {
 	storeId: StoreId,
-	onActionFulfiled?: () => void
+	onActionFulfilled?: () => void
 }
 
-export function DeleteButton({ onActionFulfiled }: DeleteButtonProps) {
+export function DeleteButton({ onActionFulfilled }: DeleteButtonProps) {
 	return (
 		<Button
 			variant='subtle' colorPalette='red'
-			size='lg' onClick={onActionFulfiled}
+			size='lg' onClick={onActionFulfilled}
 		>
 			Remove Storefront
 		</Button>

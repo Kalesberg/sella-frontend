@@ -7,11 +7,11 @@ import { Button } from '~/shared/ui/kit/button';
 import { Store } from '~/shared/api/model';
 
 type CreateDialogProps = Dialog.RootProps & {
-	onActionFulfiled?: (store: Store) => void
+	onActionFulfilled?: (store: Store) => void
 	cancelButton?: ReactNode
 };
 
-export function CreateDialog({ onActionFulfiled, cancelButton, ...props }: CreateDialogProps) {
+export function CreateDialog({ onActionFulfilled, cancelButton, ...props }: CreateDialogProps) {
 	const formId = useId();
 
 	return (
@@ -32,7 +32,7 @@ export function CreateDialog({ onActionFulfiled, cancelButton, ...props }: Creat
 
 					<CreateForm
 						id={formId}
-						onActionFulfiled={onActionFulfiled}
+						onActionFulfilled={onActionFulfilled}
 					/>
 
 					<Dialog.ContentFooter>

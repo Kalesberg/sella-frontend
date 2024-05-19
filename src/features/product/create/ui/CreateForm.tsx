@@ -28,11 +28,11 @@ export type SchemaType = z.infer<typeof schema>
 type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
 	storeId: StoreId,
-	onActionFulfiled?: (product: Product) => void;
+	onActionFulfilled?: (product: Product) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function CreateForm({ onActionFulfiled, storeId, className, ...props }: CreateFormProps) {
+export function CreateForm({ onActionFulfilled, storeId, className, ...props }: CreateFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Product = {
 			id: 1,
@@ -43,7 +43,7 @@ export function CreateForm({ onActionFulfiled, storeId, className, ...props }: C
 			category: 'Category'
 		}
 
-		onActionFulfiled?.(store);
+		onActionFulfilled?.(store);
 	};
 
 	return (

@@ -18,9 +18,10 @@ import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
 import { RegisterFlowDialog } from "~/widgets/register-flow";
 import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
-import { RadioGroup } from "~/shared/ui/kit";
+import { RadioGroup, ToggleGroup } from "~/shared/ui/kit";
 import { ProductManageDialog } from "~/features/product/manage";
 import { StoreManageDialog } from "~/features/store/manage";
+import {ReportShopDialog, ReportSuccessDialog} from "~/features/report-shop";
 
 export default function Home() {
 	return (
@@ -66,6 +67,7 @@ export default function Home() {
 						<ProductCreateDialogTest />
 						<ProductManageDialogTest />
 						<RegisterFlowDialogTest />
+						<ReportShopDialogTest />
 					</div>
 				</div>
 			</div>
@@ -85,6 +87,10 @@ export default function Home() {
 				</div>
 			</div>
 
+			<div className='flex gap-3'>
+				<ToggleGroupTest />
+			</div>
+
 			<div className='flex gap-8 items-start'>
 				<StoreCardTest />
 				<ProductCardTest />
@@ -95,6 +101,25 @@ export default function Home() {
 			</div>
 		</main>
 	);
+}
+
+function ToggleGroupTest(props: ToggleGroup.RootProps) {
+	const options = [
+		{ id: '1', label: 'Spam' },
+		{ id: '2', label: 'Nudity' },
+		{ id: '3', label: 'Scam' },
+		{ id: '4', label: 'Illegal' },
+	]
+
+	return (
+		<ToggleGroup.Root multiple {...props}>
+			{options.map(({ id, label }) => (
+				<ToggleGroup.Item key={id} value={id} aria-label={label}>
+					{label}
+				</ToggleGroup.Item>
+			))}
+		</ToggleGroup.Root>
+	)
 }
 
 function RadioGroupTest(props: RadioGroup.RootProps) {
@@ -238,7 +263,7 @@ function StoreManageDialogTest() {
 
 			<StoreManageDialog
 				store={store}
-				open={isOpen} 
+				open={isOpen}
 				onOpenChange={handleOpenChange}
 			/>
 		</>
@@ -315,6 +340,30 @@ function RegisterFlowDialogTest() {
 				open={isOpen}
 				onOpenChange={handleOpenChange}
 			/>
+		</>
+	);
+}
+
+function ReportShopDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+	const { isOpen: isOpenSucess, toggle: toggleSucess } = useDialogState();
+
+	return (
+		<>
+			<Button colorPalette='gray' onClick={open}>
+				Report Shop
+			</Button>
+
+			<ReportShopDialog
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+				onActionFulfilled={toggleSucess}
+			/>
+
+			<ReportSuccessDialog open={isOpenSucess} onContinue={() => {
+				toggleSucess()
+				handleOpenChange({ open: false })
+			}} />
 		</>
 	);
 }

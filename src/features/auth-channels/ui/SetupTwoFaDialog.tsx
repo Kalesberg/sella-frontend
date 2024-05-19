@@ -12,7 +12,7 @@ import { VTextControl } from '~/shared/ui/validation-inputs';
 import { VerifyEmailDialogContent } from './VerifyEmailDialog';
 
 type SetupTwoFaDialogProps = Dialog.RootProps & {
-	onActionFulfiled?: () => void,
+	onActionFulfilled?: () => void,
 	cancelButton?: ReactNode
 };
 
@@ -20,7 +20,7 @@ const schema = z.object({
 	email: z.string().email().optional()
 });
 
-export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: SetupTwoFaDialogProps) {
+export function SetupTwoFaDialog({ onActionFulfilled, cancelButton, ...props }: SetupTwoFaDialogProps) {
 	const [isVerifyEmailOpened, setIsVerifyEmailOpened] = useState(false);
 	const open = !!props?.open;
 
@@ -33,7 +33,7 @@ export function SetupTwoFaDialog({ onActionFulfiled, cancelButton, ...props }: S
 		<>
 			<VerifyEmailDialogContent
 				{...props} open={open && isVerifyEmailOpened}
-				onActionFulfiled={onActionFulfiled}
+				onActionFulfilled={onActionFulfilled}
 			/>
 
 			<Dialog.Root

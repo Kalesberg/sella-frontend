@@ -20,10 +20,10 @@ export type SchemaType = z.infer<typeof schema>
 
 type CreateFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
-	onActionFulfiled?: (store: Store) => void;
+	onActionFulfilled?: (store: Store) => void;
 };
 
-export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
+export function CreateForm({ onActionFulfilled, ...props }: CreateFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Store = {
 			id: 1,
@@ -37,7 +37,7 @@ export function CreateForm({ onActionFulfiled, ...props }: CreateFormProps) {
 			}
 		}
 
-		onActionFulfiled?.(store);
+		onActionFulfilled?.(store);
 	};
 
 	return (

@@ -37,13 +37,13 @@ export function ManageDialog({ product, ...props }: ManageDialogProps) {
 					<EditForm
 						className='gap-[2rem]'
 						id={formId} product={product}
-						onActionFulfiled={onProductEdit}
+						onActionFulfilled={onProductEdit}
 					/>
 
 					<Dialog.ContentFooter>
-						<DeleteButton 
+						<DeleteButton
 							productId={product.id}
-							onActionFulfiled={onProductDelete}
+							onActionFulfilled={onProductDelete}
 						/>
 
 						<Button form={formId} className='w-full' size='lg'>
