@@ -9,7 +9,7 @@ import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
 export function Hero() {
 	return (
-		<div className="flex flex-col rounded relative overflow-hidden px-[1rem] pt-[5rem] bg-black">
+		<div className="flex flex-col rounded relative overflow-hidden px-[1rem] bg-black">
 			<Background />
 
 			<div className="flex flex-grow items-end justify-between gap-[1rem] relative w-full max-w-content m-auto">

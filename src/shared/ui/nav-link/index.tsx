@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef, useCallback } from "react";
 import { cn } from "~/shared/lib/cn";
 
 interface LinkProps extends ComponentPropsWithoutRef<typeof NextLink> {
@@ -26,14 +26,32 @@ interface NavLinkProps extends LinkProps {
 	end?: boolean
 }
 
-export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(({ end = false, ...props }, ref) => {
-	const pathname = usePathname();
-	const href = props.href.toString();
-	const isActive = end ? pathname == href : pathname?.startsWith(href);
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(({ href, end = false, ...props }, ref) => {
+	const isMatch = usePathnameMatcher();
 
 	return (
-		<NavLink active={isActive} ref={ref} {...props}/>
+		<Link
+			href={href}
+			active={isMatch({ href, end })}
+			ref={ref} {...props}
+		/>
 	);
 });
 
 NavLink.displayName = 'NavLink';
+
+interface UsePathnameMatcherArgs {
+	href: LinkProps['href'],
+	end?: boolean
+}
+
+export function usePathnameMatcher() {
+	const pathname = usePathname();
+
+	return useCallback((args: UsePathnameMatcherArgs | string) => {
+		const { href: url, end = false } = (typeof args == 'string' ? { href: args } : args);
+		const href = url.toString();
+		
+		return end ? pathname == href : pathname?.startsWith(href);
+	}, [pathname]);
+}

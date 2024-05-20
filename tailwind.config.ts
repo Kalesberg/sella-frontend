@@ -23,6 +23,7 @@ const config: Config = {
 				'black-74': '#bdbdbd',
 				'black-60': '#999',
 				'black-40': '#666',
+				'black-08': '#141414',
 				'black-06': '#0F0F0F',
 
 				'red-100': '#F44336',

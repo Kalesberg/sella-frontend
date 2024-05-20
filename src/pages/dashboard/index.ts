@@ -1,0 +1,1 @@
+export { Component as PageDashboard } from './ui/Component';
