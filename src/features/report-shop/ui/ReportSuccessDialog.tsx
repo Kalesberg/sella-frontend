@@ -15,7 +15,7 @@ export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialo
 
 			<Dialog.Positioner>
 				<Dialog.Content className='w-[34.375rem]'>
-					<Dialog.CloseButton />
+					<Dialog.CloseButton onClick={onContinue} />
 
 					<Dialog.ContentHeading>
 						<Dialog.Title>Thank you for submitting a report</Dialog.Title>

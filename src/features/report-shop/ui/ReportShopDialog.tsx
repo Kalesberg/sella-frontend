@@ -11,7 +11,7 @@ import { Collapsible } from "~/shared/ui/kit";
 import { FormApi } from "final-form";
 import { ToggleGroupField } from './ToggleGroupField';
 
-type SetupTwoFaDialogProps = Dialog.RootProps & {
+type ReportShopDialogProps = Dialog.RootProps & {
 	onActionFulfilled?: () => void,
 	cancelButton?: ReactNode
 };
@@ -48,7 +48,7 @@ const schema = z.object({
 
 type SchemeType = z.infer<typeof schema>
 
-export function ReportShopDialog({ onActionFulfilled, cancelButton, ...props }: SetupTwoFaDialogProps) {
+export function ReportShopDialog({ onActionFulfilled, cancelButton, ...props }: ReportShopDialogProps) {
 	const open = !!props?.open;
 
 	const [isDescriptionShow, setIsDescriptionShow] = useState(false)
@@ -57,6 +57,7 @@ export function ReportShopDialog({ onActionFulfilled, cancelButton, ...props }: 
 	const onSubmit = (values: SchemeType, form: FormApi<SchemeType, typeof initialValues>) => {
 		form.reset()
 		onActionFulfilled?.()
+		props.onOpenChange?.({ open: false })
 	}
 
 	return (
