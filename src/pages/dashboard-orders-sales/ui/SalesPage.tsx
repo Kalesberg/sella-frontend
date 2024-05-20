@@ -15,7 +15,19 @@ export async function SalesPage() {
 					</span>
 				</Heading>
 
-				<NavSelect />
+				<div className='flex gap-[1.5rem] items-center'>
+					<p className='text-black-40'>
+						Total Orders: <span className='text-white'>
+							{response.totalOrders}
+						</span>
+					</p>
+					<p className='text-black-40 me-[1.5rem]'>
+						Total Sales: <span className='text-white'>
+							{response.totalSalesPaid} USDT
+						</span> 
+					</p>
+					<NavSelect />
+				</div>
 			</div>
 
 			<SalesTable initialData={response} />
