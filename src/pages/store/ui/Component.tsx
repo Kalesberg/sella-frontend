@@ -29,7 +29,7 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 						<StoreManageDialog
 							store={store}
 							triggerElement={
-								<Button colorPallete='gray' size='lg'>
+								<Button colorPalette='gray' size='lg'>
 									Settings
 								</Button>
 							}

@@ -8,10 +8,11 @@ import { Store } from '~/shared/api/model';
 
 type CreateDialogProps = Dialog.RootProps & {
 	onActionFulfilled?: (store: Store) => void
-	cancelButton?: ReactNode
+	cancelButton?: ReactNode,
+	triggerElement?: ReactNode
 };
 
-export function CreateDialog({ onActionFulfilled, cancelButton, ...props }: CreateDialogProps) {
+export function CreateDialog({ onActionFulfilled, cancelButton, triggerElement, ...props }: CreateDialogProps) {
 	const formId = useId();
 
 	return (

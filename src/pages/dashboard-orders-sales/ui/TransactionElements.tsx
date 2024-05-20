@@ -6,7 +6,7 @@ import { Icons } from "~/shared/ui/icons";
 export function TransactionStatusBadge({ status }: { status: Transaction['status']; }) {
 	switch (status) {
 		case 'new':
-			return <Badge colorPallete='accent'>New</Badge>;
+			return <Badge colorPalette='accent'>New</Badge>;
 		default:
 			return (
 				<Badge className='capitalize'>
@@ -22,7 +22,7 @@ export function TransactionActionButton({ transaction }: { transaction: Transact
 
 	return (
 		<a href={transaction.transactionUrl} target='_blank'>
-			<IconButton colorPallete='gray' size='sm'>
+			<IconButton colorPalette='gray' size='sm'>
 				<Icons.Package />
 			</IconButton>
 		</a>

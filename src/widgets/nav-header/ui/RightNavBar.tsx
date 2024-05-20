@@ -32,7 +32,7 @@ export function UserNavBar() {
 
 			<IconButton
 				className='text-accent-100'
-				colorPallete='gray' size='sm'
+				colorPalette='gray' size='sm'
 			>
 				<Icons.Settings />
 			</IconButton>
@@ -66,7 +66,7 @@ function NavIconButton({ href, end, activeOnHrefs, ...props }: NavIconButtonProp
 		<Link href={href}>
 			<IconButton
 				className='text-accent-100'
-				colorPallete='gray' size='sm'
+				colorPalette='gray' size='sm'
 				{...props}
 				active={active}
 			/>

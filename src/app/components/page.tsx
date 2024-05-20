@@ -386,7 +386,7 @@ const SelectTest = () => {
 			<Select.Label>Framework</Select.Label>
 			<Select.Control>
 				<Select.Trigger asChild>
-					<Button colorPallete='gray'>
+					<Button colorPalette='gray'>
 						<Select.ValueText />
 						<Icons.ChevronDown />
 					</Button>

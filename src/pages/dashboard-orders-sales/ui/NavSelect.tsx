@@ -21,7 +21,7 @@ export function NavSelect() {
 		>
 			<Select.Control>
 				<Select.Trigger asChild>
-					<Button colorPallete='gray'>
+					<Button colorPalette='gray'>
 						<Select.ValueText />
 
 						<Icons.ChevronDown />
