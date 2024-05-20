@@ -22,7 +22,7 @@ export function PreviewImage({ src, className, ...props }: PreviewImageProps) {
 				/>
 			) : (
 				<Icons.Image
-					style={{ width: '40%', height: '40%' }}
+					className='size-[max(1rem,40%)] flex-shrink-0'
 				/>
 			)}
 		</div>

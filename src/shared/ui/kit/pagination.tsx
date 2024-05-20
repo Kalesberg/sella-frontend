@@ -1,3 +1,5 @@
+'use client';
+
 import { Pagination as ArkPagination, type PaginationRootProps } from '@ark-ui/react/pagination'
 import { forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'

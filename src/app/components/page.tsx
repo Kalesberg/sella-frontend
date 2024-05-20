@@ -18,7 +18,7 @@ import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
 import { RegisterFlowDialog } from "~/widgets/register-flow";
 import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
-import { RadioGroup, ToggleGroup } from "~/shared/ui/kit";
+import { RadioGroup, ToggleGroup, Select } from "~/shared/ui/kit";
 import { ProductManageDialog } from "~/features/product/manage";
 import { StoreManageDialog } from "~/features/store/manage";
 import {ReportShopDialog, ReportSuccessDialog} from "~/features/report-shop";
@@ -81,7 +81,10 @@ export default function Home() {
 				</div>
 
 				<div className='flex flex-col gap-3'>
-					<ValidationTest />
+					<div className='flex gap-4'>
+						<ValidationTest />
+						<SelectTest />
+					</div>
 
 					<Pagination count={190} pageSize={10} siblingCount={1} defaultPage={1} />
 				</div>
@@ -344,6 +347,7 @@ function RegisterFlowDialogTest() {
 	);
 }
 
+
 function ReportShopDialogTest() {
 	const { isOpen, open, handleOpenChange } = useDialogState();
 	const { isOpen: isOpenSucess, toggle: toggleSucess } = useDialogState();
@@ -366,4 +370,39 @@ function ReportShopDialogTest() {
 			}} />
 		</>
 	);
+}
+
+const SelectTest = () => {
+	const items = [
+		{ label: 'My Sales', value: 'sales' },
+		{ label: 'My Orders', value: 'orders' },
+	]
+
+	return (
+		<Select.Root
+			items={items}
+			defaultValue={['sales']}
+		>
+			<Select.Label>Framework</Select.Label>
+			<Select.Control>
+				<Select.Trigger asChild>
+					<Button colorPallete='gray'>
+						<Select.ValueText />
+						<Icons.ChevronDown />
+					</Button>
+				</Select.Trigger>
+			</Select.Control>
+			<Select.Positioner>
+				<Select.Content>
+					<Select.ItemGroup id='options'>
+						{items.map((item) => (
+							<Select.Item key={item.value} item={item}>
+								<Select.ItemText>{item.label}</Select.ItemText>
+							</Select.Item>
+						))}
+					</Select.ItemGroup>
+				</Select.Content>
+			</Select.Positioner>
+		</Select.Root>
+	)
 }

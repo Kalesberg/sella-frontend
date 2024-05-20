@@ -1,3 +1,4 @@
+import { Dayjs } from "dayjs";
 
 type ImageEntry = string // url for now, but could be an object with different variants of resoultion or quality
 
@@ -30,4 +31,33 @@ export interface Product {
 	galleryImages: ImageEntry[],
 
 	price: number
+}
+
+export type TransactionStatus = 'new' | 'paid'
+export type TransactionFulfillmentStatus = 'new' | 'paid'
+
+export interface Transaction {
+	status: 'new' | 'paid',
+	fulfillmentStatus: 'fulfilled' | '-',
+	totalPaid: number,
+	transactionUrl: string,
+	createdAt: Dayjs
+}
+
+export type OrderId = number;
+
+export interface Order {
+	id: OrderId
+	product: Product,
+	store: Store,
+	transaction: Transaction
+}
+
+export type SaleId = number;
+
+export interface Sale {
+	id: SaleId
+	product: Product,
+	user: { name: string },
+	transaction: Transaction
 }

@@ -24,7 +24,9 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={cn(...fontVariables, 'bg-black-06 text-white font-inter')}>
 				<NavHeader className='sticky top-[1rem] w-[calc(100%-2rem)] mx-auto z-header' />
-				{children}
+				<div className='w-full min-h-full pt-[5rem] pb-[7.5rem]'>
+					{children}
+				</div>
 				<Footer />
 			</body>
 		</html>

@@ -2,16 +2,17 @@
 
 import { Dialog } from '~/shared/ui/kit';
 import { EditForm } from './EditForm';
-import { useId } from 'react';
+import { ReactNode, useId } from 'react';
 import { Button } from '~/shared/ui/kit/button';
 import { Product } from '~/shared/api/model';
 import { DeleteButton } from './DeleteButton';
 
 type ManageDialogProps = Dialog.RootProps & {
-	product: Product
+	product: Product,
+	triggerElement?: ReactNode
 };
 
-export function ManageDialog({ product, ...props }: ManageDialogProps) {
+export function ManageDialog({ product, triggerElement, ...props }: ManageDialogProps) {
 	const formId = useId();
 
 	const onProductEdit = () => {
@@ -24,6 +25,12 @@ export function ManageDialog({ product, ...props }: ManageDialogProps) {
 
 	return (
 		<Dialog.Root {...props}>
+			{triggerElement && (
+				<Dialog.Trigger asChild>
+					{triggerElement}
+				</Dialog.Trigger>
+			)}
+
 			<Dialog.Backdrop />
 
 			<Dialog.Positioner>

@@ -16,6 +16,12 @@ export function CreateDialog({ onActionFulfilled, cancelButton, ...props }: Crea
 
 	return (
 		<Dialog.Root {...props}>
+			{triggerElement && (
+				<Dialog.Trigger asChild>
+					{triggerElement}
+				</Dialog.Trigger>
+			)}
+
 			<Dialog.Backdrop />
 
 			<Dialog.Positioner>
