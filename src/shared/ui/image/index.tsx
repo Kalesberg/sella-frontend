@@ -11,8 +11,11 @@ export interface PreviewImageProps extends Omit<NextImageProps, 'src'> {
 
 export function PreviewImage({ src, className, ...props }: PreviewImageProps) {
 	return (
-		<div className={cn('flex items-center justify-center size-[11.25rem] rounded-[1rem]\
-			border border-secondary bg-white/[.02] p-[1rem] text-white/[.08]', className)}
+		<div className={cn(
+			'flex items-center justify-center size-[11.25rem] rounded-[1rem]',
+			'border border-secondary bg-white/[.02] p-[1rem] text-white/[.08]',
+			className
+		)}
 		>
 			{src ? (
 				<NextImage
@@ -22,7 +25,7 @@ export function PreviewImage({ src, className, ...props }: PreviewImageProps) {
 				/>
 			) : (
 				<Icons.Image
-					style={{ width: '40%', height: '40%' }}
+					className='size-[max(1.5rem,40%)] flex-shrink-0'
 				/>
 			)}
 		</div>

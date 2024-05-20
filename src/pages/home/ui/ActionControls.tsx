@@ -1,11 +1,12 @@
+import { HTMLAttributes } from "react";
 import { StoreInputAddon } from "~/entities/store";
 import { cn } from "~/shared/lib/cn";
 import { Button } from "~/shared/ui/kit/button";
 import { Input, InputGroup } from "~/shared/ui/kit/input";
 
-export function ActionControls() {
+export function ActionControls({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 	return (
-		<div className="flex gap-[1rem] flex-wrap w-full">
+		<div {...props} className={cn("flex gap-[1rem] flex-wrap", className)}>
 			<StoreInputAddon>
 				{({ Component: Addon, inputClassName }) => (
 					<InputGroup>

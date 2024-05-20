@@ -100,14 +100,18 @@ export function ExploreMarketPlace() {
 						</div>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-						{storeData.map((store, index) => (
-							<div key={index} className="w-full">
-								{window.innerWidth <= 768 ? (
-									<StoreCardItemPhone store={store} />
-								) : (
-									<StoreCardItem store={store} />
-								)}
-							</div>
+						{storeData.map(store => (
+							<StoreCard.Root
+								className='w-full'
+								key={store.id} store={store}
+							>
+								<StoreCard.ImageDesktop />
+								<StoreCard.Content>
+									<StoreCard.Title />
+									<StoreCard.Description />
+									<StoreCard.Rating />
+								</StoreCard.Content>
+							</StoreCard.Root>
 						))}
 					</div>
 				</div>
@@ -116,36 +120,6 @@ export function ExploreMarketPlace() {
 		</div>
 	);
 }
-
-const StoreCardItem = ({ store }: { store: Store }) => {
-	return (
-		<StoreCard.Root store={store}>
-			<StoreCard.Image />
-			<StoreCard.Content>
-				<StoreCard.Title />
-				<StoreCard.Description />
-				<StoreCard.Rating />
-			</StoreCard.Content>
-		</StoreCard.Root>
-	);
-};
-
-const StoreCardItemPhone = ({ store }: { store: Store }) => {
-	return (
-		<StoreCard.Root className="flex flex-col" store={store}>
-			<div className="flex gap-4">
-				<StoreCard.Image className="w-12 h-12" />
-				<StoreCard.Title />
-			</div>
-			<div>
-				<StoreCard.Content>
-					<StoreCard.Description />
-					<StoreCard.Rating />
-				</StoreCard.Content>
-			</div>
-		</StoreCard.Root>
-	);
-};
 
 function SellaMeTrustedInfluencers() {
 	return (
@@ -157,9 +131,7 @@ function SellaMeTrustedInfluencers() {
 				Open your storefront in less than 30 seconds! Start by reserving
 				your storefront handle
 			</div>
-			<div className="flex justify-center mt-[2rem]">
-				<ActionControls />
-			</div>
+			<ActionControls className='justify-center mt-[2rem] w-full' />
 		</div>
 	);
 }

@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
+
 'use client';
 
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { StoreProp } from "./Prop";
-import { createContext, useContext } from "react";
+import { ComponentProps, createContext, useContext } from "react";
 import { Store } from "~/shared/api/model";
 import { cn } from "~/shared/lib/cn";
 import { invariant } from "~/shared/lib/asserts";
@@ -46,6 +48,15 @@ export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | '
 	);
 }
 
+export function ImageDesktop({ className, ...props }: ComponentProps<typeof Image>) {
+	return (
+		<Image
+			{...props}
+			className={cn('max-md:hidden', className)}
+		/>
+	);
+}
+
 export function Content({ className, ...props }: HTMLArkProps<'div'>) {
 	return (
 		<ark.div className={cn('flex flex-col gap-[1rem]', className)} {...props} />
@@ -56,15 +67,19 @@ export function Title({ className, ...props }: HTMLArkProps<'div'>) {
 	const { name: title, shortName: name, isVerified } = useComponentContext();
 
 	return (
-		<ark.div className={cn('flex flex-col gap-[0.1rem] md:gap-[0.25rem]', className)} {...props}>
-			<div className='flex items-center gap-[0.5rem] font-semibold text-[1.1rem] md:text-[1.5rem] font-manrope leading-[1.3]'>
-				<h1>{title}</h1>
-				{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
-			</div>
+		<ark.div className={cn('flex gap-[1rem]', className)} {...props}>
+			<Image className='size-[3rem] md:hidden' />
 
-			<span className='font-semibold text-black-40'>
-				{name}
-			</span>
+			<div className='flex flex-col gap-[0.25rem] w-full'>
+				<div className='flex items-center gap-[0.5rem] font-semibold text-[1.1rem] md:text-[1.5rem] font-manrope leading-[1.3]'>
+					<h1>{title}</h1>
+					{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
+				</div>
+
+				<span className='font-semibold text-black-40'>
+					{name}
+				</span>
+			</div>
 		</ark.div>
 	);
 }

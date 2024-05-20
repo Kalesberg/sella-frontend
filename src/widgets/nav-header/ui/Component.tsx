@@ -3,9 +3,10 @@ import { HTMLAttributes, useState } from "react";
 import { cn } from "~/shared/lib/cn";
 import { AppLogo } from "~/shared/ui/logo";
 import { NavItems } from "./NavItems";
-import { Button } from "~/shared/ui/kit/button";
+import { Button, IconButton } from "~/shared/ui/kit/button";
 import Link from "next/link";
 import { PhoneNavItems } from "./PhoneNavItems";
+import { Icons } from "~/shared/ui/icons";
 
 export function Component({
 	className,
@@ -23,7 +24,7 @@ export function Component({
 				{...props}
 				className={cn(
 					"flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1.25rem] h-[4.38rem]",
-					"border border-secondary",
+					"border border-secondary", showPhoneNavbar && "border-transparent",
 					"backdrop-blur-[3rem]",
 					className
 				)}
@@ -32,13 +33,19 @@ export function Component({
 					<Link href="/">
 						<AppLogo />
 					</Link>
-					<Button
-						className="md:hidden"
-						variant="subtle"
+					<IconButton
+						colorPallete='gray'
+						variant="outline" size='sm'
+						className="md:hidden [&_svg]:size-[1.5rem]"
 						onClick={togglePhoneNavbar}
 					>
-						<HamBurgerMenu active={showPhoneNavbar} />
-					</Button>
+						{/* <HamBurgerMenu active={showPhoneNavbar} /> */}
+						{showPhoneNavbar ? (
+							<Icons.Close />
+						) : (
+							<Icons.Menu />
+						)}
+					</IconButton>
 					<NavItems />
 				</div>
 
@@ -54,63 +61,16 @@ export function Component({
 	);
 }
 
-interface HamBurgerMenuProps {
-	active: boolean;
-}
-
-function HamBurgerMenu({ active }: HamBurgerMenuProps) {
-	const commonProps = {
-		width: "38",
-		height: "38",
-		viewBox: "0 0 38 38",
-		fill: "none",
-		xmlns: "http://www.w3.org/2000/svg",
-	};
-
-	const lines = active ? (
-		<path
-			d="M25 13L13 25M13 13L25 25"
-			stroke="white"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-	) : (
-		<path
-			d="M10 19H28M10 13H28M10 25H22"
-			stroke="white"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-	);
-
-	return (
-		<svg {...commonProps}>
-			<rect
-				x="0.5"
-				y="0.5"
-				width="37"
-				height="37"
-				rx="11.5"
-				stroke="white"
-				strokeOpacity="0.08"
-			/>
-			{lines}
-		</svg>
-	);
-}
-
 interface PhoneNavbarContentProps {
 	setShowPhoneNavbar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function PhoneNavbarContent({ setShowPhoneNavbar }: PhoneNavbarContentProps) {
 	return (
-		<div className="backdrop-blur-[3rem] flex flex-col p-4 justify-between h-screen pt-36 fixed top-0 z-[10] w-full">
+		<div className="backdrop-blur-[3rem] bg-black-06/50 flex flex-col p-4 justify-between h-screen pt-36 fixed top-0 z-[10] w-full">
 			<PhoneNavItems
 				setShowPhoneNavbar={setShowPhoneNavbar}
-				className="text-[2rem] gap-5 pl-4 font-semibold"
+				className="text-[2.5rem] gap-[2.25rem] pl-[1.25rem] font-semibold leading-[1]"
 			/>
 
 			<div className="w-full flex flex-col gap-4 mb-5">
