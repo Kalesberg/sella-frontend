@@ -10,7 +10,7 @@ export function ActionControls() {
 				{({ Component: Addon, inputClassName }) => (
 					<InputGroup>
 						<Input
-							className={cn("rounded-[1.25rem] border border-secondary", inputClassName)}
+							className={cn("rounded-[1.25rem] border border-secondary w-full", inputClassName)}
 							placeholder="yourstorefront"
 						/>
 						<Addon className='text-white' />

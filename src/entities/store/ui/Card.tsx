@@ -56,8 +56,8 @@ export function Title({ className, ...props }: HTMLArkProps<'div'>) {
 	const { name: title, shortName: name, isVerified } = useComponentContext();
 
 	return (
-		<ark.div className={cn('flex flex-col gap-[0.25rem]', className)} {...props}>
-			<div className='flex items-center gap-[0.5rem] font-semibold text-[1.5rem] font-manrope leading-[1.3]'>
+		<ark.div className={cn('flex flex-col gap-[0.1rem] md:gap-[0.25rem]', className)} {...props}>
+			<div className='flex items-center gap-[0.5rem] font-semibold text-[1.1rem] md:text-[1.5rem] font-manrope leading-[1.3]'>
 				<h1>{title}</h1>
 				{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
 			</div>
