@@ -3,7 +3,7 @@ import { cn } from "~/shared/lib/cn"
 import { AppLogo } from "~/shared/ui/logo";
 import { NavItems } from "./NavItems";
 import Link from "next/link";
-import { RightNavBar } from "./RightNavBar";
+import { UserNavBar } from "./RightNavBar";
 
 export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 	return (
@@ -24,7 +24,7 @@ export function Component({ className, ...props }: HTMLAttributes<HTMLDivElement
 				<NavItems />
 			</div>
 
-			<RightNavBar />
+			<UserNavBar />
 		</div>
 	);
 }

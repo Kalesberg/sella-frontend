@@ -20,6 +20,7 @@ import UploadCloud from '../../assets/icons/upload-cloud.svg';
 import Settings from '../../assets/icons/settings.svg';
 import Building from '../../assets/icons/building.svg';
 import Package from '../../assets/icons/package.svg';
+import PackageThin from '../../assets/icons/package-thin.svg';
 import ChevronDown from '../../assets/icons/chevron-down.svg';
 
 import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
@@ -47,6 +48,7 @@ export const Icons = {
 	Settings,
 	Building,
 	Package,
+	PackageThin,
 	ChevronDown,
 	
 	CurrencyUsdt

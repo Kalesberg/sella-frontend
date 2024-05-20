@@ -7,7 +7,7 @@ import { Icons } from "~/shared/ui/icons";
 import { Button, IconButton } from "~/shared/ui/kit/button";
 import { usePathnameMatcher } from "~/shared/ui/nav-link";
 
-export function RightNavBar() {
+export function UserNavBar() {
 	const [loggedIn, setLoggedIn] = useState(false);
 
 	return loggedIn ? (
@@ -19,7 +19,10 @@ export function RightNavBar() {
 				</span>
 			</div>
 
-			<NavIconButton href='/dashboard/sales-orders'>
+			<NavIconButton 
+				href='/dashboard/sales' 
+				activeOnHrefs={['/dashboard/orders']}
+			>
 				<Icons.Package />
 			</NavIconButton>
 
@@ -49,8 +52,15 @@ export function RightNavBar() {
 	);
 }
 
-function NavIconButton({ href, end, ...props }: ComponentProps<typeof IconButton> & { href: string, end?: boolean }) {
+interface NavIconButtonProps extends ComponentProps<typeof IconButton> {
+	href: string, 
+	end?: boolean,
+	activeOnHrefs?: string[]
+}
+
+function NavIconButton({ href, end, activeOnHrefs, ...props }: NavIconButtonProps) {
 	const isMatch = usePathnameMatcher();
+	const active = isMatch({ href, end }) || !!activeOnHrefs?.some(isMatch);
 
 	return (
 		<Link href={href}>
@@ -58,7 +68,7 @@ function NavIconButton({ href, end, ...props }: ComponentProps<typeof IconButton
 				className='text-accent-100'
 				colorPallete='gray' size='sm'
 				{...props}
-				active={isMatch({ href, end })}
+				active={active}
 			/>
 		</Link>
 	)

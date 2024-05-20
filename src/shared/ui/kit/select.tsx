@@ -25,7 +25,7 @@ const styles = tv(
 			itemGroup: 'select__itemGroup flex flex-col w-full gap-[0.25rem]',
 			itemGroupLabel: 'select__itemGroupLabel',
 			content: 'select__content bg-white/[.04] backdrop-blur-[1rem] rounded-[1rem] pt-[3.5rem]',
-			root: 'select__root',
+			root: 'flex flex-col',
 			control: 'select__control z-[1001]',
 			valueText: 'select__valueText',
 		},

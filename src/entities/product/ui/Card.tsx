@@ -3,7 +3,6 @@
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { ProductProp } from "./Prop";
 import { cn } from "~/shared/lib/cn";
-import { PreviewImage, PreviewImageProps } from "~/shared/ui/image";
 import { ProductProvider, useProductStrictContext } from "./context";
 
 export type RootProps = HTMLArkProps<'div'> & ProductProp;
@@ -19,18 +18,6 @@ export function Root({ product, className, ...props }: RootProps) {
 				)}
 			/>
 		</ProductProvider>
-	);
-}
-
-export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | 'alt'>) {
-	const { previewImage: imageUrl, name: title } = useProductStrictContext();
-
-	return (
-		<PreviewImage
-			alt={`Image of ${title}`}
-			src={imageUrl} {...props}
-			className={cn('flex-shrink-0 w-full shadow-sm', className)}
-		/>
 	);
 }
 
@@ -74,3 +61,4 @@ export function Category({ className, ...props }: HTMLArkProps<'p'>) {
 }
 
 export { Price } from './Price';
+export { Image } from './Image';
