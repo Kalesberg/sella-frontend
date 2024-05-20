@@ -6,10 +6,10 @@ import { z } from 'zod';
 import { zodValidate } from '~/shared/lib/zod-final-form';
 import { Button } from '~/shared/ui/kit/button';
 import { Dialog } from '~/shared/ui/kit';
-import { VTextControl, VTextAreaControl } from '~/shared/ui/validation-inputs';
-import { ToggleGroupField } from "~/features/report-shop/ui/ToggleGroupField";
-import { Collapsible } from "@ark-ui/react/collapsible";
-import {FormApi} from "final-form";
+import { VTextAreaControl , VTextControl} from '~/shared/ui/validation-inputs';
+import { Collapsible } from "~/shared/ui/kit";
+import { FormApi } from "final-form";
+import { VToggleGroup } from "~/shared/ui/validation-inputs/VToggleGroup";
 
 type SetupTwoFaDialogProps = Dialog.RootProps & {
   onActionFulfilled?: () => void,
@@ -35,7 +35,7 @@ const initialValues = {
 
 const schema = z.object({
 	description: z.string().optional(),
-	reason: z.array(z.string()).nonempty({ message: 'Reason required' })
+	reason: z.array(z.string()).nonempty({message: 'Reason required'})
 }).superRefine(({description, reason}, refinementContext) => {
 	if (reason.includes(ANOTHER_REASON) && !description) {
 		return refinementContext.addIssue({
@@ -81,13 +81,14 @@ export function ReportShopDialog({onActionFulfilled, cancelButton, ...props}: Se
 										<Dialog.Title>Report Shop</Dialog.Title>
 										<Dialog.Description>
                       Your report is anonymous, except if you&apos;re reporting an
-                      intellectual property infringement. Your report is anonymous, except if you&apos;re [need text here].
+                      intellectual property infringement. Your report is anonymous, except if you&apos;re [need text
+                      here].
 										</Dialog.Description>
 									</Dialog.ContentHeading>
 
 									<div className='flex flex-col gap-[2rem] w-full'>
 										<VTextControl.Root name='reason'>
-											<ToggleGroupField
+											<VToggleGroup
 												name='reason'
 												options={options}
 												onValueChange={({value}) => {
@@ -105,6 +106,7 @@ export function ReportShopDialog({onActionFulfilled, cancelButton, ...props}: Se
 														rows={4}
 														placeholder='Help us understand the problem'
 													/>
+													<VTextControl.ErrorText className='text-center' />
 												</VTextControl.Root>
 											</Collapsible.Content>
 										</Collapsible.Root>

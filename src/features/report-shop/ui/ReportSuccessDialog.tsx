@@ -5,7 +5,7 @@ import { Button } from '~/shared/ui/kit/button';
 import { Dialog } from '~/shared/ui/kit';
 
 type ReportSuccessDialogProps = Dialog.RootProps & {
-  onContinue?: () => void
+	onContinue?: () => void
 }
 
 export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialogProps) {
@@ -20,7 +20,7 @@ export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialo
 					<Dialog.ContentHeading>
 						<Dialog.Title>Thank you for submitting a report</Dialog.Title>
 						<Dialog.Description>
-              We take reports seriously and after a thorough review, our support team will get back to you
+							We take reports seriously and after a thorough review, our support team will get back to you
 						</Dialog.Description>
 					</Dialog.ContentHeading>
 
