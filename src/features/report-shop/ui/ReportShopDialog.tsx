@@ -6,26 +6,26 @@ import { z } from 'zod';
 import { zodValidate } from '~/shared/lib/zod-final-form';
 import { Button } from '~/shared/ui/kit/button';
 import { Dialog } from '~/shared/ui/kit';
-import { VTextAreaControl , VTextControl} from '~/shared/ui/validation-inputs';
+import { VTextAreaControl, VTextControl } from '~/shared/ui/validation-inputs';
 import { Collapsible } from "~/shared/ui/kit";
 import { FormApi } from "final-form";
-import { VToggleGroup } from "~/shared/ui/validation-inputs/VToggleGroup";
+import { ToggleGroupField } from './ToggleGroupField';
 
 type SetupTwoFaDialogProps = Dialog.RootProps & {
-  onActionFulfilled?: () => void,
-  cancelButton?: ReactNode
+	onActionFulfilled?: () => void,
+	cancelButton?: ReactNode
 };
 
 const ANOTHER_REASON = '7'
 
 const options = [
-	{id: '1', label: 'Spam'},
-	{id: '2', label: 'Nudity'},
-	{id: '3', label: 'Scam'},
-	{id: '4', label: 'Illegal'},
-	{id: '5', label: 'Violence'},
-	{id: '6', label: 'Hate Speech'},
-	{id: ANOTHER_REASON, label: 'Something Else'},
+	{ id: '1', label: 'Spam' },
+	{ id: '2', label: 'Nudity' },
+	{ id: '3', label: 'Scam' },
+	{ id: '4', label: 'Illegal' },
+	{ id: '5', label: 'Violence' },
+	{ id: '6', label: 'Hate Speech' },
+	{ id: ANOTHER_REASON, label: 'Something Else' },
 ]
 
 const initialValues = {
@@ -35,8 +35,8 @@ const initialValues = {
 
 const schema = z.object({
 	description: z.string().optional(),
-	reason: z.array(z.string()).nonempty({message: 'Reason required'})
-}).superRefine(({description, reason}, refinementContext) => {
+	reason: z.array(z.string()).nonempty({ message: 'Reason required' })
+}).superRefine(({ description, reason }, refinementContext) => {
 	if (reason.includes(ANOTHER_REASON) && !description) {
 		return refinementContext.addIssue({
 			code: z.ZodIssueCode.custom,
@@ -48,7 +48,7 @@ const schema = z.object({
 
 type SchemeType = z.infer<typeof schema>
 
-export function ReportShopDialog({onActionFulfilled, cancelButton, ...props}: SetupTwoFaDialogProps) {
+export function ReportShopDialog({ onActionFulfilled, cancelButton, ...props }: SetupTwoFaDialogProps) {
 	const open = !!props?.open;
 
 	const [isDescriptionShow, setIsDescriptionShow] = useState(false)
@@ -65,37 +65,35 @@ export function ReportShopDialog({onActionFulfilled, cancelButton, ...props}: Se
 				{...props}
 				open={open}
 			>
-				<Dialog.Backdrop/>
+				<Dialog.Backdrop />
 
 				<Dialog.Positioner>
 					<Dialog.Content className='w-[34.375rem]'>
-						<Dialog.CloseButton/>
+						<Dialog.CloseButton />
 						<Form
 							onSubmit={onSubmit}
 							initialValues={initialValues}
 							validate={zodValidate(schema)}
 						>
-							{({form}) => (
+							{({ form }) => (
 								<>
 									<Dialog.ContentHeading>
 										<Dialog.Title>Report Shop</Dialog.Title>
 										<Dialog.Description>
-                      Your report is anonymous, except if you&apos;re reporting an
-                      intellectual property infringement. Your report is anonymous, except if you&apos;re [need text
-                      here].
+											Your report is anonymous, except if you&apos;re reporting an
+											intellectual property infringement. Your report is anonymous, except if you&apos;re [need text
+											here].
 										</Dialog.Description>
 									</Dialog.ContentHeading>
 
 									<div className='flex flex-col gap-[2rem] w-full'>
-										<VTextControl.Root name='reason'>
-											<VToggleGroup
-												name='reason'
-												options={options}
-												onValueChange={({value}) => {
-													setIsDescriptionShow(value.includes(ANOTHER_REASON))
-												}}
-											/>
-										</VTextControl.Root>
+										<ToggleGroupField
+											name='reason'
+											options={options}
+											onValueChange={({ value }) => {
+												setIsDescriptionShow(value.includes(ANOTHER_REASON))
+											}}
+										/>
 
 										<Collapsible.Root open={isDescriptionShow}>
 											<Collapsible.Content>
@@ -116,12 +114,12 @@ export function ReportShopDialog({onActionFulfilled, cancelButton, ...props}: Se
 										{cancelButton ?? (
 											<Dialog.CloseTrigger asChild>
 												<Button className='w-full' colorPalette='gray' size='lg'>
-                          Cancel
+													Cancel
 												</Button>
 											</Dialog.CloseTrigger>
 										)}
 										<Button onClick={form.submit} className='w-full' size='lg'>
-                      Submit Report
+											Submit Report
 										</Button>
 									</Dialog.ContentFooter>
 								</>

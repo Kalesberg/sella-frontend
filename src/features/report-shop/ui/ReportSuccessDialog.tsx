@@ -34,7 +34,7 @@ export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialo
 							className='w-full' size='lg'
 							onClick={onContinue}
 						>
-              Close
+							Close
 						</Button>
 					</Dialog.ContentFooter>
 				</Dialog.Content>
