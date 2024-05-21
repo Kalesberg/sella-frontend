@@ -1,90 +1,9 @@
 "use client";
 
-import { Store } from "~/shared/api/model";
 import { StoreCardItem } from "~/entities/store";
 import { Heading } from "~/shared/ui/heading";
 import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
-
-const storeData: Store[] = [
-	{
-		id: 1,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 2,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 3,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 4,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 5,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 6,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		}
-	},
-];
+import { storeData } from "~/shared/api/store";
 
 export function ExploreMarketPlace() {
 	return (

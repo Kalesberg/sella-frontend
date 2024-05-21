@@ -1,8 +1,9 @@
 import { ActionControls } from "~/features/ActionControls";
+import { cn } from "~/shared/lib/cn";
 
-export function SellaMeTrustedInfluencers() {
+export function SellaMeTrustedInfluencers({ className }: { className?: string }) {
 	return (
-		<div className="flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02]">
+		<div className={cn("flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02]", className)}>
 			<div className="text-5xl text-white font-semibold">
 				No KYC, No Pesky Regulations
 			</div>
