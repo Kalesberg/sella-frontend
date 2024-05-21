@@ -44,13 +44,13 @@ export function ManageDialog({ product, triggerElement, ...props }: ManageDialog
 					<EditForm
 						className='gap-[2rem]'
 						id={formId} product={product}
-						onActionFulfiled={onProductEdit}
+						onActionFulfilled={onProductEdit}
 					/>
 
 					<Dialog.ContentFooter>
 						<DeleteButton
 							productId={product.id}
-							onActionFulfiled={onProductDelete}
+							onActionFulfilled={onProductDelete}
 						/>
 
 						<Button form={formId} className='w-full' size='lg'>

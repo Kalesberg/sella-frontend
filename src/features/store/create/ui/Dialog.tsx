@@ -7,12 +7,12 @@ import { Button } from '~/shared/ui/kit/button';
 import { Store } from '~/shared/api/model';
 
 type CreateDialogProps = Dialog.RootProps & {
-	onActionFulfiled?: (store: Store) => void
+	onActionFulfilled?: (store: Store) => void
 	cancelButton?: ReactNode,
 	triggerElement?: ReactNode
 };
 
-export function CreateDialog({ onActionFulfiled, cancelButton, triggerElement, ...props }: CreateDialogProps) {
+export function CreateDialog({ onActionFulfilled, cancelButton, triggerElement, ...props }: CreateDialogProps) {
 	const formId = useId();
 
 	return (
@@ -39,13 +39,13 @@ export function CreateDialog({ onActionFulfiled, cancelButton, triggerElement, .
 
 					<CreateForm
 						id={formId}
-						onActionFulfiled={onActionFulfiled}
+						onActionFulfilled={onActionFulfilled}
 					/>
 
 					<Dialog.ContentFooter>
 						{cancelButton ?? (
 							<Dialog.CloseTrigger asChild>
-								<Button className='w-full' colorPallete='gray'>
+								<Button className='w-full' colorPalette='gray'>
 									Cancel
 								</Button>
 							</Dialog.CloseTrigger>

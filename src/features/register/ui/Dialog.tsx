@@ -7,15 +7,15 @@ import { ConnectAccountDialog } from './ConnectAccountDialog';
 import { RegisterForm } from './RegisterForm';
 
 type RegisterDialogProps = Dialog.RootProps & {
-	onActionFulfiled?: () => void
+	onActionFulfilled?: () => void
 };
 
 export function RegisterDialog(props: RegisterDialogProps) {
 	const [isAuthorized, setIsAuthorized] = useState(false);
 	const open = !!props?.open;
 
-	const onActionFulfiled = () => {
-		props?.onActionFulfiled?.();
+	const onActionFulfilled = () => {
+		props?.onActionFulfilled?.();
 	}
 
 	const formId = useId();
@@ -45,7 +45,7 @@ export function RegisterDialog(props: RegisterDialogProps) {
 
 						<RegisterForm
 							id={formId}
-							onActionFulfiled={onActionFulfiled}
+							onActionFulfilled={onActionFulfilled}
 						/>
 
 						<Dialog.ContentFooter>

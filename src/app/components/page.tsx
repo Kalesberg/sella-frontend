@@ -18,9 +18,10 @@ import { AuthChannelsSetupTwoFaDialog } from "~/features/auth-channels";
 import { RegisterFlowDialog } from "~/widgets/register-flow";
 import { StoreCreateDialog } from "~/features/store/create";
 import { ProductCreateDialog } from "~/features/product/create";
-import { RadioGroup, Select } from "~/shared/ui/kit";
+import { RadioGroup, ToggleGroup, Select } from "~/shared/ui/kit";
 import { ProductManageDialog } from "~/features/product/manage";
 import { StoreManageDialog } from "~/features/store/manage";
+import {ReportShopDialog, ReportSuccessDialog} from "~/features/report-shop";
 
 export default function Home() {
 	return (
@@ -32,21 +33,21 @@ export default function Home() {
 				<Button variant='solid'>
 					Open Storefront
 				</Button>
-				<Button colorPallete='gray'>
+				<Button colorPalette='gray'>
 					Open Storefront
 				</Button>
 
 				<div className='flex flex-col gap-3'>
-					<Button variant='subtle' colorPallete='red'>
+					<Button variant='subtle' colorPalette='red'>
 						<Icons.ThumbDown /> Negative
 					</Button>
-					<Button variant='subtle' colorPallete='red' active>
+					<Button variant='subtle' colorPalette='red' active>
 						<Icons.ThumbDown /> Negative
 					</Button>
-					<Button variant='subtle' colorPallete='green'>
+					<Button variant='subtle' colorPalette='green'>
 						<Icons.ThumbUp /> Positive
 					</Button>
-					<Button variant='subtle' colorPallete='green' active>
+					<Button variant='subtle' colorPalette='green' active>
 						<Icons.ThumbUp /> Positive
 					</Button>
 				</div>
@@ -66,6 +67,7 @@ export default function Home() {
 						<ProductCreateDialogTest />
 						<ProductManageDialogTest />
 						<RegisterFlowDialogTest />
+						<ReportShopDialogTest />
 					</div>
 				</div>
 			</div>
@@ -88,6 +90,10 @@ export default function Home() {
 				</div>
 			</div>
 
+			<div className='flex gap-3'>
+				<ToggleGroupTest />
+			</div>
+
 			<div className='flex gap-8 items-start'>
 				<StoreCardTest />
 				<ProductCardTest />
@@ -98,6 +104,25 @@ export default function Home() {
 			</div>
 		</main>
 	);
+}
+
+function ToggleGroupTest(props: ToggleGroup.RootProps) {
+	const options = [
+		{ id: '1', label: 'Spam' },
+		{ id: '2', label: 'Nudity' },
+		{ id: '3', label: 'Scam' },
+		{ id: '4', label: 'Illegal' },
+	]
+
+	return (
+		<ToggleGroup.Root multiple {...props}>
+			{options.map(({ id, label }) => (
+				<ToggleGroup.Item key={id} value={id} aria-label={label}>
+					{label}
+				</ToggleGroup.Item>
+			))}
+		</ToggleGroup.Root>
+	)
 }
 
 function RadioGroupTest(props: RadioGroup.RootProps) {
@@ -203,7 +228,7 @@ function RegisterDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Register
 			</Button>
 
@@ -219,7 +244,7 @@ function StoreCreateDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Create Store
 			</Button>
 
@@ -235,7 +260,7 @@ function StoreManageDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Manage Store
 			</Button>
 
@@ -253,7 +278,7 @@ function ProductCreateDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Create Product
 			</Button>
 
@@ -271,7 +296,7 @@ function ProductManageDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Manage Product
 			</Button>
 
@@ -289,14 +314,14 @@ function Setup2faDialogTest() {
 
 	return (
 		<>
-			<Button colorPallete='gray' onClick={open}>
+			<Button colorPalette='gray' onClick={open}>
 				Setup 2fa
 			</Button>
 
 			<AuthChannelsSetupTwoFaDialog
 				open={isOpen} onOpenChange={handleOpenChange}
 				cancelButton={
-					<Button className='w-full' colorPallete='gray'>
+					<Button className='w-full' colorPalette='gray'>
 						Setup Later
 					</Button>
 				}
@@ -322,6 +347,31 @@ function RegisterFlowDialogTest() {
 	);
 }
 
+
+function ReportShopDialogTest() {
+	const { isOpen, open, handleOpenChange } = useDialogState();
+	const { isOpen: isOpenSucess, toggle: toggleSucess } = useDialogState();
+
+	return (
+		<>
+			<Button colorPalette='gray' onClick={open}>
+				Report Shop
+			</Button>
+
+			<ReportShopDialog
+				open={isOpen}
+				onOpenChange={handleOpenChange}
+				onActionFulfilled={toggleSucess}
+			/>
+
+			<ReportSuccessDialog open={isOpenSucess} onContinue={() => {
+				toggleSucess()
+				handleOpenChange({ open: false })
+			}} />
+		</>
+	);
+}
+
 const SelectTest = () => {
 	const items = [
 		{ label: 'My Sales', value: 'sales' },
@@ -336,7 +386,7 @@ const SelectTest = () => {
 			<Select.Label>Framework</Select.Label>
 			<Select.Control>
 				<Select.Trigger asChild>
-					<Button colorPallete='gray'>
+					<Button colorPalette='gray'>
 						<Select.ValueText />
 						<Icons.ChevronDown />
 					</Button>

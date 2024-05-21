@@ -95,7 +95,7 @@ function ProductsEditTable({ products }: { products: Product[] }) {
 								product={p}
 								triggerElement={
 									<IconButton
-										colorPallete='gray' size='sm'
+										colorPalette='gray' size='sm'
 									>
 										<Icons.Settings className='size-[1.25rem]' />
 									</IconButton>

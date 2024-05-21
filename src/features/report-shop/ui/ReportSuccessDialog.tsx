@@ -4,42 +4,37 @@ import { DotLottiePlayer } from '@dotlottie/react-player';
 import { Button } from '~/shared/ui/kit/button';
 import { Dialog } from '~/shared/ui/kit';
 
-type TwoFaSuccessDialogProps = Dialog.RootProps & {
-	onContinue: () => void
+type ReportSuccessDialogProps = Dialog.RootProps & {
+	onContinue?: () => void
 }
 
-export function TwoFaSuccessDialog({ onContinue, ...props }: TwoFaSuccessDialogProps) {
+export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialogProps) {
 	return (
 		<Dialog.Root {...props}>
 			<Dialog.Backdrop />
 
 			<Dialog.Positioner>
-				<Dialog.Content>
-					<Dialog.CloseButton />
+				<Dialog.Content className='w-[34.375rem]'>
+					<Dialog.CloseButton onClick={onContinue} />
 
 					<Dialog.ContentHeading>
-						<Dialog.Title>Account Secured</Dialog.Title>
+						<Dialog.Title>Thank you for submitting a report</Dialog.Title>
 						<Dialog.Description>
-							Your account is now securely set up! Let’s get your shop running.
+							We take reports seriously and after a thorough review, our support team will get back to you
 						</Dialog.Description>
 					</Dialog.ContentHeading>
 
 					<DotLottiePlayer
-						src='/lottie/key.lottie'
+						src='/lottie/police.lottie'
 						className='size-[11rem]' autoplay loop
 					/>
 
 					<Dialog.ContentFooter>
-						<Dialog.CloseTrigger asChild>
-							<Button colorPalette='gray' size='lg' className='w-full' >
-								Go to Market
-							</Button>
-						</Dialog.CloseTrigger>
 						<Button
 							className='w-full' size='lg'
 							onClick={onContinue}
 						>
-							Open Storefront
+							Close
 						</Button>
 					</Dialog.ContentFooter>
 				</Dialog.Content>

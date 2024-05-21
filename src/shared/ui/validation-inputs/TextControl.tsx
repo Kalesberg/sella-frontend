@@ -1,5 +1,7 @@
 'use client';
 
+export { Input as TextAreaControl } from './TextAreaControl'
+
 import { cn } from "~/shared/lib/cn";
 import { HTMLAttributes } from "react";
 import { useField } from "react-final-form";
@@ -33,7 +35,7 @@ export function LabelOrError({ children, className, ...props }: LabelProps) {
 	const { id, name } = useControlContext();
 	const { meta: fieldState } = useField(name);
 	const error = fieldState.touched && fieldState.error;
-	
+
 	return (
 		<label htmlFor={id} {...props} className={cn(!!error && 'text-error-100', className)}>
 			{error ? error : children}

@@ -16,12 +16,12 @@ export type SchemaType = z.infer<typeof schema>
 
 type RegisterFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
-	onActionFulfiled?: (values: SchemaType) => void;
+	onActionFulfilled?: (values: SchemaType) => void;
 };
 
-export function RegisterForm({ onActionFulfiled, ...props }: RegisterFormProps) {
+export function RegisterForm({ onActionFulfilled, ...props }: RegisterFormProps) {
 	const onSubmit = (values: SchemaType) => {
-		onActionFulfiled?.(values);
+		onActionFulfilled?.(values);
 	};
 
 	return (
