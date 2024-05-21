@@ -27,10 +27,12 @@ export async function Component() {
 				{stores.map(s => (
 					<StoreLink store={s} key={s.id}>
 						<StoreCard.Root store={s}>
-							<StoreCard.Image />
+							<StoreCard.ImageDesktop />
 
 							<StoreCard.Content>
-								<StoreCard.Title />
+								<StoreCard.Title>
+									<StoreCard.ImageMobile />
+								</StoreCard.Title>
 								<StoreCard.Description />
 								<StoreCard.Rating />
 							</StoreCard.Content>

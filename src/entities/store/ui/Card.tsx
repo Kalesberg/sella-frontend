@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
+
 'use client';
 
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { StoreProp } from "./Prop";
+import { ComponentProps } from "react";
 import { cn } from "~/shared/lib/cn";
 import { Icons } from "~/shared/ui/icons";
 import { PreviewImage, PreviewImageProps } from "~/shared/ui/image";
@@ -15,7 +18,7 @@ export function Root({ store, className, ...props }: RootProps) {
 			<ark.div
 				{...props}
 				className={cn(
-					'border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[2rem] items-center max-w-[35rem]',
+					'border border-secondary p-[1rem] rounded-[1.25rem] flex gap-[2rem] items-start md:items-center max-w-[35rem]  ',
 					className
 				)}
 			/>
@@ -35,25 +38,47 @@ export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | '
 	);
 }
 
+export function ImageDesktop({ className, ...props }: ComponentProps<typeof Image>) {
+	return (
+		<Image
+			{...props}
+			className={cn('max-xl:hidden', className)}
+		/>
+	);
+}
+
+export function ImageMobile({ className, ...props }: ComponentProps<typeof Image>) {
+	return (
+		<Image
+			{...props}
+			className={cn('size-[3rem] xl:hidden', className)}
+		/>
+	);
+}
+
 export function Content({ className, ...props }: HTMLArkProps<'div'>) {
 	return (
 		<ark.div className={cn('flex flex-col gap-[1rem]', className)} {...props} />
 	)
 }
 
-export function Title({ className, ...props }: HTMLArkProps<'div'>) {
+export function Title({ className, children, ...props }: HTMLArkProps<'div'>) {
 	const { name: title, shortName: name, isVerified } = useStoreStrictContext();
 
 	return (
-		<ark.div className={cn('flex flex-col gap-[0.25rem] text-[1.5rem]', className)} {...props}>
-			<div className='flex items-center gap-[0.5rem] font-semibold font-manrope leading-[1]'>
-				<h1>{title}</h1>
-				{isVerified && <Icons.Verified className='text-accent-100 size-[0.75em]' />}
-			</div>
+		<ark.div className={cn('flex gap-[1rem] items-center text-[1.5rem]/[1.3]', className)} {...props}>
+			{children}
 
-			<span className='font-semibold text-black-40 text-[1rem]'>
-				{name}
-			</span>
+			<div className='flex flex-col gap-[0.25rem] w-full'>
+				<div className='flex items-center gap-[0.5rem] font-semibold font-manrope leading-[1.3]'>
+					<h1>{title}</h1>
+					{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
+				</div>
+
+				<span className='font-semibold text-black-40 text-[1.1rem] '>
+					{name}
+				</span>
+			</div>
 		</ark.div>
 	);
 }

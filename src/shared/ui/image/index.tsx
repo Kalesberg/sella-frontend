@@ -11,8 +11,11 @@ export interface PreviewImageProps extends Omit<NextImageProps, 'src'> {
 
 export function PreviewImage({ src, className, ...props }: PreviewImageProps) {
 	return (
-		<div className={cn('flex items-center justify-center size-[11.25rem] rounded-[1rem]\
-			border border-secondary bg-white/[.02] p-[1rem] text-white/[.08]', className)}
+		<div className={cn(
+			'flex items-center justify-center size-[11.25rem] rounded-[1rem]',
+			'border border-secondary bg-white/[.02] p-[1rem] text-white/[.08]',
+			className
+		)}
 		>
 			{src ? (
 				<NextImage
