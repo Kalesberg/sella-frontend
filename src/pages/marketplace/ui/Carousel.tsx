@@ -1,16 +1,21 @@
 'use client'
 
-import { MutableRefObject, useRef } from "react";
+import { HTMLAttributes, MutableRefObject, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 import { PreviewImage } from "~/shared/ui/image";
+import { cn } from "~/shared/lib/cn";
 
-export function Carousel() {
+export function Carousel({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 	const ref =	useRef<HTMLDivElement>() as MutableRefObject<HTMLInputElement>;
 	const { events } = useDraggable(ref);
 
 	return (
 		<div
-			className="flex w-full px-[calc((100%-72.5rem)/2)] space-x-3 overflow-x-scroll scrollbar-hide"
+			className={cn(
+				"flex w-full px-[calc((100%-72.5rem)/2)] space-x-3 overflow-x-scroll scrollbar-hide",
+				className
+			)}
+			{...props}
 			{...events}
 			ref={ref}
 		>
