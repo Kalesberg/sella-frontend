@@ -8,17 +8,19 @@ import { Icons } from "~/shared/ui/icons";
 import { ProductManageDialog } from "~/features/product/manage";
 import { ProductCard, ProductPrice } from "~/entities/product";
 import { useEditModeContext } from "../model/edit-mode";
+import { cn } from "~/shared/lib/cn";
 
 interface ProductsStreamProps {
 	initialData: Product[]
+	className?: string
 }
 
-export function ProductsStream({ initialData}: ProductsStreamProps) {
+export function ProductsStream({ initialData, className }: ProductsStreamProps) {
 	const products = initialData;
 	const { enabled: editModeEnabled } = useEditModeContext();
 
 	return (
-		<div className='flex flex-col gap-[3rem] w-full'>
+		<div className={cn('flex flex-col gap-[3rem] w-full', className)}>
 			{editModeEnabled ? (
 				<ProductsEditTable products={products} />
 			) : (

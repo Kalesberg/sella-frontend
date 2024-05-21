@@ -1,4 +1,4 @@
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/heading";
 
 interface StageItemProps {
 	title: string;

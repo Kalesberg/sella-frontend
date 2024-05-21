@@ -4,7 +4,7 @@ import ImageHero from "../assets/hero.webp";
 import { ActionControls } from "~/features/ActionControls/ui/ActionControls";
 import { FeaturesList } from "./Features";
 import { Background } from "./SectionBackground";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/heading";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
 export function Hero() {

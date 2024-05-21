@@ -4,7 +4,7 @@ import { Button } from "~/shared/ui/kit/button";
 import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/heading";
 
 export function EscrowBuyerSeller() {
 	return (

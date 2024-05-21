@@ -4,7 +4,7 @@ import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
 import { ActionControls } from "~/features/ActionControls";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/heading";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
 export function CreateStore() {

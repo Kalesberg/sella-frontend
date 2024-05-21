@@ -8,7 +8,7 @@ import ImageStoreLink from '../assets/features/store-link.png';
 import ImageRevenueShare from '../assets/features/revenue-share.png';
 import ImageSecure from '../assets/features/secure.png';
 import ImageBuyerSellers from '../assets/features/for-buyers-sellers.png';
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/heading";
 
 interface Feature {
 	title: string,

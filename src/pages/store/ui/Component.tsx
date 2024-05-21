@@ -6,15 +6,17 @@ import { StoreManageDialog } from "~/features/store/manage";
 import { ProductsStream } from "./ProductsStream";
 import { EditModeProvider } from "../model/edit-mode";
 import { ToggleEditModeButton } from "./ToggleEditModeButton";
+import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
+import { SimilarStoreFronts } from "~/pages/store/ui/SimilarStoreFronts";
 
 export async function Component({ storeId }: { storeId: StoreId }) {
 	const store = await fetchStore(storeId);
 	const products = await fetchStoreProducts(storeId);
 
 	return (
-		<div className='flex flex-col w-full gap-[4.5rem] max-w-content mx-auto'>
+		<div className='flex flex-col w-full max-w-content mx-auto'>
 			<EditModeProvider>
-				<div className='flex items-end w-full gap-[1rem] justify-between'>
+				<div className='flex mb-[4.5rem] items-end w-full gap-[1rem] justify-between'>
 					<StoreCard.Root store={store} className='p-0 border-none flex-grow'>
 						<StoreCard.Image />
 
@@ -38,8 +40,12 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 					</div>
 				</div>
 
-				<ProductsStream initialData={products} />
+				<ProductsStream className='mb-[6rem]' initialData={products} />
 			</EditModeProvider>
+
+			<SimilarStoreFronts  className='mb-[6rem]'/>
+
+			<SellaMeTrustedInfluencers />
 		</div>
 	);
 }
