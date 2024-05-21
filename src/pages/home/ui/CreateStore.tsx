@@ -9,10 +9,10 @@ import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
 export function CreateStore() {
 	return (
-		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-6 md:pt-[10.375rem] rounded-[3rem] px-4 md:mx-[1.25rem]">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[7.5rem] max-xl:pt-[5rem] rounded-[3rem] px-4 md:mx-[1.25rem]">
 			<Background />
-			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto">
-				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] flex-shrink-0">
+			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto max-lg:justify-center">
+				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] max-xl:mb-[5rem] flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
 						<Heading>
 							Open your web3 storefront in seconds
@@ -30,9 +30,9 @@ export function CreateStore() {
 				</div>
 
 				<VideoAnimationPlayer
-					className='flex-shrink-0 w-[35rem] xl:w-[48rem] hidden lg:block'
+					className='flex-shrink-0 w-[26rem] xl:w-[48rem] hidden lg:block'
 					src='/videos/hero-anim.webm'
-					srcHevc='/videos/hero-anim.mp4"'
+					srcHevc='/videos/hero-anim.mp4'
 				>
 					<Image
 						src={ImageHero}

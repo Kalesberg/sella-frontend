@@ -25,7 +25,9 @@ export function FeaturesList() {
 function Feature({ label, children }: PropsWithChildren<{ label: string }>) {
 	return (
 		<div className="flex gap-[0.75rem] items-center min-w-0">
-			<Icons.CircleChecked className="text-accent-100 size-[1.25rem] flex-shrink-0" />
+			<Icons.CircleChecked 
+				className="text-accent-100 size-[1.25rem] max-md:size-[1.5rem] flex-shrink-0" 
+			/>
 			<p className="md:truncate text-black-60 flex md:gap-1 flex-col md:flex-row">
 				<span className="text-white">{label}</span>{" "}
 				<span>- {children}</span>

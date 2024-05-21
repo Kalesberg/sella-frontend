@@ -102,7 +102,7 @@ export function ExploreMarketPlace() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 						{storeData.map(store => (
 							<StoreCard.Root
-								className='w-full'
+								className='w-full mx-auto'
 								key={store.id} store={store}
 							>
 								<StoreCard.ImageDesktop />
@@ -123,7 +123,7 @@ export function ExploreMarketPlace() {
 
 function SellaMeTrustedInfluencers() {
 	return (
-		<div className="flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02]">
+		<div className="flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02] px-[1.5rem]">
 			<div className="text-3xl md:text-5xl text-white font-semibold">
 				No KYC, No Pesky Regulations
 			</div>

@@ -8,9 +8,9 @@ import { Heading } from "./Heading";
 
 export function EscrowBuyerSeller() {
 	return (
-		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[2rem] md:pt-[10.375rem] rounded-[3rem] px-4 md:m-[1.25rem]">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[7.5rem] max-xl:py-[5rem] rounded-[3rem] px-4 md:m-[1.25rem]">
 			<Background />
-			<div className="flex flex-grow justify-between gap-[1rem] relative w-full max-w-content m-auto pb-20 ">
+			<div className="flex flex-grow items-center justify-between gap-[1rem] relative w-full max-w-content m-auto max-lg:justify-center">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
 						<Heading>
@@ -26,7 +26,7 @@ export function EscrowBuyerSeller() {
 
 					<EscrowFeatures />
 
-					<Button className="w-44" size="lg">
+					<Button className="w-44 max-md:w-full" size="lg">
 						Open Storefront
 					</Button>
 				</div>
@@ -34,7 +34,7 @@ export function EscrowBuyerSeller() {
 				<Image
 					src={ImageEscrow}
 					alt="Escrow image"
-					className='flex-shrink-0 w-[35rem] xl:w-[48rem] hidden lg:block'
+					className='flex-shrink-0 w-[30rem] xl:w-[48rem] hidden lg:block'
 				/>
 			</div>
 		</div>
