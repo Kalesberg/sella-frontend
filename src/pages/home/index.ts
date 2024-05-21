@@ -1,0 +1,1 @@
+export { Component as PageHome } from './ui/Component';

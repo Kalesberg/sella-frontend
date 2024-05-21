@@ -1,0 +1,1 @@
+export { ManageDialog as StoreManageDialog } from './ui/Dialog';

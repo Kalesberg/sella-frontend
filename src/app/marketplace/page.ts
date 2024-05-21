@@ -1,0 +1,1 @@
+export { PageMarketplace as default } from '~/pages/marketplace';

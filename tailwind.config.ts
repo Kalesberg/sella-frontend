@@ -15,8 +15,38 @@ const config: Config = {
 			},
 			colors: {
 				'accent-100': '#FFDD00',
+				'accent-hover': '#EC9515',
+
+				'cyan-100': '#80B4DB',
+
 				'black-100': '#0A0A0A',
-				'black-06': '#0F0F0F'
+				'black-74': '#bdbdbd',
+				'black-60': '#999',
+				'black-40': '#666',
+				'black-08': '#141414',
+				'black-06': '#0F0F0F',
+
+				'red-100': '#F44336',
+
+				'green-100': '#60B04D',
+
+				'error-100': '#E25728'
+			},
+			fontFamily: {
+				inter: ['var(--font-inter)'],
+				manrope: ['var(--font-manrope)'],
+			},
+			borderColor: {
+				secondary: 'rgba(255, 255, 255, 0.06)'
+			},
+			zIndex: {
+				header: '50',
+				dropdown: '60',
+				dialog: '70',
+				drawer: '70'
+			},
+			maxWidth: {
+				'content': '72.5rem'
 			}
 		},
 	},
