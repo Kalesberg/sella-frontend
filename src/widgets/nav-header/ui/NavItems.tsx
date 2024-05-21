@@ -6,7 +6,7 @@ export function NavItems({ className, ...props }: HTMLAttributes<HTMLDivElement>
 	return (
 		<div
 			{...props} 
-			className={cn('items-start gap-[2rem] hidden md:flex', className)}
+			className={cn('items-start gap-[2rem] hidden xl:flex', className)}
 		>
 			<Link href='#explore'>
 				Explore

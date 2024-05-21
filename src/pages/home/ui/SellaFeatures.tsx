@@ -70,12 +70,12 @@ export function SellaFeautes() {
 						focusing instead on what truly matters.
 					</div>
 				</div>
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-[2.5rem]">
+				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[2.5rem]">
 					{features.map((feature, index) => (
 						<FeatureCard
 							key={index}
 							feature={feature}
-							className={cn(index < 2 && "md:col-span-2")}
+							className={cn(index < 2 && "xl:col-span-2")}
 						/>
 					))}
 				</div>

@@ -52,7 +52,7 @@ export function ImageDesktop({ className, ...props }: ComponentProps<typeof Imag
 	return (
 		<Image
 			{...props}
-			className={cn('max-md:hidden', className)}
+			className={cn('max-xl:hidden', className)}
 		/>
 	);
 }
@@ -68,7 +68,7 @@ export function Title({ className, ...props }: HTMLArkProps<'div'>) {
 
 	return (
 		<ark.div className={cn('flex gap-[1rem]', className)} {...props}>
-			<Image className='size-[3rem] md:hidden' />
+			<Image className='size-[3rem] xl:hidden' />
 
 			<div className='flex flex-col gap-[0.25rem] w-full'>
 				<div className='flex items-center gap-[0.5rem] font-semibold text-[1.1rem] md:text-[1.5rem] font-manrope leading-[1.3]'>

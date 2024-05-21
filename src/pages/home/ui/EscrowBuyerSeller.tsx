@@ -34,7 +34,7 @@ export function EscrowBuyerSeller() {
 				<Image
 					src={ImageEscrow}
 					alt="Escrow image"
-					className="size-[43.75rem]"
+					className='flex-shrink-0 w-[35rem] xl:w-[48rem] hidden lg:block'
 				/>
 			</div>
 		</div>

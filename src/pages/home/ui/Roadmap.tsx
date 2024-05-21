@@ -122,7 +122,7 @@ const stagesList = [
 export function Roadmap() {
 	return (
 		<div className="mx-auto items-center py-32 flex flex-col flex-grow justify-between gap-[4.5rem] relative w-full max-w-content m-auto pb-20">
-			<div className="space-y-4 w-full px-4 md:px-0">
+			<div className="space-y-4 w-full px-4 xl:px-0">
 				<Heading>Roadmap</Heading>
 
 				<div className="text-black-60 text-balance max-w-[28.75rem]">
@@ -130,7 +130,7 @@ export function Roadmap() {
 				</div>
 			</div>
 
-			<div className="flex justify-center md:justify-between w-full flex-wrap md:mt-0 px-4">
+			<div className="flex justify-center md:justify-center xl:justify-between w-full flex-wrap md:mt-0 px-4">
 				{stagesList.map(({ title, content, stageItems }, index) => (
 					<div key={index} className="flex flex-col">
 						<Stage
@@ -147,7 +147,7 @@ export function Roadmap() {
 
 const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
-		<div className="bg-white/[.04] border border-secondary rounded-[1.25rem] p-4 space-y-6 w-full mt-10 md:w-[22.5rem]">
+		<div className="bg-white/[.04] border border-secondary rounded-[1.25rem] p-4 space-y-6 w-full md:w-[30rem] md:m-2 mt-10 xl:w-[22.5rem] xl:m-0">
 			<div className="space-y-2">
 				<div className="text-accent-100 font-semibold text-2xl">
 					{title}

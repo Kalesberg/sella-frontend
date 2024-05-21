@@ -30,7 +30,7 @@ export function CreateStore() {
 				</div>
 
 				<VideoAnimationPlayer
-					className='flex-shrink-0 w-[48rem]'
+					className='flex-shrink-0 w-[35rem] xl:w-[48rem] hidden lg:block'
 					src='/videos/hero-anim.webm'
 					srcHevc='/videos/hero-anim.mp4"'
 				>

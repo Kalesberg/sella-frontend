@@ -14,7 +14,7 @@ export function Hero() {
 
 			<div className="flex flex-grow items-end justify-between gap-[1rem] relative w-full max-w-content m-auto">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full pb-[7.25rem] flex-shrink-0">
-					<Heading className="text-[2.5rem]/[1.1] md:text-[4.5rem]/[1.1]">
+					<Heading className="text-[2.5rem]/[1.1] xl:text-[4.5rem]/[1.1]">
 						Open your web3 storefront in seconds
 					</Heading>
 
@@ -23,7 +23,7 @@ export function Hero() {
 				</div>
 
 				<VideoAnimationPlayer
-					className='flex-shrink-0 w-[48rem]'
+					className='flex-shrink-0 w-[35rem] xl:w-[48rem] hidden lg:block'
 					src='/videos/hero-anim.webm'
 					srcHevc='/videos/hero-anim.mp4"'
 				>

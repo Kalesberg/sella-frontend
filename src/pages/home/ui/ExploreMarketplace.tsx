@@ -93,7 +93,7 @@ export function ExploreMarketPlace() {
 				<div className="space-y-12">
 					<div className="space-y-4">
 						<Heading>Explore marketplace</Heading>
-						<div className="text-black-60 text-balance w-full md:w-1/3">
+						<div className="text-black-60 text-balance w-full md:w-1/2 xl:w-1/3">
 							Discover a diverse range of one-of-a-kind shops you
 							won&apos;t find anywhere else. From digital items to
 							physical goods and unique services!

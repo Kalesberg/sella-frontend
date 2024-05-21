@@ -29,14 +29,14 @@ export function Component({
 					className
 				)}
 			>
-				<div className="flex items-center gap-[2rem] justify-between md:justify-start w-full">
+				<div className="flex items-center gap-[2rem] justify-between xl:justify-start w-full">
 					<Link href="/">
 						<AppLogo />
 					</Link>
 					<IconButton
 						colorPallete='gray'
 						variant="outline" size='sm'
-						className="md:hidden [&_svg]:size-[1.5rem]"
+						className="xl:hidden [&_svg]:size-[1.5rem]"
 						onClick={togglePhoneNavbar}
 					>
 						{/* <HamBurgerMenu active={showPhoneNavbar} /> */}
@@ -49,7 +49,7 @@ export function Component({
 					<NavItems />
 				</div>
 
-				<div className="hidden items-center gap-[1rem] md:flex">
+				<div className="hidden items-center gap-[1rem] xl:flex">
 					<Button variant="outline">Buy $SELLA</Button>
 					<Button variant="solid">Open Storefront</Button>
 				</div>
