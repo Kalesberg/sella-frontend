@@ -11,7 +11,7 @@ export function ActionControls({ className, ...props }: HTMLAttributes<HTMLDivEl
 				{({ Component: Addon, inputClassName }) => (
 					<InputGroup>
 						<Input
-							className={cn("rounded-[1.25rem] border border-secondary w-full", inputClassName)}
+							className={cn("rounded-[1.25rem] border border-secondary w-full h-full", inputClassName)}
 							placeholder="yourstorefront"
 						/>
 						<Addon className='text-white' />
@@ -19,7 +19,7 @@ export function ActionControls({ className, ...props }: HTMLAttributes<HTMLDivEl
 				)}
 			</StoreInputAddon>
 
-			<Button className="w-full md:w-auto" size="lg">
+			<Button className="w-full md:w-auto" size="xl">
 				Open Storefront
 			</Button>
 		</div>

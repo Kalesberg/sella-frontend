@@ -1,5 +1,5 @@
 import { cn } from "~/shared/lib/cn";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/kit/heading";
 
 interface StageItemProps {
 	title: string;
@@ -122,9 +122,17 @@ const stagesList = [
 
 export function Roadmap() {
 	return (
-		<div className="mx-auto items-center py-32 px-[1rem] flex flex-col flex-grow justify-between gap-[4.5rem] max-md:gap-[3rem] relative w-full max-w-content m-auto pb-20">
+		<div
+			id='roadmap'
+			className={cn(
+				"items-center py-32 px-[1rem] flex flex-col flex-grow justify-between gap-[4.5rem] relative w-full max-w-content mx-auto pb-20",
+				"max-md:gap-[3rem]"
+			)}
+		>
 			<div className="space-y-4 w-full">
-				<Heading>Roadmap</Heading>
+				<Heading size='lg'>
+					Roadmap
+				</Heading>
 
 				<div className="text-black-60 text-balance max-w-[28.75rem]">
 					Join us on our multi-stage journey to becoming the largest Web3 marketplace in the world!

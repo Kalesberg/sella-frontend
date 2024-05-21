@@ -1,0 +1,1 @@
+export { PageDashboardOrders as default } from '~/pages/dashboard-orders-sales';

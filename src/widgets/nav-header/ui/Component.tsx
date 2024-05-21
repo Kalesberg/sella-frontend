@@ -1,12 +1,15 @@
 "use client";
-import { HTMLAttributes, useState } from "react";
+
+import { HTMLAttributes, useEffect, useState } from "react";
 import { cn } from "~/shared/lib/cn";
 import { AppLogo } from "~/shared/ui/logo";
 import { NavItems } from "./NavItems";
-import { Button, IconButton } from "~/shared/ui/kit/button";
 import Link from "next/link";
-import { PhoneNavItems } from "./PhoneNavItems";
+import { UserNavBar } from "./RightNavBar";
+import { IconButton } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
+import { PhoneNavItems } from "./PhoneNavItems";
+import { usePathname } from "next/navigation";
 
 export function Component({
 	className,
@@ -18,65 +21,73 @@ export function Component({
 		setShowPhoneNavbar((prev) => !prev);
 	};
 
+	const pathname = usePathname();
+
+	useEffect(() => {
+		setShowPhoneNavbar(false);
+	}, [pathname]);
+
 	return (
 		<>
 			<div
 				{...props}
 				className={cn(
-					"flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1.25rem] h-[4.38rem]",
-					"border border-secondary", showPhoneNavbar && "border-transparent",
-					"backdrop-blur-[3rem]",
+					'flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1.25rem] h-[4.38rem]',
+					'backdrop-blur-[3rem] bg-black-08/[.80]',
+					'border border-secondary', showPhoneNavbar && "border-transparent bg-transparent backdrop-blur-none",
 					className
 				)}
 			>
-				<div className="flex items-center gap-[2rem] justify-between xl:justify-start w-full">
-					<Link href="/">
+				<div className='flex items-center gap-[2rem] max-lg:justify-between w-full'>
+					<Link href='/'>
 						<AppLogo />
 					</Link>
+
 					<IconButton
-						colorPallete='gray'
+						colorPalette='gray'
 						variant="outline" size='sm'
-						className="xl:hidden [&_svg]:size-[1.5rem]"
+						className="lg:hidden [&_svg]:size-[1.5rem]"
 						onClick={togglePhoneNavbar}
 					>
-						{/* <HamBurgerMenu active={showPhoneNavbar} /> */}
 						{showPhoneNavbar ? (
 							<Icons.Close />
 						) : (
 							<Icons.Menu />
 						)}
 					</IconButton>
-					<NavItems />
+
+					<NavItems className='max-lg:hidden' />
 				</div>
 
-				<div className="hidden items-center gap-[1rem] xl:flex">
-					<Button variant="outline">Buy $SELLA</Button>
-					<Button variant="solid">Open Storefront</Button>
-				</div>
+				<UserNavBar className='max-lg:hidden' />
 			</div>
+
 			{showPhoneNavbar && (
-				<PhoneNavbarContent setShowPhoneNavbar={setShowPhoneNavbar} />
+				<PhoneNavbarContent
+					onClose={() => setShowPhoneNavbar(false)}
+				/>
 			)}
 		</>
 	);
 }
 
 interface PhoneNavbarContentProps {
-	setShowPhoneNavbar: React.Dispatch<React.SetStateAction<boolean>>;
+	onClose: () => void
 }
 
-function PhoneNavbarContent({ setShowPhoneNavbar }: PhoneNavbarContentProps) {
+function PhoneNavbarContent({ onClose }: PhoneNavbarContentProps) {
 	return (
-		<div className="backdrop-blur-[3rem] bg-black-06/50 flex flex-col p-4 justify-between h-screen pt-36 fixed top-0 z-[10] w-full">
+		<div className={cn(
+			"backdrop-blur-[3rem] bg-black-06/50 flex flex-col p-4 justify-between h-screen pt-36 pb-[2.875rem] fixed top-0 z-drawer w-full",
+			"lg:hidden",
+			""
+		)}>
 			<PhoneNavItems
-				setShowPhoneNavbar={setShowPhoneNavbar}
+				onClose={onClose}
 				className="text-[2.5rem] gap-[2.25rem] pl-[1.25rem] font-semibold leading-[1]"
 			/>
 
-			<div className="w-full flex flex-col gap-4 mb-5">
-				<Button variant="outline">Buy $SELLA</Button>
-				<Button variant="solid">Open Storefront</Button>
-			</div>
+			<UserNavBar className='flex-col-reverse [&_button]:w-full' />
 		</div>
 	);
 }

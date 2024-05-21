@@ -1,18 +1,18 @@
-import { HTMLAttributes, Dispatch, SetStateAction } from "react";
+import { HTMLAttributes } from "react";
 import { cn } from "~/shared/lib/cn";
 import { Link } from "~/shared/ui/nav-link";
 
 interface PhoneNavItemsProps extends HTMLAttributes<HTMLDivElement> {
-	setShowPhoneNavbar: Dispatch<SetStateAction<boolean>>;
+	onClose: () => void;
 }
 
 export function PhoneNavItems({
 	className,
-	setShowPhoneNavbar,
+	onClose,
 	...props
 }: PhoneNavItemsProps) {
 	const handleLinkClick = () => {
-		setShowPhoneNavbar(false);
+		onClose?.();
 	};
 
 	return (
@@ -23,19 +23,19 @@ export function PhoneNavItems({
 				className
 			)}
 		>
-			<NavItem onClick={handleLinkClick} href="#explore">
+			<NavItem onClick={handleLinkClick} href="/#explore">
 				Home
 			</NavItem>
-			<NavItem onClick={handleLinkClick} href="#explore">
+			<NavItem onClick={handleLinkClick} href="/#explore">
 				Explore
 			</NavItem>
-			<NavItem onClick={handleLinkClick} href="#features">
+			<NavItem onClick={handleLinkClick} href="/#features">
 				Features
 			</NavItem>
-			<NavItem onClick={handleLinkClick} href="#whitepaper">
+			<NavItem onClick={handleLinkClick} href="/#whitepaper">
 				Whitepaper
 			</NavItem>
-			<NavItem onClick={handleLinkClick} href="#roadmap">
+			<NavItem onClick={handleLinkClick} href="/#roadmap">
 				Roadmap
 			</NavItem>
 		</div>

@@ -27,11 +27,11 @@ export type SchemaType = z.infer<typeof schema>
 type EditFormProps = HTMLAttributes<HTMLFormElement> & {
 	id: string;
 	store: Store,
-	onActionFulfiled?: (store: Store) => void;
+	onActionFulfilled?: (store: Store) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function EditForm({ onActionFulfiled, store, className, ...props }: EditFormProps) {
+export function EditForm({ onActionFulfilled, store, className, ...props }: EditFormProps) {
 	const onSubmit = (values: SchemaType) => {
 		const store: Store = {
 			id: 1,
@@ -45,7 +45,7 @@ export function EditForm({ onActionFulfiled, store, className, ...props }: EditF
 			}
 		}
 
-		onActionFulfiled?.(store);
+		onActionFulfilled?.(store);
 	};
 
 	return (

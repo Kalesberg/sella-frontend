@@ -4,7 +4,7 @@ import { Button } from "~/shared/ui/kit/button";
 import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/kit/heading";
 
 export function EscrowBuyerSeller() {
 	return (
@@ -13,7 +13,7 @@ export function EscrowBuyerSeller() {
 			<div className="flex flex-grow items-center justify-between gap-[1rem] relative w-full max-w-content m-auto max-lg:justify-center">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
-						<Heading>
+						<Heading size='lg'>
 							Escrow at the Core
 						</Heading>
 

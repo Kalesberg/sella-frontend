@@ -31,7 +31,7 @@ export function TwoFaSuccessDialog({ onContinue, ...props }: TwoFaSuccessDialogP
 
 					<Dialog.ContentFooter>
 						<Dialog.CloseTrigger asChild>
-							<Button colorPallete='gray' size='lg' className='w-full' >
+							<Button colorPalette='gray' size='lg' className='w-full' >
 								Go to Market
 							</Button>
 						</Dialog.CloseTrigger>

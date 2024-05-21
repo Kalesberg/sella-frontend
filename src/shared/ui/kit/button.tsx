@@ -8,11 +8,11 @@ export interface ButtonProps extends ButtonVariantProps, HTMLArkProps<'button'> 
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-	const { size, variant, className, colorPallete, active = false, ...buttonProps } = props
+	const { size, variant, className, colorPalette, active = false, ...buttonProps } = props
 
 	return (
 		<ark.button
-			className={styles({ size, variant, className, colorPallete })}
+			className={styles({ size, variant, className, colorPalette })}
 			data-selected={active ? true : undefined}
 			ref={ref} {...buttonProps}
 		/>
@@ -35,7 +35,7 @@ const styles = tv(
 			'button font-medium gap-[0.25rem] transition',
 			'disabled:opacity-50 disabled:cursor-not-allowed'
 		],
-		defaultVariants: { variant: 'solid', size: 'md', colorPallete: 'accent' },
+		defaultVariants: { variant: 'solid', size: 'md', colorPalette: 'accent' },
 		variants: {
 			variant: {
 				solid: [],
@@ -49,9 +49,9 @@ const styles = tv(
 				sm: 'rounded-[0.75rem] px-[1rem] h-[2.375rem] min-w-[2.375rem]',
 				md: 'rounded-[0.75rem] px-[1rem] h-[2.8125rem] min-w-[2.8125rem]',
 				lg: 'rounded-[1rem] px-[1.25rem] h-[3.125rem] min-w-[3.125rem]',
-				xl: 'rounded-[1.25rem] px-[1.5rem] h-[3.4375rem] min-w-[3.4375rem]'
+				xl: 'rounded-[1.25rem] px-[1.5rem] h-[3.4375rem] min-w-[3.4375rem] text-[1.125rem]'
 			},
-			colorPallete: {
+			colorPalette: {
 				accent: [],
 				gray: [],
 				red: [],
@@ -61,7 +61,7 @@ const styles = tv(
 		},
 		compoundVariants: [
 			{
-				colorPallete: 'accent',
+				colorPalette: 'accent',
 				variant: 'solid',
 				className: [
 					'bg-accent-100 text-black-100',
@@ -69,7 +69,7 @@ const styles = tv(
 				]
 			},
 			{
-				colorPallete: 'gray',
+				colorPalette: 'gray',
 				variant: 'solid',
 				className: [
 					'bg-white/[.08] text-white',
@@ -78,14 +78,14 @@ const styles = tv(
 				]
 			},
 			{
-				colorPallete: 'social',
+				colorPalette: 'social',
 				variant: 'solid',
 				className: [
 					'bg-white/10 hocus:bg-white/25'
 				]
 			},
 			{
-				colorPallete: 'accent',
+				colorPalette: 'accent',
 				variant: 'outline',
 				className: [
 					'border border-accent-100 text-accent-100',
@@ -93,7 +93,7 @@ const styles = tv(
 				]
 			},
 			{
-				colorPallete: 'red',
+				colorPalette: 'red',
 				variant: 'subtle',
 				className: [
 					'bg-red-100/[.08] text-red-100',
@@ -102,7 +102,7 @@ const styles = tv(
 				]
 			},
 			{
-				colorPallete: 'green',
+				colorPalette: 'green',
 				variant: 'subtle',
 				className: [
 					'bg-green-100/[.08] text-green-100',

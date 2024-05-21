@@ -7,10 +7,10 @@ import { Dialog } from '~/shared/ui/kit';
 import { PinInput } from '~/shared/ui/kit/pin-input';
 
 type ConnectAccountDialogProps = Dialog.RootProps & {
-	onActionFulfiled?: () => void;
+	onActionFulfilled?: () => void;
 };
 
-export function VerifyEmailDialogContent({ onActionFulfiled, ...props }: ConnectAccountDialogProps) {
+export function VerifyEmailDialogContent({ onActionFulfilled, ...props }: ConnectAccountDialogProps) {
 	return (
 		<Dialog.Root {...props}>
 			<Dialog.Backdrop />
@@ -34,7 +34,7 @@ export function VerifyEmailDialogContent({ onActionFulfiled, ...props }: Connect
 					<Dialog.ContentFooter>
 						<Button
 							className='w-full' size='lg'
-							onClick={onActionFulfiled}
+							onClick={onActionFulfilled}
 						>
 							Continue
 						</Button>

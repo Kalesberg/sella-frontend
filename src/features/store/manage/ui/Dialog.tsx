@@ -2,16 +2,17 @@
 
 import { Dialog } from '~/shared/ui/kit';
 import { EditForm } from './EditForm';
-import { useId } from 'react';
+import { ReactNode, useId } from 'react';
 import { Button } from '~/shared/ui/kit/button';
 import { Store } from '~/shared/api/model';
 import { DeleteButton } from './DeleteButton';
 
 type ManageDialogProps = Dialog.RootProps & {
-	store: Store
+	store: Store,
+	triggerElement?: ReactNode
 };
 
-export function ManageDialog({ store, ...props }: ManageDialogProps) {
+export function ManageDialog({ store, triggerElement, ...props }: ManageDialogProps) {
 	const formId = useId();
 
 	const onStoreEdit = () => {
@@ -24,6 +25,12 @@ export function ManageDialog({ store, ...props }: ManageDialogProps) {
 
 	return (
 		<Dialog.Root {...props}>
+			{triggerElement && (
+				<Dialog.Trigger asChild>
+					{triggerElement}
+				</Dialog.Trigger>
+			)}
+
 			<Dialog.Backdrop />
 
 			<Dialog.Positioner>
@@ -37,13 +44,13 @@ export function ManageDialog({ store, ...props }: ManageDialogProps) {
 					<EditForm
 						className='gap-[2rem]'
 						id={formId} store={store}
-						onActionFulfiled={onStoreEdit}
+						onActionFulfilled={onStoreEdit}
 					/>
 
 					<Dialog.ContentFooter>
-						<DeleteButton 
+						<DeleteButton
 							storeId={store.id}
-							onActionFulfiled={onStoreDelete}
+							onActionFulfilled={onStoreDelete}
 						/>
 
 						<Button form={formId} className='w-full' size='lg'>

@@ -4,8 +4,8 @@ import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
 import { ActionControls } from "./ActionControls";
-import { Heading } from "./Heading";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
+import { Heading } from "~/shared/ui/kit/heading";
 
 export function CreateStore() {
 	return (
@@ -14,7 +14,7 @@ export function CreateStore() {
 			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto max-lg:justify-center">
 				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] max-xl:mb-[5rem] flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
-						<Heading>
+						<Heading size='lg'>
 							Open your web3 storefront in seconds
 						</Heading>
 

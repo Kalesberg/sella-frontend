@@ -8,7 +8,7 @@ import ImageStoreLink from "../assets/features/store-link.png";
 import ImageRevenueShare from "../assets/features/revenue-share.png";
 import ImageSecure from "../assets/features/secure.png";
 import ImageBuyerSellers from "../assets/features/for-buyers-sellers.png";
-import { Heading } from "./Heading";
+import { Heading } from "~/shared/ui/kit/heading";
 
 interface Feature {
 	title: string;
@@ -63,7 +63,10 @@ export function SellaFeautes() {
 		<div className="py-32 px-4">
 			<div className="flex flex-col flex-grow mx-auto justify-between gap-[3rem] relative w-full max-w-content m-auto pb-20">
 				<div className="flex flex-col gap-[1.5rem] w-full">
-					<Heading>Effortless Selling</Heading>
+					<Heading size='lg'>
+						Effortless Selling
+					</Heading>
+
 					<div className="text-black-60 text-balance md:w-1/2">
 						Unlike other platforms out there, we don&apos;t over
 						complicate things. We strip away unnecessary complexity,

@@ -4,27 +4,17 @@
 
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { StoreProp } from "./Prop";
-import { ComponentProps, createContext, useContext } from "react";
-import { Store } from "~/shared/api/model";
+import { ComponentProps } from "react";
 import { cn } from "~/shared/lib/cn";
-import { invariant } from "~/shared/lib/asserts";
 import { Icons } from "~/shared/ui/icons";
 import { PreviewImage, PreviewImageProps } from "~/shared/ui/image";
-
-const context = createContext<Store | null>(null);
-
-function useComponentContext() {
-	const value = useContext(context);
-	invariant(value, "Usage useComponentContext outside context");
-
-	return value;
-}
+import { StoreProvider, useStoreStrictContext } from "./context";
 
 export type RootProps = HTMLArkProps<'div'> & StoreProp;
 
 export function Root({ store, className, ...props }: RootProps) {
 	return (
-		<context.Provider value={store}>
+		<StoreProvider value={store}>
 			<ark.div
 				{...props}
 				className={cn(
@@ -32,12 +22,12 @@ export function Root({ store, className, ...props }: RootProps) {
 					className
 				)}
 			/>
-		</context.Provider>
+		</StoreProvider>
 	);
 }
 
 export function Image({ className, ...props }: Omit<PreviewImageProps, 'src' | 'alt'>) {
-	const { previewImage: imageUrl, name: title } = useComponentContext();
+	const { previewImage: imageUrl, name: title } = useStoreStrictContext();
 
 	return (
 		<PreviewImage
@@ -57,26 +47,35 @@ export function ImageDesktop({ className, ...props }: ComponentProps<typeof Imag
 	);
 }
 
+export function ImageMobile({ className, ...props }: ComponentProps<typeof Image>) {
+	return (
+		<Image
+			{...props}
+			className={cn('size-[3rem] xl:hidden', className)}
+		/>
+	);
+}
+
 export function Content({ className, ...props }: HTMLArkProps<'div'>) {
 	return (
 		<ark.div className={cn('flex flex-col gap-[1rem]', className)} {...props} />
 	)
 }
 
-export function Title({ className, ...props }: HTMLArkProps<'div'>) {
-	const { name: title, shortName: name, isVerified } = useComponentContext();
+export function Title({ className, children, ...props }: HTMLArkProps<'div'>) {
+	const { name: title, shortName: name, isVerified } = useStoreStrictContext();
 
 	return (
-		<ark.div className={cn('flex gap-[1rem]', className)} {...props}>
-			<Image className='size-[3rem] xl:hidden' />
+		<ark.div className={cn('flex gap-[1rem] items-center text-[1.5rem]/[1.3]', className)} {...props}>
+			{children}
 
 			<div className='flex flex-col gap-[0.25rem] w-full'>
-				<div className='flex items-center gap-[0.5rem] font-semibold text-[1.1rem] md:text-[1.5rem] font-manrope leading-[1.3]'>
+				<div className='flex items-center gap-[0.5rem] font-semibold font-manrope leading-[1.3]'>
 					<h1>{title}</h1>
 					{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
 				</div>
 
-				<span className='font-semibold text-black-40'>
+				<span className='font-semibold text-black-40 text-[1.1rem] '>
 					{name}
 				</span>
 			</div>
@@ -85,7 +84,7 @@ export function Title({ className, ...props }: HTMLArkProps<'div'>) {
 }
 
 export function Description({ className, ...props }: HTMLArkProps<'p'>) {
-	const { description } = useComponentContext();
+	const { description } = useStoreStrictContext();
 
 	return (
 		<ark.p className={cn('text-black-60 leading-[1.3]', className)} {...props}>
@@ -95,7 +94,7 @@ export function Description({ className, ...props }: HTMLArkProps<'p'>) {
 }
 
 export function Rating({ className, ...props }: HTMLArkProps<"div">) {
-	const { rating } = useComponentContext();
+	const { rating } = useStoreStrictContext();
 
 	return (
 		<ark.div

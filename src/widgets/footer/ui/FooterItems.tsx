@@ -8,16 +8,16 @@ export function FooterItems({ className, ...props }: HTMLAttributes<HTMLDivEleme
 			{...props} 
 			className={cn('flex md:flex-row flex-col  md:items-start items-center gap-[2rem]', className)}
 		>
-			<Link href='#explore'>
+			<Link href='/#explore'>
 				Explore
 			</Link>
-			<Link href='#features'>
+			<Link href='/#features'>
 				Features
 			</Link>
-			<Link href='#whitepaper'>
+			<Link href='/whitepaper'>
 				Whitepaper
 			</Link>
-			<Link href='#roadmap'>
+			<Link href='/#roadmap'>
 				Roadmap
 			</Link>
 		</div>

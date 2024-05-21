@@ -1,0 +1,1 @@
+export { PageDashboard as default } from '~/pages/dashboard';
