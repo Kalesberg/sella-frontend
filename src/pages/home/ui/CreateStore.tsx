@@ -3,7 +3,7 @@ import ImageHero from "../assets/hero.webp";
 import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
-import { ActionControls } from "./ActionControls";
+import { ActionControls } from "~/features/ActionControls";
 import { Heading } from "./Heading";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
 
