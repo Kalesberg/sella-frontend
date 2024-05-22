@@ -1,14 +1,15 @@
-'use client'
-
 import { Heading } from "~/shared/ui/heading";
-import { StoreCardItem } from "~/entities/store";
-import { Pagination } from "~/shared/ui/kit/pagination";
 import { cn } from "~/shared/lib/cn";
 import { Carousel } from "~/pages/marketplace/ui/Carousel";
-import { storeData } from "~/shared/api/store";
 import { HTMLAttributes } from "react";
+import { Store } from "~/shared/api/model";
+import { StoreList } from "~/pages/marketplace/ui/StoreList";
 
-export function ExploreMarketplace({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+type ExploreMarketplaceProps = HTMLAttributes<HTMLDivElement> & {
+	initialData: Store[]
+}
+
+export function ExploreMarketplace({ initialData, className, ...props }: ExploreMarketplaceProps) {
 	return (
 		<div
 			className={cn(
@@ -30,22 +31,7 @@ export function ExploreMarketplace({ className, ...props }: HTMLAttributes<HTMLD
 
 				<Carousel className="max-md:px-4" />
 
-				<div className="grid grid-cols-2 gap-10 max-w-content m-auto max-md:grid-cols-1 px-4">
-					{storeData.map((store) => (
-						<div key={store.id} className="w-full">
-							<StoreCardItem store={store} />
-						</div>
-					))}
-				</div>
-
-				{/*TODO mobile pagination*/}
-				<Pagination
-					className="max-w-content m-auto max-md:max-w-full max-md:mx-4 max-md:overflow-auto"
-					count={190}
-					pageSize={10}
-					siblingCount={1}
-					defaultPage={1}
-				/>
+				<StoreList initialData={initialData} />
 			</div>
 		</div>
 	);
