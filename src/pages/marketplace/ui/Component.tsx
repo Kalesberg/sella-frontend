@@ -6,10 +6,15 @@ export async function Component() {
 	const stores = await fetchStores();
 
 	return (
-		<div>
-			<ExploreMarketplace className='mb-[3rem]' initialData={stores} />
+		<div className='px-4'>
+			<ExploreMarketplace
+				className='mb-[3rem]'
+				initialData={stores}
+			/>
 
-			<SellaMeTrustedInfluencers className='max-w-content m-auto max-md:mx-4' />
+			<SellaMeTrustedInfluencers
+				className='max-w-content m-auto'
+			/>
 		</div>
 	);
 }

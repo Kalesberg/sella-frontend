@@ -4,9 +4,7 @@ import { Select } from '@ark-ui/react/select'
 import { forwardRef, type ComponentProps } from 'react'
 import { tv } from 'tailwind-variants'
 import { createStyleContext } from '~/shared/lib/create-style-context'
-
-import config from 'tailwind.config'
-import resolveConfig from 'tailwindcss/resolveConfig';
+import { resolvedTwConfig } from '~/shared/lib/resolved-tw-config'
 
 const styles = tv(
 	{
@@ -81,7 +79,6 @@ const BaseRoot = forwardRef<
 
 BaseRoot.displayName = 'BaseSelectRoot';
 
-const resolvedTwConfig = resolveConfig(config);
 const preferedZIndex = Number(resolvedTwConfig.theme.zIndex['dropdown']) - 1;
 
 const BasePositioner = forwardRef<

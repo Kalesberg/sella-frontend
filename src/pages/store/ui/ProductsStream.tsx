@@ -20,9 +20,11 @@ export function ProductsStream({ initialData, className }: ProductsStreamProps) 
 	const { enabled: editModeEnabled } = useEditModeContext();
 
 	return (
-		<div className={cn('flex flex-col gap-[3rem] w-full', className)}>
+		<div className={cn('flex flex-col gap-[3rem] w-full items-center', className)}>
 			{editModeEnabled ? (
-				<ProductsEditTable products={products} />
+				<div className='max-w-full overflow-x-auto'>
+					<ProductsEditTable products={products} />
+				</div>
 			) : (
 				<ProductsGrid products={products} />
 			)}
@@ -38,9 +40,12 @@ export function ProductsStream({ initialData, className }: ProductsStreamProps) 
 
 function ProductsGrid({ products }: { products: Product[] }) {
 	return (
-		<div className='grid grid-cols-4 gap-[2.5rem] w-full max-md:grid-cols-1'>
+		<div className={cn(
+			'grid grid-cols-4 gap-[2.5rem] w-full',
+			'max-md:grid-cols-1 max-lg:grid-cols-2 max-xl:grid-cols-3'
+		)}>
 			{products.map(p => (
-				<ProductCard.Root key={p.id} product={p} className='w-full'>
+				<ProductCard.Root key={p.id} product={p} className='w-full mx-auto'>
 					<ProductCard.Image className='max-md:h-[15.875rem]' />
 
 					<ProductCard.Content>
@@ -64,10 +69,9 @@ const tableConfig = [
 	{ width: '4.375rem' },
 ]
 
-
 function ProductsEditTable({ products }: { products: Product[] }) {
 	return (
-		<FlexTable.Root className='w-full' config={tableConfig}>
+		<FlexTable.Root className='w-[max(100%,60rem)]' config={tableConfig}>
 			<FlexTable.Head>
 				<span>#</span>
 				<span>Product</span>
@@ -93,11 +97,12 @@ function ProductsEditTable({ products }: { products: Product[] }) {
 						</span>
 						<span>165</span>
 						<span>27</span>
-						<div>
+						<div className='sticky right-0'>
 							<ProductManageDialog
 								product={p}
 								triggerElement={
 									<IconButton
+										className='backdrop-blur-[1rem]'
 										colorPalette='gray' size='sm'
 									>
 										<Icons.Settings className='size-[1.25rem]' />

@@ -18,13 +18,13 @@ export function Carousel({ className, ...props }: HTMLAttributes<HTMLDivElement>
 			{...props}
 			{...events}
 			ref={ref}
-			style={{
-				padding: '0 max(calc((100% - 72.5rem + 2rem) / 2), 1rem)'
-			}}
 		>
 
 			{Array.from({ length: 10 }).map((_, index) => (
-				<div key={index} className='flex-none w-[21.5rem] rounded-[1rem] border border-secondary bg-white/[.02] p-[0.5rem]' >
+				<div 
+					key={index} 
+					className='flex-none w-[21.5rem] rounded-[1.25rem] border border-secondary bg-white/[.02] p-[0.5rem]' 
+				>
 					<PreviewImage className='w-full' src={null} alt='item'/>
 				</div>
 			))}

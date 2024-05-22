@@ -15,10 +15,15 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 	const products = await fetchStoreProducts(storeId);
 
 	return (
-		<div className='flex flex-col w-full max-w-content mx-auto max-md:px-4'>
+		<div className='flex flex-col w-full max-w-content mx-auto max-xl:px-4'>
 			<EditModeProvider>
-				<div className='flex mb-[4.5rem] items-end w-full gap-[1rem] justify-between max-md:mb-[3rem] max-md:flex-col max-md:items-start'>
-					<StoreCard.Root store={store} className='p-0 border-none flex-grow max-md:flex max-md:flex-col max-md:items-start'>
+				<div className='flex mb-[4.5rem] items-end w-full gap-[1rem] justify-between \
+					max-lg:mb-[3rem] max-lg:flex-col max-lg:items-start'
+				>
+					<StoreCard.Root
+						store={store}
+						className='p-0 border-none flex-grow max-md:flex max-md:flex-col max-md:items-start'
+					>
 						<StoreCard.Image />
 
 						<StoreCard.Content>
@@ -28,7 +33,7 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 						</StoreCard.Content>
 					</StoreCard.Root>
 
-					<div className='flex gap-[1rem]'>
+					<div className='flex gap-[1rem] md:self-end'>
 						<StoreManageDialog
 							store={store}
 							triggerElement={
@@ -43,10 +48,16 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 					</div>
 				</div>
 
-				<ProductsStream className='mb-[6rem] max-md:mb-[5rem]' initialData={products} />
+				<ProductsStream
+					className='mb-[6rem] max-md:mb-[5rem]'
+					initialData={products}
+				/>
 			</EditModeProvider>
 
-			<SimilarStoreFronts className='mb-[6rem] max-md:mb-[3rem]' storeId={storeId}/>
+			<SimilarStoreFronts
+				className='mb-[6rem] max-md:mb-[3rem]'
+				storeId={storeId}
+			/>
 
 			<SellaMeTrustedInfluencers />
 		</div>

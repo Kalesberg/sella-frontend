@@ -26,17 +26,7 @@ export async function Component() {
 			<div className='grid grid-cols-2 gap-[2.5rem]'>
 				{stores.map(s => (
 					<StoreLink store={s} key={s.id}>
-						<StoreCard.Root store={s}>
-							<StoreCard.ImageDesktop />
-
-							<StoreCard.Content>
-								<StoreCard.Title>
-									<StoreCard.ImageMobile />
-								</StoreCard.Title>
-								<StoreCard.Description />
-								<StoreCard.Rating />
-							</StoreCard.Content>
-						</StoreCard.Root>
+						<StoreCard.Composed store={s} />
 					</StoreLink>
 				))}
 			</div>

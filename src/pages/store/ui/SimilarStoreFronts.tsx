@@ -13,19 +13,10 @@ export async function SimilarStoreFronts({ className, storeId }: { className?: s
 			<div className='flex gap-10 max-md:flex-col'>
 				{stores.map((store) => (
 					<StoreLink key={store.id} store={store}>
-						<StoreCard.Root
+						<StoreCard.Composed 
+							store={store} 
 							className='w-full mx-auto'
-							store={store}
-						>
-							<StoreCard.ImageDesktop />
-							<StoreCard.Content>
-								<StoreCard.Title>
-									<StoreCard.ImageMobile />
-								</StoreCard.Title>
-								<StoreCard.Description />
-								<StoreCard.Rating />
-							</StoreCard.Content>
-						</StoreCard.Root>
+						/>
 					</StoreLink>
 				))}
 			</div>

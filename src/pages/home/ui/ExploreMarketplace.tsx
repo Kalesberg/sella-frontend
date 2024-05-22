@@ -24,19 +24,10 @@ export function ExploreMarketPlace() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 						{storeData.map(store => (
 							<StoreLink key={store.id} store={store}>
-								<StoreCard.Root
+								<StoreCard.Composed 
+									store={store} 
 									className='w-full mx-auto'
-									store={store}
-								>
-									<StoreCard.ImageDesktop />
-									<StoreCard.Content>
-										<StoreCard.Title>
-											<StoreCard.ImageMobile />
-										</StoreCard.Title>
-										<StoreCard.Description />
-										<StoreCard.Rating />
-									</StoreCard.Content>
-								</StoreCard.Root>
+								/>
 							</StoreLink>
 						))}
 					</div>
