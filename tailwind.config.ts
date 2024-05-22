@@ -59,8 +59,25 @@ const config = {
 		parkwindPlugin,
 		plugin(function ({ addVariant }) {
 			addVariant('hocus', ['&:hover', '&:focus'])
-			addVariant('filled', '&:not(:placeholder-shown)'),
+			addVariant('filled', '&:not(:placeholder-shown)')
 			addVariant('light', '&:is(.light *)')
+		}),
+		plugin(function ({ addUtilities }) {
+			addUtilities({
+				'.scrollbar-hide': {
+					/* IE and Edge */
+					'-ms-overflow-style': 'none',
+
+					/* Firefox */
+					'scrollbar-width': 'none',
+
+					/* Safari and Chrome */
+					'&::-webkit-scrollbar': {
+						display: 'none'
+					}
+				}
+			}
+			)
 		})
 	],
 	darkMode: ['class'],

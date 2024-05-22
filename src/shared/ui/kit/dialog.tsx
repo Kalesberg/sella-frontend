@@ -17,7 +17,7 @@ const styles = tv(
 			positioner: 'dialog__positioner',
 			content: 'dialog__content bg-[#141414] border border-white/[.02] flex flex-col items-center',
 			contentHeading: 'flex flex-col items-center',
-			contentFooter: 'flex gap-[1rem] w-full [&>*]:w-full',
+			contentFooter: 'flex gap-[1rem] w-full [&>*]:w-full max-md:flex-col-reverse',
 			title: 'text-[2rem] font-semibold font-manrope text-center',
 			description: 'text-black-40 text-center leading-[1.5]',
 			closeTrigger: 'dialog__closeTrigger',

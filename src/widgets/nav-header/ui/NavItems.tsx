@@ -8,7 +8,7 @@ export function NavItems({ className, ...props }: HTMLAttributes<HTMLDivElement>
 			{...props} 
 			className={cn('flex items-start gap-[2rem]', className)}
 		>
-			<Link href='/#explore'>
+			<Link href='/marketplace'>
 				Explore
 			</Link>
 			<Link href='/#features'>

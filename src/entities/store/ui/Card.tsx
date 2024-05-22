@@ -66,7 +66,14 @@ export function Title({ className, children, ...props }: HTMLArkProps<'div'>) {
 	const { name: title, shortName: name, isVerified } = useStoreStrictContext();
 
 	return (
-		<ark.div className={cn('flex gap-[1rem] items-center text-[1.5rem]/[1.3]', className)} {...props}>
+		<ark.div
+			{...props}
+			className={cn(
+				'flex gap-[1rem] items-center text-[1.5rem]/[1.3] truncate',
+				'max-lg:text-[1.125rem]/[1.3]',
+				className
+			)}
+		>
 			{children}
 
 			<div className='flex flex-col gap-[0.25rem] w-full'>
@@ -75,7 +82,7 @@ export function Title({ className, children, ...props }: HTMLArkProps<'div'>) {
 					{isVerified && <Icons.Verified className='text-accent-100 size-[0.85em]' />}
 				</div>
 
-				<span className='font-semibold text-black-40 text-[1.1rem] '>
+				<span className='font-semibold text-black-40 text-[1.1rem] max-lg:text-[1rem]'>
 					{name}
 				</span>
 			</div>
@@ -117,5 +124,20 @@ export function Rating({ className, ...props }: HTMLArkProps<"div">) {
 				</div>
 			</div>
 		</ark.div>
+	);
+}
+
+export function Composed(props: ComponentProps<typeof Root>) {
+	return (
+		<Root {...props}>
+			<ImageDesktop />
+			<Content>
+				<Title>
+					<ImageMobile />
+				</Title>
+				<Description />
+				<Rating />
+			</Content>
+		</Root>
 	);
 }

@@ -11,7 +11,7 @@ type ReportSuccessDialogProps = Dialog.RootProps & {
 export function ReportSuccessDialog({ onContinue, ...props }: ReportSuccessDialogProps) {
 	return (
 		<Dialog.Root {...props}>
-			<Dialog.Backdrop />
+			<Dialog.Backdrop onClick={onContinue} />
 
 			<Dialog.Positioner>
 				<Dialog.Content className='w-[34.375rem]'>

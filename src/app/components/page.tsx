@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from "~/shared/ui/kit/button";
+import { Button, IconButton } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
 import { PinInput } from "~/shared/ui/kit/pin-input";
 import { VTextControl } from "~/shared/ui/validation-inputs";
@@ -356,9 +356,14 @@ function ReportShopDialogTest() {
 
 	return (
 		<>
-			<Button colorPalette='gray' onClick={open}>
-				Report Shop
-			</Button>
+			<IconButton
+				size='lg'
+				colorPalette='gray'
+				aria-label="Report"
+				onClick={open}
+			>
+				<Icons.AlertOctagon />
+			</IconButton>
 
 			<ReportShopDialog
 				open={isOpen}

@@ -1,90 +1,9 @@
 "use client";
 
-import { Store } from "~/shared/api/model";
-import { ActionControls } from "./ActionControls";
-import { StoreCard, StoreLink } from "~/entities/store";
 import { Heading } from "~/shared/ui/kit/heading";
-
-const storeData: Store[] = [
-	{
-		id: 1,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 2,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 3,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 4,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 5,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 6,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-];
+import { StoreCard, StoreLink } from "~/entities/store";
+import { SellaMeTrustedInfluencers } from "~/widgets/sella-me-trusted-influencers";
+import { storeData } from "~/shared/api/store";
 
 export function ExploreMarketPlace() {
 	return (
@@ -105,40 +24,16 @@ export function ExploreMarketPlace() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 						{storeData.map(store => (
 							<StoreLink key={store.id} store={store}>
-								<StoreCard.Root
+								<StoreCard.Composed 
+									store={store} 
 									className='w-full mx-auto'
-									store={store}
-								>
-									<StoreCard.ImageDesktop />
-									<StoreCard.Content>
-										<StoreCard.Title>
-											<StoreCard.ImageMobile />
-										</StoreCard.Title>
-										<StoreCard.Description />
-										<StoreCard.Rating />
-									</StoreCard.Content>
-								</StoreCard.Root>
+								/>
 							</StoreLink>
 						))}
 					</div>
 				</div>
 				<SellaMeTrustedInfluencers />
 			</div>
-		</div>
-	);
-}
-
-function SellaMeTrustedInfluencers() {
-	return (
-		<div className="flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02] px-[1.5rem]">
-			<Heading>
-				No KYC, No Pesky Regulations
-			</Heading>
-			<p className="text-black-60 max-w-[33rem] mx-auto text-lg">
-				Open your storefront in less than 30 seconds! Start by reserving
-				your storefront handle
-			</p>
-			<ActionControls className='justify-center mt-[2rem] w-full' />
 		</div>
 	);
 }
