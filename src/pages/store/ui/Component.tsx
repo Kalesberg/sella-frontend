@@ -8,20 +8,21 @@ import { EditModeProvider } from "../model/edit-mode";
 import { ToggleEditModeButton } from "./ToggleEditModeButton";
 import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
 import { SimilarStoreFronts } from "~/pages/store/ui/SimilarStoreFronts";
+import { ReportShop } from "~/features/report-shop";
 
 export async function Component({ storeId }: { storeId: StoreId }) {
 	const store = await fetchStore(storeId);
 	const products = await fetchStoreProducts(storeId);
 
 	return (
-		<div className='flex flex-col w-full max-w-content mx-auto'>
+		<div className='flex flex-col w-full max-w-content mx-auto max-md:px-4'>
 			<EditModeProvider>
-				<div className='flex mb-[4.5rem] items-end w-full gap-[1rem] justify-between'>
-					<StoreCard.Root store={store} className='p-0 border-none flex-grow'>
+				<div className='flex mb-[4.5rem] items-end w-full gap-[1rem] justify-between max-md:mb-[3rem] max-md:flex-col max-md:items-start'>
+					<StoreCard.Root store={store} className='p-0 border-none flex-grow max-md:flex max-md:flex-col max-md:items-start'>
 						<StoreCard.Image />
 
 						<StoreCard.Content>
-							<StoreCard.Title className='text-[3rem]' />
+							<StoreCard.Title className='text-[3rem] max-md:text-[2.625rem]' />
 							<StoreCard.Description />
 							<StoreCard.Rating />
 						</StoreCard.Content>
@@ -37,13 +38,15 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 							}
 						/>
 						<ToggleEditModeButton />
+
+						<ReportShop />
 					</div>
 				</div>
 
-				<ProductsStream className='mb-[6rem]' initialData={products} />
+				<ProductsStream className='mb-[6rem] max-md:mb-[5rem]' initialData={products} />
 			</EditModeProvider>
 
-			<SimilarStoreFronts  className='mb-[6rem]'/>
+			<SimilarStoreFronts className='mb-[6rem] max-md:mb-[3rem]'/>
 
 			<SellaMeTrustedInfluencers />
 		</div>

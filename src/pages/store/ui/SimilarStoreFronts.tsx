@@ -36,8 +36,8 @@ export function SimilarStoreFronts({ className }: { className?: string }) {
 
 	return (
 		<div className={cn('flex flex-col gap-[3rem]', className)}>
-			<Heading>Similar Storefronts</Heading>
-			<div className='flex gap-10'>
+			<Heading className='max-md:text-[2.625rem]'>Similar Storefronts</Heading>
+			<div className='flex gap-10 max-md:flex-col'>
 				{storeData.map((store) => (
 					<StoreCardItem key={store.id} store={store}/>
 				))}

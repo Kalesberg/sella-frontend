@@ -28,6 +28,7 @@ export function ProductsStream({ initialData, className }: ProductsStreamProps) 
 			)}
 
 			<Pagination
+				className='overflow-auto'
 				count={190} pageSize={10}
 				siblingCount={1} defaultPage={1}
 			/>
@@ -37,10 +38,10 @@ export function ProductsStream({ initialData, className }: ProductsStreamProps) 
 
 function ProductsGrid({ products }: { products: Product[] }) {
 	return (
-		<div className='grid grid-cols-4 gap-[2.5rem] w-full'>
+		<div className='grid grid-cols-4 gap-[2.5rem] w-full max-md:grid-cols-1'>
 			{products.map(p => (
-				<ProductCard.Root key={p.id} product={p}>
-					<ProductCard.Image />
+				<ProductCard.Root key={p.id} product={p} className='w-full'>
+					<ProductCard.Image className='max-md:h-[15.875rem]' />
 
 					<ProductCard.Content>
 						<ProductCard.Title />

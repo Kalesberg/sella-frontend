@@ -7,7 +7,7 @@ export function SellaMeTrustedInfluencers({ className, ...props }: HTMLAttribute
 		<div
 			className={cn(
 				"flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02]",
-				"max-md:mx-4 max-md:px-6 max-md:w-auto",
+				"max-md:px-6 max-md:w-auto",
 				className
 			)}
 			{...props}

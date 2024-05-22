@@ -6,7 +6,7 @@ export function Component() {
 		<div>
 			<ExploreMarketplace className='mb-[3rem]' />
 
-			<SellaMeTrustedInfluencers className='max-w-content m-auto' />
+			<SellaMeTrustedInfluencers className='max-w-content m-auto max-md:mx-4' />
 		</div>
 	);
 }

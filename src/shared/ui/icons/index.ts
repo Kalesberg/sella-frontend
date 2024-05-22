@@ -22,6 +22,7 @@ import Building from '../../assets/icons/building.svg';
 import Package from '../../assets/icons/package.svg';
 import PackageThin from '../../assets/icons/package-thin.svg';
 import ChevronDown from '../../assets/icons/chevron-down.svg';
+import AlertOctagon from '../../assets/icons/alert-octagon.svg';
 
 import CurrencyUsdt from '../../assets/icons/currency/usdt.svg';
 
@@ -50,6 +51,7 @@ export const Icons = {
 	Package,
 	PackageThin,
 	ChevronDown,
+	AlertOctagon,
 	
 	CurrencyUsdt
 }
