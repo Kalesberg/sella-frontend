@@ -6,10 +6,11 @@ import { Icons } from "~/shared/ui/icons";
 import { Pagination } from "~/shared/ui/kit/pagination";
 import { NotFoundScreen } from "./NotFoundScreen";
 
-import { 
-	TransactionStatusBadge, 
-	TransactionActionButton 
+import {
+	TransactionStatusBadge,
+	TransactionActionButton
 } from "./TransactionElements";
+import { BleedingContainer } from "./BleedingContainer";
 
 const config = [
 	{ width: '3.75rem' },
@@ -25,7 +26,7 @@ const config = [
 export function OrdersTable({ initialData }: { initialData: OrdersResponse }) {
 	const { data: orders, total } = initialData;
 
-	if(!orders.length) {
+	if (!orders.length) {
 		return (
 			<NotFoundScreen>
 				<Icons.PackageThin />
@@ -36,54 +37,59 @@ export function OrdersTable({ initialData }: { initialData: OrdersResponse }) {
 	}
 
 	return (
-		<div className='flex flex-col gap-[3rem] w-full'>
-			<FlexTable.Root className='w-full' config={config}>
-				<FlexTable.Head>
-					<span>#</span>
-					<span>Date</span>
-					<span>Product</span>
-					<span>Store</span>
-					<span>Status</span>
-					<span>Fulfillment Status</span>
-					<span>Total Paid</span>
-					<span />
-				</FlexTable.Head>
+		<BleedingContainer className='max-md:items-center'>
+			<div className='max-w-full overflow-x-auto'>
+				<FlexTable.Root className='w-[max(100%,70rem)] px-[1rem]' config={config}>
+					<FlexTable.Head>
+						<span>#</span>
+						<span>Date</span>
+						<span>Product</span>
+						<span>Store</span>
+						<span>Status</span>
+						<span>Fulfillment Status</span>
+						<span>Total Paid</span>
+						<span />
+					</FlexTable.Head>
 
-				<FlexTable.Body className='text-[0.875rem]'>
-					{orders.map((o, index) => (
-						<FlexTable.Row key={o.id}>
-							<span>{index + 1}</span>
-							<span>
-								{o.transaction.createdAt.format('MMM DD, hh:mm A')}
-							</span>
-							<span className='text-white'>
-								<ProductRow product={o.product} />
-							</span>
-							<span className='text-black-60'>
-								{o.store.name}
-							</span>
-							<span>
-								<TransactionStatusBadge 
-									status={o.transaction.status} 
-								/>
-							</span>
-							<span>
-								<Badge className='capitalize'>
-									{o.transaction.fulfillmentStatus}
-								</Badge>
-							</span>
-							<span className='text-accent-100'>
-								{o.transaction.totalPaid} USDT
-							</span>
-							<span>
-								<TransactionActionButton transaction={o.transaction} />
-							</span>
-						</FlexTable.Row>
-					))}
-				</FlexTable.Body>
-			</FlexTable.Root>
+					<FlexTable.Body className='text-[0.875rem]'>
+						{orders.map((o, index) => (
+							<FlexTable.Row key={o.id}>
+								<span>{index + 1}</span>
+								<span>
+									{o.transaction.createdAt.format('MMM DD, hh:mm A')}
+								</span>
+								<span className='text-white'>
+									<ProductRow product={o.product} />
+								</span>
+								<span className='text-black-60'>
+									{o.store.name}
+								</span>
+								<span>
+									<TransactionStatusBadge
+										status={o.transaction.status}
+									/>
+								</span>
+								<span>
+									<Badge className='capitalize'>
+										{o.transaction.fulfillmentStatus}
+									</Badge>
+								</span>
+								<span className='text-accent-100'>
+									{o.transaction.totalPaid} USDT
+								</span>
+								<span className='sticky right-0'>
+									<TransactionActionButton transaction={o.transaction} />
+								</span>
+							</FlexTable.Row>
+						))}
+					</FlexTable.Body>
+				</FlexTable.Root>
+			</div>
 
-			<Pagination count={total} pageSize={10} />
-		</div>
+			<Pagination
+				className='px-[1rem]'
+				count={total} pageSize={10}
+			/>
+		</BleedingContainer>
 	);
 }
