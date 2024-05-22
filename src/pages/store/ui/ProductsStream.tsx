@@ -20,9 +20,9 @@ export function ProductsStream({ initialData, className }: ProductsStreamProps) 
 	const { enabled: editModeEnabled } = useEditModeContext();
 
 	return (
-		<div className={cn('flex flex-col gap-[3rem] w-full items-center', className)}>
+		<div className={cn('flex flex-col gap-[3rem] w-full max-lg:items-center', className)}>
 			{editModeEnabled ? (
-				<div className='max-w-full overflow-x-auto'>
+				<div className='w-full max-w-full overflow-x-auto'>
 					<ProductsEditTable products={products} />
 				</div>
 			) : (
