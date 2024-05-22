@@ -32,7 +32,27 @@ export async function fetchStores(): Promise<Store[]> {
 				reviewsCount: 673,
 			},
 		}) as Store[])
-		.map((item, index) => ({ ...item, id: index + 1}))
+		.map((item, index) => ({ ...item, id: index + 1 }))
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function fetchSimilarStores(storeId: StoreId): Promise<Store[]> {
+	return (Array
+		.from({ length: 2 })
+		.fill({
+			id: 0,
+			name: "First Store",
+			shortName: "@storename",
+			isVerified: true,
+			description: "Market, Limit, Stop Limit, and Auction Mode orders.",
+			previewImage: null,
+			rating: {
+				likes: 45,
+				dislikes: 16,
+				reviewsCount: 673,
+			},
+		}) as Store[])
+		.map((item, index) => ({ ...item, id: index + 1 }))
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

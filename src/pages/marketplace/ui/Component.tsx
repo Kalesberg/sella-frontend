@@ -1,5 +1,5 @@
 import { ExploreMarketplace } from "~/pages/marketplace/ui/ExploreMarketplace";
-import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
+import { SellaMeTrustedInfluencers } from "~/widgets/sella-me-trusted-influencers";
 import { fetchStores } from "~/pages/store/api";
 
 export async function Component() {

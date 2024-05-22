@@ -12,12 +12,15 @@ export function Carousel({ className, ...props }: HTMLAttributes<HTMLDivElement>
 	return (
 		<div
 			className={cn(
-				"flex w-full px-[calc((100%-72.5rem)/2)] space-x-3 overflow-x-scroll scrollbar-hide",
+				"flex w-full space-x-3 overflow-x-scroll scrollbar-hide",
 				className
 			)}
 			{...props}
 			{...events}
 			ref={ref}
+			style={{
+				padding: '0 max(calc((100% - 72.5rem + 2rem) / 2), 1rem)'
+			}}
 		>
 
 			{Array.from({ length: 10 }).map((_, index) => (

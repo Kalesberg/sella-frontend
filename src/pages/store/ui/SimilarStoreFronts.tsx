@@ -1,45 +1,32 @@
-import { StoreCardItem } from "~/entities/store";
-import { Store } from "~/shared/api/model";
+import { StoreCard, StoreLink } from "~/entities/store";
 import { Heading } from "~/shared/ui/heading";
 import { cn } from "~/shared/lib/cn";
+import { StoreId } from "~/shared/api/model";
+import { fetchSimilarStores } from "~/pages/store/api";
 
-const storeData: Store[] = [
-	{
-		id: 1,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-	{
-		id: 2,
-		name: "Store Name",
-		shortName: "@storename",
-		isVerified: true,
-		description: "Market, Limit, Stop Limit, and Auction Mode orders.",
-		previewImage: null,
-		rating: {
-			likes: 45,
-			dislikes: 16,
-			reviewsCount: 673,
-		},
-	},
-]
-
-export function SimilarStoreFronts({ className }: { className?: string }) {
+export async function SimilarStoreFronts({ className, storeId }: { className?: string, storeId: StoreId }) {
+	const stores = await fetchSimilarStores(storeId)
 
 	return (
 		<div className={cn('flex flex-col gap-[3rem]', className)}>
 			<Heading className='max-md:text-[2.625rem]'>Similar Storefronts</Heading>
 			<div className='flex gap-10 max-md:flex-col'>
-				{storeData.map((store) => (
-					<StoreCardItem key={store.id} store={store}/>
+				{stores.map((store) => (
+					<StoreLink key={store.id} store={store}>
+						<StoreCard.Root
+							className='w-full mx-auto'
+							store={store}
+						>
+							<StoreCard.ImageDesktop />
+							<StoreCard.Content>
+								<StoreCard.Title>
+									<StoreCard.ImageMobile />
+								</StoreCard.Title>
+								<StoreCard.Description />
+								<StoreCard.Rating />
+							</StoreCard.Content>
+						</StoreCard.Root>
+					</StoreLink>
 				))}
 			</div>
 		</div>

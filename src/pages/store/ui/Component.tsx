@@ -6,7 +6,7 @@ import { StoreManageDialog } from "~/features/store/manage";
 import { ProductsStream } from "./ProductsStream";
 import { EditModeProvider } from "../model/edit-mode";
 import { ToggleEditModeButton } from "./ToggleEditModeButton";
-import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
+import { SellaMeTrustedInfluencers } from "~/widgets/sella-me-trusted-influencers";
 import { SimilarStoreFronts } from "~/pages/store/ui/SimilarStoreFronts";
 import { ReportShop } from "~/features/report-shop";
 
@@ -46,7 +46,7 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 				<ProductsStream className='mb-[6rem] max-md:mb-[5rem]' initialData={products} />
 			</EditModeProvider>
 
-			<SimilarStoreFronts className='mb-[6rem] max-md:mb-[3rem]'/>
+			<SimilarStoreFronts className='mb-[6rem] max-md:mb-[3rem]' storeId={storeId}/>
 
 			<SellaMeTrustedInfluencers />
 		</div>

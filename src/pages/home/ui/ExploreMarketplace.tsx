@@ -2,7 +2,7 @@
 
 import { Heading } from "~/shared/ui/kit/heading";
 import { StoreCard, StoreLink } from "~/entities/store";
-import { SellaMeTrustedInfluencers } from "~/widgets/SellaMeTrustedInfluencers";
+import { SellaMeTrustedInfluencers } from "~/widgets/sella-me-trusted-influencers";
 import { storeData } from "~/shared/api/store";
 
 export function ExploreMarketPlace() {
@@ -46,18 +46,3 @@ export function ExploreMarketPlace() {
 		</div>
 	);
 }
-
-// function SellaMeTrustedInfluencers() {
-// 	return (
-// 		<div className="flex flex-col w-full gap-[1rem] py-14 rounded-[1.25rem] text-center bg-white/[.02] px-[1.5rem]">
-// 			<Heading>
-// 				No KYC, No Pesky Regulations
-// 			</Heading>
-// 			<p className="text-black-60 max-w-[33rem] mx-auto text-lg">
-// 				Open your storefront in less than 30 seconds! Start by reserving
-// 				your storefront handle
-// 			</p>
-// 			<ActionControls className='justify-center mt-[2rem] w-full' />
-// 		</div>
-// 	);
-// }
