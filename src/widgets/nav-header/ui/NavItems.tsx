@@ -8,16 +8,16 @@ export function NavItems({ className, ...props }: HTMLAttributes<HTMLDivElement>
 			{...props} 
 			className={cn('flex items-start gap-[2rem]', className)}
 		>
-			<Link href='#explore'>
+			<Link href='/#explore'>
 				Explore
 			</Link>
-			<Link href='#features'>
+			<Link href='/#features'>
 				Features
 			</Link>
-			<Link href='#whitepaper'>
+			<Link href='/#whitepaper'>
 				Whitepaper
 			</Link>
-			<Link href='#roadmap'>
+			<Link href='/#roadmap'>
 				Roadmap
 			</Link>
 		</div>

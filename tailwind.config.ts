@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import { parkwindPlugin } from '@park-ui/tailwind-plugin';
 import plugin from 'tailwindcss/plugin'
 
-const config: Config = {
+const config = {
 	content: [
 		"./src/**/*.{js,ts,jsx,tsx,mdx}"
 	],
@@ -40,10 +40,10 @@ const config: Config = {
 				secondary: 'rgba(255, 255, 255, 0.06)'
 			},
 			zIndex: {
-				header: '50',
 				dropdown: '60',
 				dialog: '70',
-				drawer: '70'
+				drawer: '70',
+				header: '100',
 			},
 			maxWidth: {
 				'content': '72.5rem'
@@ -81,6 +81,6 @@ const config: Config = {
 		})
 	],
 	darkMode: ['class'],
-};
+} satisfies Config;
 
 export default config;

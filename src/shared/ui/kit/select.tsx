@@ -5,6 +5,9 @@ import { forwardRef, type ComponentProps } from 'react'
 import { tv } from 'tailwind-variants'
 import { createStyleContext } from '~/shared/lib/create-style-context'
 
+import config from 'tailwind.config'
+import resolveConfig from 'tailwindcss/resolveConfig';
+
 const styles = tv(
 	{
 		base: 'select',
@@ -26,7 +29,7 @@ const styles = tv(
 			itemGroupLabel: 'select__itemGroupLabel',
 			content: 'select__content bg-white/[.04] backdrop-blur-[1rem] rounded-[1rem] pt-[3.5rem]',
 			root: 'flex flex-col',
-			control: 'select__control z-[1001]',
+			control: 'select__control z-dropdown',
 			valueText: 'select__valueText',
 		},
 		variants: {
@@ -78,6 +81,24 @@ const BaseRoot = forwardRef<
 
 BaseRoot.displayName = 'BaseSelectRoot';
 
+const resolvedTwConfig = resolveConfig(config);
+const preferedZIndex = Number(resolvedTwConfig.theme.zIndex['dropdown']) - 1;
+
+const BasePositioner = forwardRef<
+	HTMLDivElement,
+	ComponentProps<typeof Select.Positioner>
+>(({ style, ...props }, ref) => (
+	<Select.Positioner
+		ref={ref} {...props}
+		style={{
+			...style,
+			zIndex: preferedZIndex
+		}}
+	/>
+))
+
+BasePositioner.displayName = 'BaseSelectPositioner';
+
 export const Root = withProvider(BaseRoot, 'root')
 export const ClearTrigger = withContext(Select.ClearTrigger, 'clearTrigger')
 export const Content = withContext(Select.Content, 'content')
@@ -89,7 +110,7 @@ export const ItemGroupLabel = withContext(Select.ItemGroupLabel, 'itemGroupLabel
 export const ItemIndicator = withContext(Select.ItemIndicator, 'itemIndicator')
 export const ItemText = withContext(Select.ItemText, 'itemText')
 export const Label = withContext(Select.Label, 'label')
-export const Positioner = withContext(Select.Positioner, 'positioner')
+export const Positioner = withContext(BasePositioner, 'positioner')
 export const Trigger = withContext(Select.Trigger, 'trigger')
 export const ValueText = withContext(Select.ValueText, 'valueText')
 

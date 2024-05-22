@@ -1,4 +1,5 @@
-import { Heading } from "~/shared/ui/heading";
+import { cn } from "~/shared/lib/cn";
+import { Heading } from "~/shared/ui/kit/heading";
 
 interface StageItemProps {
 	title: string;
@@ -121,18 +122,26 @@ const stagesList = [
 
 export function Roadmap() {
 	return (
-		<div className="mx-auto items-center py-32 flex flex-col flex-grow justify-between gap-[4.5rem] relative w-full max-w-content m-auto pb-20">
+		<div
+			id='roadmap'
+			className={cn(
+				"items-center py-32 px-[1rem] flex flex-col flex-grow justify-between gap-[4.5rem] relative w-full max-w-content mx-auto pb-20",
+				"max-md:gap-[3rem]"
+			)}
+		>
 			<div className="space-y-4 w-full">
-				<Heading>Roadmap</Heading>
+				<Heading size='lg'>
+					Roadmap
+				</Heading>
 
 				<div className="text-black-60 text-balance max-w-[28.75rem]">
 					Join us on our multi-stage journey to becoming the largest Web3 marketplace in the world!
 				</div>
 			</div>
 
-			<div className="flex justify-between w-full">
+			<div className="flex justify-center md:justify-center xl:justify-between w-full max-xl:flex-wrap gap-[2rem]">
 				{stagesList.map(({ title, content, stageItems }, index) => (
-					<div key={index} className="flex flex-col">
+					<div key={index} className="flex flex-col max-md:w-full">
 						<Stage
 							title={title}
 							content={content}
@@ -147,7 +156,7 @@ export function Roadmap() {
 
 const Stage = ({ title, content, stageItems }: StageProps) => {
 	return (
-		<div className="bg-white/[.04] border border-secondary rounded-[1.25rem] p-4 space-y-6 w-[22.5rem]">
+		<div className="bg-white/[.04] border border-secondary rounded-[1.25rem] p-4 space-y-6 w-full md:w-[30rem] md:m-2 xl:w-[22.5rem] xl:m-0">
 			<div className="space-y-2">
 				<div className="text-accent-100 font-semibold text-2xl">
 					{title}
@@ -172,8 +181,10 @@ const StageItem = ({ title, isCompleted }: StageItemProps) => {
 	const strokeColor = isCompleted ? "#FFDD00" : "#BDBDBD";
 	return (
 		<div
-			className={`bg-white/[.02] border border-secondary rounded-[1.125rem] p-3 flex items-center justify-start gap-[0.5rem]\
-			 	text-${isCompleted ? "yellow-400" : "neutral-400"}`}
+			className={cn(
+				'bg-white/[.02] border border-secondary rounded-[1.125rem] p-3 flex items-center justify-start gap-[0.5rem]',
+				isCompleted ? 'text-yellow-400' : 'text-black-74',
+			)}
 		>
 			<svg
 				width="10"

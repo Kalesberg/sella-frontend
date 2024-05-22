@@ -66,6 +66,6 @@ const styles = tv(
 
 export function InputGroup({ className, ...props }: HTMLArkProps<'div'>) {
 	return (
-		<ark.div {...props} className={cn('relative', className)} />
+		<ark.div {...props} className={cn('relative md:w-auto w-full', className)} />
 	);
 }

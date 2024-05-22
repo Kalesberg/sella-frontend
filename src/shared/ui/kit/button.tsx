@@ -49,7 +49,7 @@ const styles = tv(
 				sm: 'rounded-[0.75rem] px-[1rem] h-[2.375rem] min-w-[2.375rem]',
 				md: 'rounded-[0.75rem] px-[1rem] h-[2.8125rem] min-w-[2.8125rem]',
 				lg: 'rounded-[1rem] px-[1.25rem] h-[3.125rem] min-w-[3.125rem]',
-				xl: 'rounded-[1.25rem] px-[1.5rem] h-[3.4375rem] min-w-[3.4375rem]'
+				xl: 'rounded-[1.25rem] px-[1.5rem] h-[3.4375rem] min-w-[3.4375rem] text-[1.125rem]'
 			},
 			colorPalette: {
 				accent: [],

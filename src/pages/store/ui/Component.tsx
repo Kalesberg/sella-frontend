@@ -22,7 +22,7 @@ export async function Component({ storeId }: { storeId: StoreId }) {
 						<StoreCard.Image />
 
 						<StoreCard.Content>
-							<StoreCard.Title className='text-[3rem] max-md:text-[2.625rem]' />
+							<StoreCard.Title className='text-[3rem]/[1.1] max-md:text-[2.625rem]' />
 							<StoreCard.Description />
 							<StoreCard.Rating />
 						</StoreCard.Content>

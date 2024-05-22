@@ -187,10 +187,12 @@ const store: Store = {
 function StoreCardTest() {
 	return (
 		<StoreCard.Root store={store}>
-			<StoreCard.Image />
+			<StoreCard.ImageDesktop />
 
 			<StoreCard.Content>
-				<StoreCard.Title />
+				<StoreCard.Title>
+					<StoreCard.ImageMobile />
+				</StoreCard.Title>
 				<StoreCard.Description />
 				<StoreCard.Rating />
 			</StoreCard.Content>

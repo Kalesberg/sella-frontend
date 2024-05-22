@@ -1,17 +1,17 @@
+import { HTMLAttributes } from "react";
 import { StoreInputAddon } from "~/entities/store";
 import { cn } from "~/shared/lib/cn";
 import { Button } from "~/shared/ui/kit/button";
 import { Input, InputGroup } from "~/shared/ui/kit/input";
-import { HTMLAttributes } from "react";
 
 export function ActionControls({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div {...props} className={cn("flex gap-[1rem] flex-wrap", className)}>
 			<StoreInputAddon>
 				{({ Component: Addon, inputClassName }) => (
-					<InputGroup className="max-md:w-full">
+					<InputGroup>
 						<Input
-							className={cn("rounded-[1.25rem] border border-secondary w-full", inputClassName)}
+							className={cn("rounded-[1.25rem] border border-secondary w-full h-full", inputClassName)}
 							placeholder="yourstorefront"
 						/>
 						<Addon className='text-white' />
@@ -19,7 +19,7 @@ export function ActionControls({ className, ...props }: HTMLAttributes<HTMLDivEl
 				)}
 			</StoreInputAddon>
 
-			<Button className="w-full md:w-auto" size="lg">
+			<Button className="w-full md:w-auto" size="xl">
 				Open Storefront
 			</Button>
 		</div>
