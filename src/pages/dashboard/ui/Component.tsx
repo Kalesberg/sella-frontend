@@ -8,22 +8,22 @@ export async function Component() {
 	const stores = await fetchMyStorefronts();
 
 	return (
-		<div className='flex flex-col w-full gap-[3rem] max-w-content mx-auto'>
-			<div className='flex items-start w-full gap-[1rem] justify-between'>
+		<div className='flex flex-col w-full gap-[3rem] max-w-content mx-auto px-[1rem]'>
+			<div className='flex items-start w-full gap-[1rem] justify-between max-md:flex-col'>
 				<Heading>
 					My Storefronts
 				</Heading>
 
 				<StoreCreateDialog
 					triggerElement={
-						<Button size='lg'>
+						<Button className='max-sm:w-full' size='lg'>
 							Add Storefront
 						</Button>
 					}
 				/>
 			</div>
 
-			<div className='grid grid-cols-2 gap-[2.5rem]'>
+			<div className='grid grid-cols-2 max-sm:grid-cols-1 gap-[2.5rem]'>
 				{stores.map(s => (
 					<StoreLink store={s} key={s.id}>
 						<StoreCard.Composed store={s} />

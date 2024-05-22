@@ -7,8 +7,8 @@ export async function OrdersPage() {
 	const response = await fetchOrders();
 
 	return (
-		<div className='flex flex-col gap-[3rem] w-full max-w-content mx-auto'>
-			<div className='flex gap-[1rem] items-center w-full justify-between'>
+		<div className='flex flex-col gap-[3rem] w-full max-w-content mx-auto px-[1rem]'>
+			<div className='flex gap-[1rem] items-center w-full justify-between max-lg:flex-col max-lg:items-start'>
 				<Heading>
 					My Orders <span className='text-black-40'>
 						{response.total}

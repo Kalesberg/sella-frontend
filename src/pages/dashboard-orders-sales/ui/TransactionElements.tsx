@@ -22,7 +22,7 @@ export function TransactionActionButton({ transaction }: { transaction: Transact
 
 	return (
 		<a href={transaction.transactionUrl} target='_blank'>
-			<IconButton colorPalette='gray' size='sm'>
+			<IconButton className='backdrop-blur-[1rem]' colorPalette='gray' size='sm'>
 				<Icons.Package />
 			</IconButton>
 		</a>

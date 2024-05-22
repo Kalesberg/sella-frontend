@@ -1,7 +1,6 @@
 'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Icons } from "~/shared/ui/icons"
 import { Select } from "~/shared/ui/kit"
 import { Button } from "~/shared/ui/kit/button"
@@ -13,15 +12,18 @@ export function NavSelect() {
 	]
 
 	const pathname = usePathname();
+	const router = useRouter();
 
 	return (
 		<Select.Root
 			items={items}
 			defaultValue={pathname ? [pathname] : undefined}
+			className='max-sm:w-full max-sm:mt-[1rem]'
+			onValueChange={v => router.push(v.value[0])}
 		>
 			<Select.Control>
 				<Select.Trigger asChild>
-					<Button colorPalette='gray'>
+					<Button className='max-sm:w-full' colorPalette='gray'>
 						<Select.ValueText />
 
 						<Icons.ChevronDown />
@@ -32,11 +34,9 @@ export function NavSelect() {
 				<Select.Content>
 					<Select.ItemGroup id='options'>
 						{items.map((item) => (
-							<Link href={item.value} key={item.value}>
-								<Select.Item item={item}>
-									<Select.ItemText>{item.label}</Select.ItemText>
-								</Select.Item>
-							</Link>
+							<Select.Item key={item.value} item={item} >
+								<Select.ItemText>{item.label}</Select.ItemText>
+							</Select.Item>
 						))}
 					</Select.ItemGroup>
 				</Select.Content>
