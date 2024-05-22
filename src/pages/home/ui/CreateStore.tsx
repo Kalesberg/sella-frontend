@@ -4,17 +4,17 @@ import { Background } from "./SectionBackground";
 import { Icons } from "~/shared/ui/icons";
 import { PropsWithChildren } from "react";
 import { ActionControls } from "./ActionControls";
-import { Heading } from "./Heading";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";
+import { Heading } from "~/shared/ui/kit/heading";
 
 export function CreateStore() {
 	return (
-		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[10.375rem] rounded-[3rem] mx-[1.25rem]">
+		<div className="flex flex-col relative overflow-hidden rounded-b-[3rem] pt-[7.5rem] max-xl:pt-[5rem] rounded-[3rem] px-4 md:mx-[1.25rem]">
 			<Background />
-			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto">
-				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] flex-shrink-0">
+			<div className="flex justify-between items-end gap-[1rem] relative w-full max-w-content mx-auto max-lg:justify-center">
+				<div className="flex flex-col gap-[3rem] max-w-[35rem] w-full mb-[6.25rem] max-xl:mb-[5rem] flex-shrink-0">
 					<div className="flex flex-col gap-[1.5rem]">
-						<Heading>
+						<Heading size='lg'>
 							Open your web3 storefront in seconds
 						</Heading>
 
@@ -30,9 +30,9 @@ export function CreateStore() {
 				</div>
 
 				<VideoAnimationPlayer
-					className='flex-shrink-0 w-[48rem]'
+					className='flex-shrink-0 w-[26rem] xl:w-[48rem] hidden lg:block'
 					src='/videos/hero-anim.webm'
-					srcHevc='/videos/hero-anim.mp4"'
+					srcHevc='/videos/hero-anim.mp4'
 				>
 					<Image
 						src={ImageHero}

@@ -5,8 +5,6 @@ import { SellaFeautes } from "./SellaFeatures";
 import { CreateStore } from "./CreateStore";
 import { Roadmap } from "./Roadmap";
 
-
-
 export function Component() {
 	return (
 		<div className=''>
