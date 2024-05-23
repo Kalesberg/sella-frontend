@@ -14,8 +14,9 @@ const styles = tv(
 		slots: {
 			trigger: 'dialog__trigger',
 			backdrop: 'dialog__backdrop bg-black/10 backdrop-blur-[0.5rem]',
-			positioner: 'dialog__positioner',
-			content: 'dialog__content bg-[#141414] border border-white/[.02] flex flex-col items-center',
+			positioner: 'dialog__positioner max-sm:items-end',
+			content: `dialog__content bg-[#141414] border border-white/[.02] flex flex-col items-center
+				overflow-y-auto max-md:max-w-[100%] max-md:max-h-[90vh]`,
 			contentHeading: 'flex flex-col items-center',
 			contentFooter: 'flex gap-[1rem] w-full [&>*]:w-full max-md:flex-col-reverse',
 			title: 'text-[2rem] font-semibold font-manrope text-center',
