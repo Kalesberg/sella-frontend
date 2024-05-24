@@ -53,12 +53,12 @@ export function CreateForm({ onActionFulfilled, storeId, className, ...props }: 
 					{...props} onSubmit={handleSubmit}
 					className={cn('flex flex-col w-full gap-[2rem]', className)}
 				>
-					<div className='flex gap-[2rem] w-full'>
+					<div className='flex gap-[2rem] w-full max-md:flex-col'>
 						<VImageUploader
 							label='Attach Preview' name='previewImage'
 							className='flex-shrink-0 size-[11.625rem] rounded-[1.25rem]'
 						/>
-						<div className='flex flex-col justify-between'>
+						<div className='flex flex-col justify-between max-md:gap-[1rem]'>
 							<VTextControl.Root className='w-full' name='name'>
 								<VTextControl.LabelOrError>
 									Product Name
@@ -70,9 +70,9 @@ export function CreateForm({ onActionFulfilled, storeId, className, ...props }: 
 								<VTextControl.LabelOrError>
 									Product Price
 								</VTextControl.LabelOrError>
-								<VTextControl.Input 
+								<VTextControl.Input
 									type='number' min={1} step={0.01}
-									placeholder='0 USDT' 
+									placeholder='0 USDT'
 								/>
 							</VTextControl.Root>
 						</div>
@@ -95,7 +95,7 @@ export function CreateForm({ onActionFulfilled, storeId, className, ...props }: 
 						/>
 					</VTextAreaControl.Root>
 
-					<VUploader.Root 
+					<VUploader.Root
 						name='galleryImages' multiple
 						rootProps={{ className: 'w-full' }}
 					>

@@ -23,10 +23,10 @@ export function PhoneNavItems({
 				className
 			)}
 		>
-			<NavItem onClick={handleLinkClick} href="/#explore">
+			<NavItem onClick={handleLinkClick} href="/">
 				Home
 			</NavItem>
-			<NavItem onClick={handleLinkClick} href="/#explore">
+			<NavItem onClick={handleLinkClick} href="/marketplace">
 				Explore
 			</NavItem>
 			<NavItem onClick={handleLinkClick} href="/#features">

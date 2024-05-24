@@ -1,9 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
 'use client';
 
 import { HTMLArkProps, ark } from "@ark-ui/react";
 import { ProductProp } from "./Prop";
 import { cn } from "~/shared/lib/cn";
 import { ProductProvider, useProductStrictContext } from "./context";
+
+import { Price } from './Price';
+import { Image } from './Image';
+import { ComponentProps } from "react";
 
 export type RootProps = HTMLArkProps<'div'> & ProductProp;
 
@@ -13,7 +18,8 @@ export function Root({ product, className, ...props }: RootProps) {
 			<ark.div
 				{...props}
 				className={cn(
-					'border border-secondary p-[0.5rem] pb-[1rem] rounded-[1.25rem] flex flex-col gap-[1rem] items-center w-[16.25rem]',
+					'flex flex-col gap-[1rem] items-center w-[16.25rem] max-w-[24.375rem] p-[0.5rem] pb-[1rem] ',
+					'border border-secondary rounded-[1.25rem]',
 					className
 				)}
 			/>
@@ -33,7 +39,7 @@ export function Title({ className, ...props }: HTMLArkProps<'h1'>) {
 	return (
 		<ark.h1
 			{...props}
-			className={cn('flex items-center gap-[0.5rem] font-semibold text-[1.125rem] font-manrope leading-[1.3]', className)}
+			className={cn('flex items-center gap-[0.5rem] font-semibold text-[1.125rem] font-manrope leading-[1.3] truncate', className)}
 		>
 			{title}
 		</ark.h1>
@@ -60,5 +66,17 @@ export function Category({ className, ...props }: HTMLArkProps<'p'>) {
 	);
 }
 
-export { Price } from './Price';
-export { Image } from './Image';
+export { Image, Price };
+
+export function Composed(props: ComponentProps<typeof Root>) {
+	return (
+		<Root {...props}>
+			<Image />
+			<Content>
+				<Title />
+				<Description />
+				<Price />
+			</Content>
+		</Root>
+	);
+}

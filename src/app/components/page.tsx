@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from "~/shared/ui/kit/button";
+import { Button, IconButton } from "~/shared/ui/kit/button";
 import { Icons } from "~/shared/ui/icons";
 import { PinInput } from "~/shared/ui/kit/pin-input";
 import { VTextControl } from "~/shared/ui/validation-inputs";
@@ -26,7 +26,7 @@ import {ReportShopDialog, ReportSuccessDialog} from "~/features/report-shop";
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center gap-16 p-24">
-			<div className='flex gap-4'>
+			<div className='flex gap-4 max-md:flex-wrap'>
 				<Button variant='outline'>
 					Buy $SELLA
 				</Button>
@@ -53,13 +53,13 @@ export default function Home() {
 				</div>
 
 				<div className='flex flex-col gap-4'>
-					<div className='flex gap-4'>
+					<div className='flex gap-4 max-md:flex-wrap'>
 						{Object.entries(Icons).map(([iconName, Icon]) => (
 							<Icon className='text-accent-100' key={iconName} />
 						))}
 					</div>
 
-					<div className='grid grid-cols-3 gap-4'>
+					<div className='grid grid-cols-3 gap-4 max-md:grid-cols-1'>
 						<RegisterDialogTest />
 						<Setup2faDialogTest />
 						<StoreCreateDialogTest />
@@ -72,7 +72,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className='flex gap-8'>
+			<div className='flex gap-8 max-md:flex-wrap'>
 				<RadioGroupTest />
 
 				<div className='flex flex-col gap-3'>
@@ -90,11 +90,11 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className='flex gap-3'>
+			<div className='flex gap-3 max-md:flex-wrap'>
 				<ToggleGroupTest />
 			</div>
 
-			<div className='flex gap-8 items-start'>
+			<div className='flex gap-8 items-start max-md:flex-wrap'>
 				<StoreCardTest />
 				<ProductCardTest />
 
@@ -332,7 +332,7 @@ function Setup2faDialogTest() {
 	);
 }
 
-function RegisterFlowDialogTest() {
+export function RegisterFlowDialogTest() {
 	const { isOpen, open, handleOpenChange } = useDialogState();
 
 	return (
@@ -356,9 +356,14 @@ function ReportShopDialogTest() {
 
 	return (
 		<>
-			<Button colorPalette='gray' onClick={open}>
-				Report Shop
-			</Button>
+			<IconButton
+				size='lg'
+				colorPalette='gray'
+				aria-label="Report"
+				onClick={open}
+			>
+				<Icons.AlertOctagon />
+			</IconButton>
 
 			<ReportShopDialog
 				open={isOpen}

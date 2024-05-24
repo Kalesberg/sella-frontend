@@ -13,7 +13,7 @@ type ToggleGroupFieldProps = VToggleGroup.RootProps & {
 export function ToggleGroupField({ options, className, class: c, ...props }: ToggleGroupFieldProps) {
 	return (
 		<VToggleGroup.Root
-			className={cn('flex flex-wrap justify-center px-[1.906rem]', className)}
+			className={cn('flex flex-wrap justify-center px-[1.906rem] max-md:px-0', className)}
 			multiple
 			{...props}
 		>

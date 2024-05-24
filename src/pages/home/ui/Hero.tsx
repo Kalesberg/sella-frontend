@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ImageHero from "../assets/hero.webp";
 
-import { ActionControls } from "./ActionControls";
+import { ActionControls } from "~/features/ActionControls";
 import { FeaturesList } from "./Features";
 import { Background } from "./SectionBackground";
 import { VideoAnimationPlayer } from "~/shared/ui/video-anim-player";

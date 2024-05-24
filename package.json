@@ -25,6 +25,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-final-form": "^6.5.9",
+    "react-use-draggable-scroll": "^0.4.7",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "typescript-eslint": "^7.8.0",

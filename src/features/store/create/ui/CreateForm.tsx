@@ -54,7 +54,7 @@ export function CreateForm({ onActionFulfilled, ...props }: CreateFormProps) {
 						/>
 					</DividerWithElement>
 
-					<div className='flex gap-[2rem] w-full'>
+					<div className='flex gap-[2rem] w-full max-md:flex-col'>
 						<VTextControl.Root className='w-full' name='name'>
 							<VTextControl.Label>Store Name</VTextControl.Label>
 							<VTextControl.Input placeholder="Store Name" />
